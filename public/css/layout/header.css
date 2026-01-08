@@ -1,0 +1,56 @@
+/* ================= HEADER FIXED & OFFSET KONTEN ================= */
+/* Solusi agar gambar hero/header tidak tertutup navbar fixed */
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Optional: shadow halus saat scroll */
+    transition: all 0.3s ease; /* Optional: smooth saat ada perubahan tinggi */
+}
+
+/* Offset konten utama agar tidak tertutup header fixed */
+/* Sesuaikan nilai dengan tinggi aktual header Anda (topbar + navbar) */
+
+body {
+    padding-top: 110px; /* Tinggi header di desktop */
+}
+
+/* Responsif - sesuaikan dengan tinggi header di mobile */
+@media (max-width: 992px) {
+    body {
+        padding-top: 100px; /* Contoh: header lebih pendek di tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 80px; /* Contoh: header lebih pendek di mobile (misal hanya logo + menu hamburger) */
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding-top: 70px; /* Mobile kecil */
+    }
+}
+
+/* Jika hero slider adalah elemen pertama setelah header */
+.hero-section {
+    margin-top: 0 !important; /* Pastikan tidak ada margin tambahan yang menambah offset */
+    padding-top: 0 !important;
+}
+
+/* Optional: Jika Anda ingin header menjadi transparan di atas hero dan berubah warna saat scroll */
+.header-fixed.transparent {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.header-fixed.scrolled {
+    background-color: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}

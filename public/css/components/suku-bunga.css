@@ -1,0 +1,147 @@
+/* ================= SUKU BUNGA ================= */
+
+.suku-bunga-section {
+    padding: 64px 0;
+    background-color: #ffffff;
+}
+
+.suku-bunga-title {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.suku-bunga-title h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--bpr-blue);
+    margin: 0;
+}
+
+.suku-bunga-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--bpr-blue-light);
+    border-radius: 99px;
+    margin: 12px auto 0;
+}
+
+/* CARD */
+.suku-bunga-card {
+    background-color: #f7f9fc;
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.suku-bunga-body {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 40px;
+}
+
+/* KIRI */
+.sb-badge {
+    display: inline-block;
+    background-color: var(--bpr-blue-light);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+}
+
+.sb-value {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 16px;
+}
+
+.sb-note p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--gray-700);
+    margin-bottom: 8px;
+}
+
+.sb-note a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--bpr-blue-light);
+    transition: color 0.25s ease;
+}
+
+.sb-note a:hover {
+    color: var(--bpr-blue);
+    text-decoration: underline;
+}
+
+/* TABLE */
+.sb-table {
+    background-color: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.sb-table-header {
+    background-color: var(--bpr-blue-light);
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.sb-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-top: 1px solid var(--gray-300);
+    transition: background-color 0.25s ease, padding-left 0.25s ease;
+}
+
+.sb-row:hover {
+    background-color: #f0f6ff;
+    padding-left: 26px;
+}
+
+.sb-row span:last-child {
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+.sb-row:hover span:last-child {
+    color: var(--bpr-blue-light);
+}
+
+/* HOVER CARD */
+.suku-bunga-card:hover .sb-value {
+    color: var(--bpr-blue);
+}
+
+.suku-bunga-card:hover .sb-table-header {
+    background-color: var(--bpr-blue);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .suku-bunga-body {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .sb-value {
+        font-size: 36px;
+    }
+
+    .suku-bunga-title h2 {
+        font-size: 24px;
+    }
+}

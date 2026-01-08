@@ -23,13 +23,13 @@
             <div class="footer-column">
                 <h4>Alamat Perusahaan</h4>
                 <p>
-                    Jln. Adi Sucipto, Komplek Pertokoan Pasar Kebon Roek, Ampenan,  
+                    Jln. Adi Sucipto, Komplek Pertokoan Pasar Kebon Roek, Ampenan,<br>
                     Kota Mataram, Nusa Tenggara Barat
                 </p>
             </div>
         </div>
 
-        <!-- INFORMASI BAWAH -->
+        <!-- BOTTOM -->
         <div class="footer-bottom">
             <div class="footer-legal">
                 <h5>Perizinan dan Pengawasan</h5>
@@ -41,7 +41,6 @@
                 </p>
             </div>
 
-            <!-- COUNTER -->
             <div class="footer-counter">
                 <span class="counter-label">Hubungi Kami</span>
                 <div class="counter-box">

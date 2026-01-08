@@ -1,0 +1,47 @@
+/* ================= TOPBAR ================= */
+
+.topbar {
+    background-color: var(--bpr-blue);
+}
+
+/* running text */
+.topbar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.topbar-separator {
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+.marquee {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-left: 100%;
+    animation: marquee 18s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee:hover .marquee-content {
+    animation-play-state: paused;
+}

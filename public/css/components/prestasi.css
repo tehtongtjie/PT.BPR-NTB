@@ -1,0 +1,71 @@
+/* ================= PRESTASI & LELANG ================= */
+
+.prestasi-section,
+.lelang-section {
+    background-color: #ffffff;
+    padding: 32px 0;
+}
+
+.prestasi-card,
+.lelang-card {
+    background-color: #f5f7fa;
+    border-radius: 20px;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.prestasi-image img,
+.lelang-image img {
+    width: 360px;
+    max-width: 100%;
+    border-radius: 14px;
+}
+
+.prestasi-content,
+.lelang-content {
+    flex: 1;
+}
+
+.prestasi-content h2,
+.lelang-content h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--bpr-blue);
+    margin-bottom: 12px;
+}
+
+.prestasi-content h4,
+.lelang-content h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 12px;
+}
+
+.prestasi-content p,
+.lelang-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    max-width: 520px;
+    margin-bottom: 16px;
+}
+
+.prestasi-link,
+.lelang-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bpr-blue);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .prestasi-card,
+    .lelang-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}

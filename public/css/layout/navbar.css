@@ -1,0 +1,84 @@
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: relative;
+    z-index: 9999;
+    background: #fff;
+    padding: 0;
+    min-height: 64px;
+}
+
+/* logo */
+.navbar-brand img {
+    height: 62px;
+    width: auto;
+}
+
+/* menu item */
+.navbar-nav .nav-link {
+    padding: 20px 14px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* responsive logo */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 34px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px 16px;
+    }
+}
+
+/* dropdown agar tidak terpotong */
+.navbar,
+.navbar-collapse {
+    overflow: visible !important;
+}
+
+/* dropdown level 1 */
+.navbar .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 220px;
+    margin-top: 0;
+    z-index: 10000;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* hover desktop */
+@media (min-width: 992px) {
+    .navbar .nav-item.dropdown:hover > .dropdown-menu {
+        display: block;
+    }
+}
+
+/* ================= SUBMENU ================= */
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-left: 4px;
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+}
+
+/* buka ke kiri kalau mentok kanan */
+.navbar-nav > .dropdown:last-child .dropdown-submenu > .dropdown-menu {
+    left: auto;
+    right: 100%;
+    margin-right: 4px;
+}

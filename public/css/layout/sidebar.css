@@ -1,0 +1,68 @@
+/* ================= LAYOUT/SIDEBAR.CSS ================= */
+
+.sidebar-produk {
+    background: transparent;
+    margin-bottom: 30px;
+}
+
+/* === HEADER (dulu .sidebar-header) === */
+.sidebar-heading {
+    background: var(--bpr-blue);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* === BODY (dulu .sidebar-body) === */
+.sidebar-list {
+    list-style: none;
+    padding: 0 0 0 24px;
+    border-left: 1px solid var(--gray-300);
+    margin-left: 12px;
+}
+
+/* Item */
+.sidebar-list li {
+    position: relative;
+    margin-bottom: 4px;
+}
+
+/* Link */
+.sidebar-list li a {
+    display: block;
+    padding: 12px 0;
+    color: var(--gray-700);
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: var(--font-base);
+    transition: all 0.2s ease;
+}
+
+/* Hover (tetap sama tampilannya) */
+.sidebar-list li a:hover {
+    color: var(--bpr-blue-light);
+    padding-left: 4px;
+}
+
+/* Active (tetap sama) */
+.sidebar-list li.active a {
+    color: var(--bpr-blue);
+    font-weight: 700;
+}
+
+/* Garis emas active (tetap sama) */
+.sidebar-list li.active::before {
+    content: "";
+    position: absolute;
+    left: -26px;
+    top: 15%;
+    height: 70%;
+    width: 4px;
+    background: var(--bpr-gold);
+    border-radius: 0 4px 4px 0;
+}

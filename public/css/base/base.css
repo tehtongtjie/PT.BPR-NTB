@@ -1,0 +1,20 @@
+/* ================= GLOBAL BASE STYLE ================= */
+
+body {
+    font-family: var(--font-base);
+    font-size: var(--font-size-base);
+    color: var(--gray-900);
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Utility warna global */
+.bg-bpr-blue {
+    background-color: var(--bpr-blue);
+}
+
+/* Icon kecil di topbar */
+.bg-bpr-blue i {
+    font-size: 13px;
+    color: var(--bpr-gold);
+}
