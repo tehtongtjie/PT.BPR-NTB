@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SimulasiController;
 use App\Http\Controllers\TabunganController;
 use App\Http\Controllers\PinjamanController;
+use App\Http\Controllers\PerusahaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,34 +72,5 @@ Route::get('/pinjaman/{slug}', [PinjamanController::class, 'show'])
 | HALAMAN PROFIL / PERUSAHAAN
 |--------------------------------------------------------------------------
 */
-Route::prefix('perusahaan')->name('perusahaan.')->group(function () {
-
-    Route::get('/sejarah', function () {
-        return view('pages.perusahaan.sejarah');
-    })->name('sejarah');
-
-    Route::get('/visi-misi', function () {
-        return view('pages.perusahaan.visi-misi');
-    })->name('visi-misi');
-
-    Route::get('/budaya-perusahaan', function () {
-        return view('pages.perusahaan.budaya-perusahaan');
-    })->name('budaya');
-
-    Route::get('/struktur-organisasi', function () {
-        return view('pages.perusahaan.struktur-organisasi');
-    })->name('struktur');
-
-    Route::get('/dewan-komisaris', function () {
-        return view('pages.perusahaan.dewan-komisaris');
-    })->name('komisaris');
-
-    Route::get('/direksi', function () {
-        return view('pages.perusahaan.direksi');
-    })->name('direksi');
-
-    Route::get('/tata-kelola', function () {
-        return view('pages.perusahaan.tata-kelola');
-    })->name('tata-kelola');
-
-});
+Route::get('/perusahaan/{slug}', [PerusahaanController::class, 'show'])
+    ->name('perusahaan.show');

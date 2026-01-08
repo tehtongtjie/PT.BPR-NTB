@@ -1,4 +1,4 @@
-<div class="card shadow-sm sidebar-produk">
+<div class="card shadow-sm sidebar-universal">
     <div class="card-body">
 
         <h6 class="sidebar-heading">TABUNGAN</h6>

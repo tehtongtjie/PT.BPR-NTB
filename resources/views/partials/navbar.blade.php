@@ -76,20 +76,67 @@
 
                 {{-- ================= PERUSAHAAN ================= --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#">
+                    <a class="nav-link dropdown-toggle
+                        {{ request()->is('perusahaan/*') ? 'active text-danger' : '' }}"
+                    href="#">
                         Perusahaan
                     </a>
+
                     <ul class="dropdown-menu dropdown-bpr">
-                        <li><a class="dropdown-item" href="#">Sejarah</a></li>
-                        <li><a class="dropdown-item" href="#">Visi & Misi</a></li>
-                        <li><a class="dropdown-item" href="#">Budaya Perusahaan</a></li>
-                        <li><a class="dropdown-item" href="#">Struktur Organisasi</a></li>
-                        <li><a class="dropdown-item" href="#">Dewan Komisaris</a></li>
-                        <li><a class="dropdown-item" href="#">Direksi</a></li>
-                        <li><a class="dropdown-item" href="#">Tata Kelola Perusahaan</a></li>
+
+                        <li>
+                            <a class="dropdown-item
+                                {{ request()->routeIs('perusahaan.show') && request('slug') == 'sejarah' ? 'active' : '' }}"
+                            href="{{ route('perusahaan.show', 'sejarah') }}">
+                                Sejarah
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item"
+                            href="{{ route('perusahaan.show', 'visi-misi') }}">
+                                Visi & Misi
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item"
+                            href="{{ route('perusahaan.show', 'budaya') }}">
+                                Budaya Perusahaan
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item"
+                            href="{{ route('perusahaan.show', 'struktur-organisasi') }}">
+                                Struktur Organisasi
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item"
+                            href="{{ route('perusahaan.show', 'komisaris') }}">
+                                Dewan Komisaris
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item"
+                            href="{{ route('perusahaan.show', 'direksi') }}">
+                                Direksi
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item"
+                            href="{{ route('perusahaan.show', 'tata-kelola') }}">
+                                Tata Kelola Perusahaan
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
-
+                
                 {{-- JARINGAN --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#">

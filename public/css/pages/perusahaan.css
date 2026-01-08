@@ -1,0 +1,150 @@
+/* ================= PAGES/PERUSAHAAN.CSS - PREMIUM CORPORATE ================= */
+
+:root {
+    --bpr-blue: #00326b;
+    --bpr-blue-light: #1e6fe8;
+    --bpr-gold: #e99d12;
+
+    --bpr-blue-dark: #001a38;
+    --bpr-gold-light: #dfc18d;
+
+    --gray-900: #1f2937;
+    --gray-700: #374151;
+    --gray-600: #4b5563;
+    --gray-300: #e5e7eb;
+
+    --shadow-premium: 0 20px 40px rgba(0, 50, 107, 0.12);
+}
+
+/* ================= PAGE WRAPPER ================= */
+.page-content {
+    padding: 60px 0;
+    background: radial-gradient(circle at top right, #f8fafc, #eef2ff);
+}
+
+/* ================= CONTENT BOX ================= */
+.content-box {
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: var(--shadow-premium);
+    padding: 45px 50px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+/* ================= HEADER IMAGE ================= */
+.content-image {
+    border-radius: 22px;
+    margin-bottom: 35px;
+    box-shadow: 0 20px 40px rgba(0, 50, 107, 0.15);
+}
+
+/* ================= TITLES ================= */
+.content-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--bpr-blue);
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.content-subtitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--bpr-gold);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* ================= PARAGRAPH ================= */
+.content-box p, 
+.content-box li {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--gray-700);
+    margin-bottom: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* ================= LIST / OLIST ================= */
+.content-box ol {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.content-box ol li {
+    font-size: 1.05rem;
+    color: var(--gray-700);
+    margin-bottom: 12px;
+    padding-left: 8px;
+}
+
+/* ================= SECTION DIVIDER ================= */
+.content-subtitle.mt-4 {
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #f1f5f9;
+}
+
+/* ================= WRAPPER ================= */
+.perusahaan-wrapper {
+    max-width: 1180px;      /* mirip tabungan */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ================= GRID ================= */
+.page-content .row {
+    --bs-gutter-x: 40px;
+}
+
+/* ================= SIDEBAR ================= */
+.page-content aside {
+    max-width: 300px;
+    flex: 0 0 300px;
+}
+
+/* ================= CONTENT ================= */
+.page-content .col-lg-9 {
+    max-width: 820px;
+    flex: 0 0 820px;
+}
+.budaya-nilai {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.budaya-nilai li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+.budaya-nilai strong {
+    font-weight: 700;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .content-box {
+        padding: 35px 30px;
+    }
+
+    .content-title {
+        font-size: 1.8rem;
+    }
+}

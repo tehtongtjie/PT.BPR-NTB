@@ -1,8 +1,11 @@
 /* ================= LAYOUT/SIDEBAR.CSS ================= */
 
-.sidebar-produk {
-    background: transparent;
-    margin-bottom: 30px;
+.sidebar-universal {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 10px 10px;
+    box-shadow: 0 10px 30px rgba(0, 50, 107, 0.08);
+    border: 1px solid #eef2f7;
 }
 
 /* === HEADER (dulu .sidebar-header) === */
