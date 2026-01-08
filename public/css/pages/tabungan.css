@@ -1,350 +1,300 @@
-/* ================= PAGES/TABUNGAN.CSS - VERSI AKHIR: RINGKAS, PAS, & LEBIH MENARIK ================= */
+/* ================= PAGES/TABUNGAN.CSS - COMPACT PREMIUM VERSION ================= */
 
 :root {
-    /* Brand Colors */
+    /* Warna Kombinasi Baru */
     --bpr-blue: #00326b;
     --bpr-blue-light: #1e6fe8;
     --bpr-gold: #e99d12;
 
-    /* Neutral */
+    /* Warna Pendukung */
+    --bpr-blue-dark: #001a38;
+    --bpr-gold-light: #dfc18d;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --shadow-premium: 0 15px 35px rgba(0, 50, 107, 0.1);
     --gray-900: #1f2937;
     --gray-700: #374151;
     --gray-600: #4b5563;
     --gray-300: #e5e7eb;
 }
 
-/* Page Wrapper - Ringkas */
 .tabungan-page {
     padding: 50px 0;
-    background-color: #fcfdfe;
+    background: radial-gradient(circle at top right, #f8fafc, #eef2ff);
 }
 
-/* Main Card - Ramping & premium */
+/* --- Main Card --- */
 .main-product-card {
-    background: white;
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0, 50, 107, 0.08);
-    overflow: hidden;
-    max-width: 850px;
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: var(--shadow-premium);
+    overflow: visible;
+    max-width: 900px;
     margin: 0 auto;
-    border: 1px solid rgba(0, 50, 107, 0.05);
-    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .main-product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0, 50, 107, 0.12);
+    transform: translateY(-12px);
+    box-shadow: 0 30px 70px rgba(0, 50, 107, 0.18);
 }
 
-/* Header Card - Kompak tapi impactful */
+/* --- Header --- */
 .product-header {
-    background: linear-gradient(135deg, var(--bpr-blue), #00234a);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
+    background: linear-gradient(145deg, var(--bpr-blue), var(--bpr-blue-light));
+    color: #ffffff;
+    padding: 40px 50px 60px 50px;
+    text-align: left;
     position: relative;
-    border-bottom: 4px solid var(--bpr-gold);
-    overflow: hidden;
+    border-radius: 28px 28px 5px 5px;
+    border-bottom: 5px solid var(--bpr-gold);
 }
 
 .product-header::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-        circle at 50% 50%,
-        rgba(233, 157, 18, 0.2),
-        transparent 60%
-    );
-    pointer-events: none;
-    animation: pulse-glow 8s infinite alternate;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4v-4H4v4H0v2h4v4h2v-4h4v-2H6zM36 4v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-@keyframes pulse-glow {
-    0% {
-        opacity: 0.15;
-    }
-    100% {
-        opacity: 0.25;
-    }
-}
-
+/* Gambar Kartu ATM */
 .product-header img {
-    max-height: 110px;
-    margin-bottom: 16px;
-    filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.4));
-    transition: transform 0.6s ease;
+    position: absolute;
+    right: 40px;
+    bottom: -35px;
+    max-height: 160px;
+    border-radius: 14px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 20;
 }
 
 .main-product-card:hover .product-header img {
-    transform: scale(1.05);
+    transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) scale(1.05);
 }
 
 .product-header h3 {
-    font-size: 2rem;
-    font-weight: 900;
-    margin-bottom: 8px;
-    letter-spacing: -0.5px;
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(to bottom, #ffffff, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .product-header p {
     color: var(--bpr-gold);
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    opacity: 0.95;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 5px;
 }
 
-/* Body Card */
+/* --- Body Content --- */
 .product-body {
-    padding: 35px 40px;
+    padding: 60px 45px 40px 45px;
 }
 
-/* Deskripsi */
-.product-description {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--gray-700);
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-/* Section Title */
-.section-title,
-.requirements-title {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--bpr-blue);
-    margin-bottom: 28px;
-    text-align: center;
-    position: relative;
-}
-
-.section-title::after,
-.requirements-title::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(to right, var(--bpr-gold), #ffd700);
-    margin: 12px auto 0;
-    border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(233, 157, 18, 0.3);
-}
-
-/* Benefits Grid - Rapat & menarik */
+/* --- Benefit Grid --- */
 .benefits-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 18px;
     margin-bottom: 40px;
 }
 
 .benefit-item {
-    display: flex;
-    align-items: center;
-    padding: 20px;
+    padding: 20px 25px;
     background: #ffffff;
-    border-radius: 16px;
-    border: 1px solid var(--gray-300);
+    border: 1px solid #f1f5f9;
+    border-radius: 20px;
     transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.benefit-item::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--bpr-gold);
-    transform: scaleY(0);
-    transition: transform 0.4s ease;
-}
-
-.benefit-item:hover::before {
-    transform: scaleY(1);
+    display: flex;
+    gap: 15px;
 }
 
 .benefit-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 50, 107, 0.1);
+    background: #fdfdfd;
     border-color: var(--bpr-gold);
+    box-shadow: 0 10px 20px rgba(233, 157, 18, 0.1);
 }
 
 .benefit-item i {
-    font-size: 1.6rem;
-    color: var(--bpr-gold);
-    margin-right: 18px;
     width: 48px;
     height: 48px;
+    background: rgba(233, 157, 18, 0.1);
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(233, 157, 18, 0.12);
-    border-radius: 12px;
+    color: var(--bpr-gold);
+    font-size: 1.5rem;
+    transition: 0.5s;
     flex-shrink: 0;
-    transition: all 0.4s;
 }
 
 .benefit-item:hover i {
     background: var(--bpr-gold);
     color: white;
-    transform: rotate(10deg);
+    transform: scale(1.1);
 }
 
-.benefit-item div strong {
-    font-size: 1.05rem;
-    color: var(--bpr-blue);
-    font-weight: 700;
-    margin-bottom: 6px;
+.benefit-item strong {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 2px;
 }
 
-.benefit-item div small {
-    font-size: 0.9rem;
-    color: var(--gray-600);
+.benefit-item small {
+    font-size: 0.85rem;
     line-height: 1.4;
 }
 
-/* Requirements List - Card terpisah */
+/* --- Syarat Pengajuan --- */
 .requirements-list {
-    max-width: 650px;
-    margin: 0 auto 40px auto;
-    background: #f8fbff;
-    border-radius: 20px;
-    padding: 28px 32px;
-    border: 1px solid var(--gray-300);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 35px 45px;
+    border: 1px solid rgba(233, 157, 18, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 50, 107, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.requirements-list::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(
+        circle,
+        rgba(233, 157, 18, 0.05),
+        transparent 70%
+    );
+    border-radius: 50%;
 }
 
 .requirements-list li {
     font-size: 1.05rem;
-    padding: 12px 0;
-    color: var(--gray-900);
-    border-bottom: 1px dashed var(--gray-300);
+    padding: 16px 0;
+    border-bottom: 1px solid #f1f5f9;
     display: flex;
     align-items: center;
-    transition: padding-left 0.3s;
-}
-
-.requirements-list li:hover {
-    padding-left: 8px;
+    color: var(--gray-700);
+    transition: all 0.3s ease;
 }
 
 .requirements-list li:last-child {
     border-bottom: none;
 }
 
-.requirements-list i {
+.requirements-list li:hover {
+    color: var(--bpr-blue);
+    padding-left: 10px;
+}
+
+.requirements-list li i {
+    font-size: 1.2rem;
     color: var(--bpr-gold);
-    margin-right: 16px;
-    font-size: 1.3rem;
+    margin-right: 18px;
+    background: rgba(233, 157, 18, 0.1);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
     flex-shrink: 0;
 }
 
-/* CTA Button - Lebih menonjol */
-.cta-button {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-    background: linear-gradient(135deg, var(--bpr-blue), #00234a);
+.requirements-list li:hover i {
+    background: var(--bpr-gold);
     color: white;
-    padding: 16px 44px;
-    border-radius: 50px;
-    font-size: 1.15rem;
-    font-weight: 700;
+    transform: scale(1.1);
+}
+
+/* --- CTA Container --- */
+.cta-container {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+/* --- CTA Button Base --- */
+.cta-button {
+    display: inline-block;
+    background: var(--bpr-blue);
+    padding: 16px 45px;
+    border-radius: 15px;
+    font-size: 1rem;
+    margin-top: 50px;
+    color: white !important;
     text-decoration: none;
-    box-shadow: 0 10px 30px rgba(0, 50, 107, 0.25);
-    transition: all 0.4s ease;
+    font-weight: 700;
     position: relative;
     overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0, 50, 107, 0.15);
+    animation: fadeInUp 0.8s ease backwards;
 }
 
-.cta-button::before {
+.cta-button::after {
     content: "";
     position: absolute;
-    top: 0;
+    top: -50%;
     left: -100%;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 200%;
     background: linear-gradient(
-        90deg,
+        to right,
         transparent,
-        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.3),
         transparent
     );
-    transition: left 0.6s;
-}
-
-.cta-button:hover::before {
-    left: 100%;
+    transform: rotate(45deg);
+    transition: all 0.6s;
 }
 
 .cta-button:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(0, 50, 107, 0.35);
-    background: linear-gradient(135deg, var(--bpr-gold), #d48a00);
-    color: var(--bpr-blue);
+    background: var(--bpr-gold);
+    color: var(--bpr-blue) !important;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(233, 157, 18, 0.3);
 }
 
-.cta-button i {
-    margin-right: 12px;
-    font-size: 1.3rem;
+.cta-button:hover::after {
+    left: 150%;
+    transition: all 0.8s ease-in-out;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
+/* --- Animations --- */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
     }
-}
-
-@media (max-width: 768px) {
-    .tabungan-page {
-        padding: 40px 0;
+    50% {
+        transform: translateY(-8px);
     }
-
-    .product-header {
-        padding: 35px 20px;
-    }
-
-    .product-header h3 {
-        font-size: 1.9rem;
-    }
-
-    .product-body {
-        padding: 30px 25px;
+    100% {
+        transform: translateY(0px);
     }
 }
 
-@media (max-width: 576px) {
-    .main-product-card {
-        border-radius: 20px;
-        margin: 0 15px;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-    .product-header img {
-        max-height: 100px;
-    }
-
-    .product-header h3 {
-        font-size: 1.7rem;
-    }
-
-    .benefit-item {
-        padding: 18px;
-    }
-
-    .requirements-list {
-        padding: 24px;
-    }
-
-    .cta-button {
-        width: 100%;
-        padding: 16px 30px;
-    }
+.product-header img {
+    animation: float 6s ease-in-out infinite;
 }

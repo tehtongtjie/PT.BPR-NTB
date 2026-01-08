@@ -1,32 +1,26 @@
-<div class="bg-bpr-blue text-white small py-1">
+<div class="topbar py-1 text-white">
     <div class="container">
-        <div class="topbar-wrapper d-flex align-items-center gap-3">
+        <div class="topbar-wrapper">
 
-            <!-- Jam Operasional -->
-            <div class="d-flex align-items-center gap-2 flex-shrink-0">
-                <i class="bi bi-clock-fill"></i>
-                <span>Operasional:</span>
-                <strong>Senin–Jumat · 08.00–15.00 WITA</strong>
+            <div class="topbar-item d-none d-lg-flex align-items-center gap-2">
+                <i class="bi bi-clock-fill text-warning"></i>
+                <span>Operasional: <strong>Senin–Jumat (08.00–15.00 WITA)</strong></span>
             </div>
 
-            <span class="topbar-separator flex-shrink-0">|</span>
+            <span class="topbar-separator d-none d-lg-block"></span>
 
-            <!-- Telepon -->
-            <div class="d-flex align-items-center gap-2 flex-shrink-0">
-                <i class="bi bi-telephone-fill"></i>
-                <span>Telp:</span>
-                <a href="tel:0370641875" class="text-white text-decoration-none fw-semibold">
-                    (0370) 641875
-                </a>
-            </div>
-
-            <span class="topbar-separator flex-shrink-0">|</span>
-
-            <!-- Running Text -->
-            <div class="marquee">
+            <div class="marquee-container">
                 <div class="marquee-content">
-                    <i class="bi bi-info-circle-fill"></i>
-                    Informasi seputar maintenance terhadap website PT BPR NTB PERSERODA
+                    <div class="marquee-text">
+                        <i class="bi bi-info-circle-fill"></i>
+                        Informasi: Sedang dilakukan pemeliharaan sistem pada website PT BPR NTB (Perseroda). Layanan
+                        tetap berjalan normal melalui kantor cabang terdekat.
+                    </div>
+                    <div class="marquee-text">
+                        <i class="bi bi-info-circle-fill"></i>
+                        Informasi: Sedang dilakukan pemeliharaan sistem pada website PT BPR NTB (Perseroda). Layanan
+                        tetap berjalan normal melalui kantor cabang terdekat.
+                    </div>
                 </div>
             </div>
 

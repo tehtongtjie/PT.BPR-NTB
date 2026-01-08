@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SimulasiController;
 use App\Http\Controllers\TabunganController;
+use App\Http\Controllers\PinjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,17 @@ Route::post('/simulasi/permintaan/submit',
 */
 Route::get('/tabungan/{slug}', [TabunganController::class, 'show'])
     ->name('tabungan.show');
+
+    /*
+|--------------------------------------------------------------------------
+| PINJAMAN (INFORMASI – TANPA DATABASE)
+|--------------------------------------------------------------------------
+*/
+Route::get('/pinjaman', [PinjamanController::class, 'index'])
+    ->name('pinjaman.index');
+
+Route::get('/pinjaman/{slug}', [PinjamanController::class, 'show'])
+    ->name('pinjaman.show');
 
     /*
 |--------------------------------------------------------------------------

@@ -37,16 +37,9 @@
                             </a>
                         </li>
 
-                        {{-- DEPOSITO --}}
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Deposito
-                            </a>
-                        </li>
-
                         {{-- PINJAMAN --}}
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('pinjaman.index') }}">
                                 Pinjaman
                             </a>
                         </li>

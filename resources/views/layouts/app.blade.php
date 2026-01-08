@@ -34,6 +34,20 @@
     <!-- ================= FOOTER ================= -->
     @include('partials.footer')
 
+    <script>
+        function toggleSB(id) {
+            // Menutup dropdown lain agar hanya satu yang terbuka
+            const allWrappers = document.querySelectorAll('.sb-table-wrapper');
+            allWrappers.forEach(w => {
+                if (w.id !== id) w.classList.remove('active');
+            });
+
+            // Toggle dropdown yang diklik
+            const wrapper = document.getElementById(id);
+            wrapper.classList.toggle('active');
+        }
+    </script>
+
     <!-- Vendor JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
