@@ -1,0 +1,83 @@
+/* ================= BERITA ================= */
+
+.berita-grid-section {
+    padding: 64px 0;
+    background-color: #ffffff;
+}
+
+.berita-grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.berita-grid-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--bpr-blue);
+    margin: 0;
+}
+
+.berita-grid-btn {
+    background-color: var(--bpr-gold);
+    color: var(--bpr-blue);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 8px;
+}
+
+.berita-grid-btn:hover {
+    background-color: #c27e00;
+}
+
+/* GRID */
+.berita-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* CARD */
+.berita-card {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.berita-card img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+}
+
+/* OVERLAY */
+.berita-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.2),
+        transparent
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 18px;
+}
+
+.berita-overlay-content h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.berita-overlay-content p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}

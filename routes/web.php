@@ -2,23 +2,33 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SimulasiController;
+use App\Http\Controllers\TabunganController;
 
+/*
+|--------------------------------------------------------------------------
+| HALAMAN UTAMA
+|--------------------------------------------------------------------------
+*/
 Route::get('/', function () {
     return view('pages.home');
 });
 
-// ================================
-// HALAMAN SIMULASI (AWAL)
-// ================================
+/*
+|--------------------------------------------------------------------------
+| HALAMAN SIMULASI (AWAL)
+|--------------------------------------------------------------------------
+*/
 Route::get('/simulasi/deposito', fn () => view('simulasi.deposito'))
     ->name('simulasi.deposito');
 
 Route::get('/simulasi/kredit', fn () => view('simulasi.kredit'))
     ->name('simulasi.kredit');
 
-// ================================
-// FORM PERMINTAAN INFORMASI
-// ================================
+/*
+|--------------------------------------------------------------------------
+| FORM PERMINTAAN INFORMASI SIMULASI
+|--------------------------------------------------------------------------
+*/
 Route::get('/simulasi/{jenis}/permintaan', function ($jenis) {
     if (!in_array($jenis, ['deposito', 'kredit'])) {
         abort(404);
@@ -27,9 +37,19 @@ Route::get('/simulasi/{jenis}/permintaan', function ($jenis) {
     return view('simulasi.permintaan-simulasi', compact('jenis'));
 })->name('simulasi.permintaan');
 
-// ================================
-// SUBMIT FORM PERMINTAAN
-// ================================
+/*
+|--------------------------------------------------------------------------
+| SUBMIT FORM PERMINTAAN SIMULASI
+|--------------------------------------------------------------------------
+*/
 Route::post('/simulasi/permintaan/submit',
     [SimulasiController::class, 'submit']
 )->name('simulasi.permintaan.submit');
+
+/*
+|--------------------------------------------------------------------------
+| TABUNGAN (INFORMASI – TANPA DATABASE)
+|--------------------------------------------------------------------------
+*/
+Route::get('/tabungan/{slug}', [TabunganController::class, 'show'])
+    ->name('tabungan.show');

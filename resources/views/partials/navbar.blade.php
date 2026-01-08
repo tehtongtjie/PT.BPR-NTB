@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-0">
     <div class="container-fluid px-5">
 
-        <a class="navbar-brand d-flex align-items-center" href="/">
+        {{-- LOGO --}}
+        <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
             <img src="{{ asset('images/logo-bpr-ntb.png') }}" alt="BPR NTB" class="navbar-logo me-2">
         </a>
 
-        <!-- TOGGLER (MOBILE SAJA) -->
+        {{-- TOGGLER MOBILE --}}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -13,49 +14,44 @@
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav ms-auto fw-semibold">
 
+                {{-- BERANDA --}}
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="#">Beranda</a>
+                    <a class="nav-link {{ request()->is('/') ? 'active text-danger' : '' }}" href="{{ url('/') }}">
+                        Beranda
+                    </a>
                 </li>
 
-                <!-- ================= PRODUK & LAYANAN ================= -->
+                {{-- ================= PRODUK & LAYANAN ================= --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#">
+                    <a class="nav-link dropdown-toggle" href="#" role="button">
                         Produk & Layanan
                     </a>
 
                     <ul class="dropdown-menu dropdown-bpr">
 
-                        <!-- TABUNGAN -->
-                        <li class="dropdown-submenu">
-                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-                                Tabungan
-                                <span class="arrow">›</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-bpr">
-                                <li><a class="dropdown-item" href="#">TabunganKu</a></li>
-                                <li><a class="dropdown-item" href="#">Simbada</a></li>
-                                <li><a class="dropdown-item" href="#">Tabungan Sukses</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- DEPOSITO -->
+                        {{-- TABUNGAN (TANPA SUBDROPDOWN) --}}
                         <li>
-                            <a class="dropdown-item" href="#">Deposito</a>
-                        </li>
-
-                        <!-- PINJAMAN -->
-                        <li class="dropdown-submenu">
-                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-                                Pinjaman
-                                <span class="arrow">›</span>
+                            <a class="dropdown-item {{ request()->is('tabungan*') ? 'active' : '' }}"
+                                href="{{ route('tabungan.show', 'tabunganku') }}">
+                                Tabungan
                             </a>
-                            <ul class="dropdown-menu dropdown-bpr">
-                                <li><a class="dropdown-item" href="#">Kredit Modal Kerja</a></li>
-                                <li><a class="dropdown-item" href="#">Kredit Konsumtif</a></li>
-                            </ul>
                         </li>
 
-                        <!-- SIMULASI -->
+                        {{-- DEPOSITO --}}
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Deposito
+                            </a>
+                        </li>
+
+                        {{-- PINJAMAN --}}
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Pinjaman
+                            </a>
+                        </li>
+
+                        {{-- SIMULASI (SUB DROPDOWN MASIH BOLEH) --}}
                         <li class="dropdown-submenu">
                             <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
                                 Simulasi
@@ -75,15 +71,17 @@
                             </ul>
                         </li>
 
-                        <!-- UMKM -->
+                        {{-- UMKM --}}
                         <li>
-                            <a class="dropdown-item" href="#">UMKM Mitra</a>
+                            <a class="dropdown-item" href="#">
+                                UMKM Mitra
+                            </a>
                         </li>
 
                     </ul>
                 </li>
 
-                <!-- ================= PERUSAHAAN ================= -->
+                {{-- ================= PERUSAHAAN ================= --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#">
                         Perusahaan
@@ -99,7 +97,7 @@
                     </ul>
                 </li>
 
-                <!-- ================= JARINGAN ================= -->
+                {{-- JARINGAN --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#">
                         Jaringan
@@ -109,39 +107,31 @@
                     </ul>
                 </li>
 
-                <!-- ================= PUBLIKASI ================= -->
+                {{-- PUBLIKASI --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button">
+                    <a class="nav-link dropdown-toggle" href="#">
                         Publikasi
                     </a>
-
                     <ul class="dropdown-menu dropdown-bpr">
                         <li><a class="dropdown-item" href="#">Berita</a></li>
                         <li><a class="dropdown-item" href="#">Pengumuman & Lelang</a></li>
                         <li><a class="dropdown-item" href="#">Event</a></li>
                         <li><a class="dropdown-item" href="#">Edukasi</a></li>
                         <li><a class="dropdown-item" href="#">Galeri</a></li>
-
-                        <li class="dropdown-submenu">
-                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-                                Laporan
-                                <span class="arrow">›</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-bpr">
-                                <li><a class="dropdown-item" href="#">Laporan Keuangan</a></li>
-                                <li><a class="dropdown-item" href="#">Laporan Tata Kelola</a></li>
-                                <li><a class="dropdown-item" href="#">Laporan Berkelanjutan</a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </li>
 
-                <!-- ================= PENGADUAN ================= -->
+                {{-- PENGADUAN --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button">
+                    <a class="nav-link dropdown-toggle" href="#">
                         Pengaduan
                     </a>
                     <ul class="dropdown-menu dropdown-bpr">
                         <li><a class="dropdown-item" href="#">Penanganan Pengaduan</a></li>
                     </ul>
                 </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

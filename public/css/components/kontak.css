@@ -1,0 +1,62 @@
+/* ================= KONTAK & TESTIMONI ================= */
+
+.kontak-section {
+    padding: 64px 0;
+    background-color: #ffffff;
+}
+
+.kontak-card {
+    display: flex;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* TESTIMONI */
+.testimoni-box {
+    flex: 1;
+    background-color: #f5f7fa;
+    padding: 48px;
+}
+
+/* HUBUNGI */
+.hubungi-box {
+    flex: 1;
+    padding: 48px;
+    position: relative;
+    color: #ffffff;
+    background-image: url("/images/hubungi-bg.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.hubungi-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+
+.hubungi-box > * {
+    position: relative;
+    z-index: 2;
+}
+
+.hubungi-box input,
+.hubungi-box textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .kontak-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}

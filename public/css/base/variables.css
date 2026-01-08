@@ -1,0 +1,21 @@
+/* ================= CSS VARIABLES ================= */
+
+:root {
+    /* Brand Colors */
+    --bpr-blue: #00326b;
+    --bpr-blue-light: #1e6fe8;
+    --bpr-gold: #e99d12;
+
+    /* Neutral */
+    --gray-900: #1f2937;
+    --gray-700: #374151;
+    --gray-600: #4b5563;
+    --gray-300: #e5e7eb;
+
+    /* Layout */
+    --header-height: 96px;
+
+    /* Typography */
+    --font-base: "Segoe UI", system-ui, sans-serif;
+    --font-size-base: 14px;
+}
