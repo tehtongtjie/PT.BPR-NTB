@@ -399,5 +399,17 @@ pinjamanInput.addEventListener('input', function (e) {
     tenorSelect.addEventListener('change', function () {
         hitungAngsuran();   // 🔥 INI YANG MEMASTIKAN ANUITAS JALAN
     });
+    ['jenis_kredit', 'tenor', 'sistem_bunga'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    el.addEventListener('change', () => {
+        el.classList.remove('changed');
+        void el.offsetWidth;
+        el.classList.add('changed');
+    });
+});
+
 
 });
+

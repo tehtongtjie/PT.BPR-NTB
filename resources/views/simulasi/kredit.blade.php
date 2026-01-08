@@ -2,8 +2,14 @@
 
 @section('title', 'Simulasi Kredit')
 
+{{-- ================= PAGE CSS ================= --}}
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/simulasi.css') }}">
+@endpush
+
 @section('content')
 
+<!-- ================= HERO / HEADER ================= -->
 <section class="simulasi-banner">
     <div class="container-fluid px-5 simulasi-header">
         <h1 class="simulasi-heading">Simulasi Kredit</h1>
@@ -15,18 +21,22 @@
     </div>
 </section>
 
+<!-- ================= FORM SIMULASI ================= -->
 <section class="simulasi-section">
     <div class="container-fluid px-5">
         <div class="simulasi-box">
 
-            <!-- KIRI -->
+            <!-- ========== KIRI ========== -->
             <div class="simulasi-left">
 
-                <input type="text" id="pinjaman"
+                <input type="text"
+                       id="pinjaman"
                        placeholder="Jumlah Pinjaman">
+
                 <small id="pinjaman-error" class="text-danger d-none">
                     Minimal pinjaman belum sesuai jenis kredit
                 </small>
+
                 <select id="jenis_kredit">
                     <option value="">Jenis Kredit</option>
                     <option value="konsumtif">Kredit Konsumtif</option>
@@ -53,7 +63,8 @@
                         <option value="144">144</option>
                     </select>
                 </div>
-                <!-- SISTEM BUNGA (BISA DISHOW / HIDE) -->
+
+                <!-- SISTEM BUNGA -->
                 <div id="sistem-bunga-wrapper">
                     <select id="sistem_bunga">
                         <option value="">Sistem Bunga</option>
@@ -71,19 +82,16 @@
                 </small>
             </div>
 
-            <!-- KANAN -->
+            <!-- ========== KANAN ========== -->
             <div class="simulasi-right">
                 <textarea id="angsuran"
                           placeholder="Estimasi Angsuran / Bulan"
                           readonly></textarea>
-                <!-- CATATAN ANUITAS (BUKAN POPUP) -->
+
                 <div id="anuitas-info" class="simulasi-warning d-none">
                     <strong>Catatan:</strong><br>
-                    Hasil simulasi angsuran dengan sistem bunga <b>anuitas</b> bersifat estimasi.
-                    Perbedaan angka dapat terjadi karena perhitungan bunga harian dan metode
-                    pembulatan sistem perbankan.
-                    <br><br>
-                    Untuk informasi resmi dan detail, silakan hubungi petugas kami.
+                    Hasil simulasi angsuran dengan sistem bunga <b>anuitas</b>
+                    bersifat estimasi dan dapat berbeda dengan perhitungan bank.
                 </div>
                 <a href="{{ route('simulasi.permintaan', 'kredit') }}"
                    class="simulasi-btn">
@@ -97,6 +105,7 @@
 
 @endsection
 
+{{-- ================= PAGE JS ================= --}}
 @push('scripts')
 <script src="{{ asset('js/simulasi-kredit.js') }}"></script>
 @endpush

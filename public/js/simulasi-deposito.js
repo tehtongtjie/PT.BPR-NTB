@@ -73,5 +73,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         hitungDeposito();
     });
+    const tenor = document.getElementById('tenor');
+    if (tenor) {
+        tenor.addEventListener('change', () => {
+            tenor.classList.remove('changed');
+            void tenor.offsetWidth;
+            tenor.classList.add('changed');
+        });
+    }
+
 
 });

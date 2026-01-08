@@ -2,9 +2,14 @@
 
 @section('title', 'Simulasi Deposito')
 
+{{-- ================= PAGE CSS ================= --}}
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/simulasi.css') }}">
+@endpush
+
 @section('content')
 
-<!-- HERO / HEADER -->
+<!-- ================= HERO / HEADER ================= -->
 <section class="simulasi-banner">
     <div class="container-fluid px-5 simulasi-header">
         <h1 class="simulasi-heading">Simulasi Deposito</h1>
@@ -17,24 +22,24 @@
     </div>
 </section>
 
-<!-- FORM SIMULASI -->
+<!-- ================= FORM SIMULASI ================= -->
 <section class="simulasi-section">
     <div class="container-fluid px-5">
 
         <div class="simulasi-box">
 
-            <!-- KIRI -->
+            <!-- ========== KIRI ========== -->
             <div class="simulasi-left">
 
-            <!-- Nominal -->
-            <input type="text"
-                id="nominal"
-                min="5000000"
-                placeholder="Nominal Deposito (Min. Rp 5.000.000)">
+                <!-- Nominal -->
+                <input type="text"
+                       id="nominal"
+                       min="5000000"
+                       placeholder="Nominal Deposito (Min. Rp 5.000.000)">
 
-            <small id="nominal-error" class="text-danger d-none">
-                Minimal nominal deposito adalah Rp 5.000.000
-            </small>
+                <small id="nominal-error" class="text-danger d-none">
+                    Minimal nominal deposito adalah Rp 5.000.000
+                </small>
 
                 <!-- Tenor & Bunga -->
                 <div class="simulasi-row">
@@ -46,10 +51,10 @@
                         <option value="12">12 Bulan</option>
                     </select>
 
-                <input type="text"
-                    id="bunga"
-                    placeholder="Suku Bunga"
-                    readonly>
+                    <input type="text"
+                           id="bunga"
+                           placeholder="Suku Bunga"
+                           readonly>
                 </div>
 
                 <!-- Estimasi Bunga -->
@@ -61,10 +66,12 @@
                 <small class="simulasi-note">
                     *Simulasi ini bersifat estimasi dan tidak menyimpan data pribadi.
                 </small>
+
             </div>
 
-            <!-- KANAN -->
+            <!-- ========== KANAN ========== -->
             <div class="simulasi-right">
+
                 <textarea id="total_dana"
                           placeholder="Estimasi Total Dana Diterima"
                           readonly></textarea>
@@ -73,6 +80,7 @@
                    class="simulasi-btn">
                     Hubungi Saya
                 </a>
+
             </div>
 
         </div>
@@ -82,6 +90,7 @@
 
 @endsection
 
+{{-- ================= PAGE JS ================= --}}
 @push('scripts')
 <script src="{{ asset('js/simulasi-deposito.js') }}"></script>
 @endpush

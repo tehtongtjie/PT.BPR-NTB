@@ -16,7 +16,7 @@
 /* Sesuaikan nilai dengan tinggi aktual header Anda (topbar + navbar) */
 
 body {
-    padding-top: 110px; /* Tinggi header di desktop */
+    padding-top: 100px; /* Tinggi header di desktop */
 }
 
 /* Responsif - sesuaikan dengan tinggi header di mobile */
