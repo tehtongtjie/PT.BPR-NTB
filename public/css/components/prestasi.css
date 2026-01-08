@@ -1,71 +1,240 @@
-/* ================= PRESTASI & LELANG ================= */
+/* ================= PRESTASI & LELANG SECTION - VERSI JAUH LEBIH BAGUS & ULTRA PREMIUM ================= */
 
-.prestasi-section,
+/* Section Wrapper - Alternating background untuk variasi visual */
+.prestasi-section {
+    padding: 120px 0;
+    background: linear-gradient(to bottom, #ffffff, #f8f9fc);
+}
+
 .lelang-section {
-    background-color: #ffffff;
-    padding: 32px 0;
+    padding: 120px 0;
+    background: linear-gradient(to bottom, #f8f9fc, #ffffff);
 }
 
-.prestasi-card,
-.lelang-card {
-    background-color: #f5f7fa;
-    border-radius: 20px;
-    padding: 48px;
+/* Subtle gold glow */
+.prestasi-section::before,
+.lelang-section::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, var(--bpr-gold-glow), transparent 70%);
+    transform: translateX(-50%);
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* Main Info Box - Glassmorphism luxury */
+.info-box-custom {
     display: flex;
-    align-items: center;
-    gap: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 40px;
+    box-shadow: 0 20px 50px rgba(0, 50, 107, 0.1),
+        0 10px 30px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(197, 160, 89, 0.15);
+    backdrop-filter: blur(12px);
+    position: relative;
 }
 
-.prestasi-image img,
-.lelang-image img {
-    width: 360px;
-    max-width: 100%;
-    border-radius: 14px;
+.info-box-custom:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 35px 80px rgba(0, 50, 107, 0.15),
+        0 20px 50px rgba(197, 160, 89, 0.12);
 }
 
-.prestasi-content,
-.lelang-content {
+/* Alternating layout - Prestasi: teks kiri, gambar kanan | Lelang: gambar kiri, teks kanan */
+.prestasi-section .info-box-custom {
+    flex-direction: row;
+}
+
+.lelang-section .info-box-custom {
+    flex-direction: row-reverse;
+}
+
+/* Image Wrapper - Parallax zoom */
+.info-box-img-wrapper {
     flex: 1;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
 }
 
-.prestasi-content h2,
-.lelang-content h2 {
-    font-size: 26px;
+.info-box-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.info-box-custom:hover .info-box-img {
+    transform: scale(1.1);
+}
+
+/* Overlay glow pada gambar saat hover */
+.info-box-img-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(197, 160, 89, 0.1),
+        transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 1;
+}
+
+.info-box-custom:hover .info-box-img-wrapper::before {
+    opacity: 1;
+}
+
+/* Content Wrapper */
+.info-box-content {
+    flex: 1;
+    padding: 80px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(to right, #ffffff, #f8fbff);
+}
+
+/* Label Prestasi/Lelang - Gold luxury */
+.info-label {
+    font-size: 0.9rem;
     font-weight: 800;
-    color: var(--bpr-blue);
-    margin-bottom: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 12px 32px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--bpr-gold), var(--bpr-gold-light));
+    color: var(--bpr-blue-dark);
+    box-shadow: 0 8px 25px rgba(197, 160, 89, 0.3);
+    transition: all 0.4s ease;
 }
 
-.prestasi-content h4,
-.lelang-content h4 {
-    font-size: 18px;
+.info-box-custom:hover .info-label {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(197, 160, 89, 0.4);
+}
+
+.info-box-content h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--bpr-blue);
+    margin-bottom: 24px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.info-box-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--gray-700);
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+/* Link CTA - Navy to gold hover */
+.info-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     font-weight: 700;
-    color: var(--gray-900);
-    margin-bottom: 12px;
-}
-
-.prestasi-content p,
-.lelang-content p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--gray-600);
-    max-width: 520px;
-    margin-bottom: 16px;
-}
-
-.prestasi-link,
-.lelang-link {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 1.1rem;
     color: var(--bpr-blue);
+    text-decoration: none;
+    transition: all 0.5s ease;
 }
 
-/* RESPONSIVE */
+.info-link:hover {
+    gap: 20px;
+    color: var(--bpr-gold);
+    transform: translateX(8px);
+}
+
+.info-link::after {
+    content: "→";
+    font-size: 1.4rem;
+    transition: transform 0.5s ease;
+}
+
+.info-link:hover::after {
+    transform: translateX(8px);
+}
+
+/* Responsive - Stack & center */
 @media (max-width: 992px) {
-    .prestasi-card,
-    .lelang-card {
-        flex-direction: column;
+    .prestasi-section .info-box-custom,
+    .lelang-section .info-box-custom {
+        flex-direction: column !important;
+    }
+
+    .info-box-img-wrapper {
+        min-height: 400px;
+    }
+
+    .info-box-content {
+        padding: 60px 50px;
         text-align: center;
+    }
+
+    .info-box-content h2 {
+        font-size: 2.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .prestasi-section,
+    .lelang-section {
+        padding: 80px 0;
+    }
+
+    .info-box-custom {
+        border-radius: 32px;
+    }
+
+    .info-box-img-wrapper {
+        min-height: 350px;
+    }
+
+    .info-box-content {
+        padding: 50px 40px;
+    }
+
+    .info-box-content h2 {
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .info-box-custom {
+        border-radius: 28px;
+        margin: 0 15px;
+    }
+
+    .info-box-img-wrapper {
+        min-height: 300px;
+    }
+
+    .info-box-content {
+        padding: 40px 30px;
+    }
+
+    .info-box-content h2 {
+        font-size: 2.1rem;
+    }
+
+    .info-label {
+        padding: 10px 24px;
+        font-size: 0.85rem;
     }
 }

@@ -1,47 +1,85 @@
-/* ================= TOPBAR ================= */
-
+/* ================= TOPBAR MODERN ================= */
 .topbar {
-    background-color: var(--bpr-blue);
+    background: linear-gradient(90deg, var(--bpr-blue) 0%, #003d7a 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 0;
 }
 
-/* running text */
 .topbar-wrapper {
     display: flex;
     align-items: center;
-    gap: 16px;
-    white-space: nowrap;
-    overflow: hidden;
+    gap: 20px;
+    height: 28px;
+}
+
+/* Info Statis (Jam & Telp) */
+.topbar-item {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .topbar-separator {
-    opacity: 0.6;
+    width: 1px;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.2);
     flex-shrink: 0;
 }
 
-.marquee {
+/* --- Container Marquee --- */
+.marquee-container {
     flex: 1;
-    min-width: 0;
     overflow: hidden;
     position: relative;
+    display: flex;
+    align-items: center;
+    /* Memberikan efek pudar di kiri & kanan agar teks terlihat muncul/hilang halus */
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 5%,
+        black 95%,
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 5%,
+        black 95%,
+        transparent
+    );
 }
 
 .marquee-content {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding-left: 100%;
-    animation: marquee 18s linear infinite;
+    display: flex;
+    gap: 50px; /* Jarak antar pengulangan teks */
+    white-space: nowrap;
+    /* Jalankan animasi terus menerus tanpa peduli hover */
+    animation: marquee-scroll 25s linear infinite;
+    will-change: transform;
 }
 
-@keyframes marquee {
-    from {
+/* Animasi Infinite Loop */
+@keyframes marquee-scroll {
+    0% {
         transform: translateX(0);
     }
-    to {
-        transform: translateX(-100%);
+    100% {
+        /* Geser tepat setengah dari total lebar konten (karena teks diduplikasi) */
+        transform: translateX(-50%);
     }
 }
 
-.marquee:hover .marquee-content {
-    animation-play-state: paused;
+/* MENGHAPUS PAUSE: Bagian ini dihapus agar teks tidak berhenti saat di-hover */
+/* .marquee:hover .marquee-content { animation-play-state: paused; } <- DIHAPUS */
+
+.marquee-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.marquee-text i {
+    color: #ffc107; /* Warna emas untuk ikon info */
 }

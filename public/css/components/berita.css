@@ -1,83 +1,231 @@
-/* ================= BERITA ================= */
-
+/* ================= BERITA GRID SECTION - VERSI JAUH LEBIH BAGUS & ULTRA PREMIUM ================= */
+/* Section Wrapper - Luxury depth */
 .berita-grid-section {
-    padding: 64px 0;
-    background-color: #ffffff;
+    padding: 120px 0;
+    background: linear-gradient(180deg, #f8f9fc 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
 }
 
-.berita-grid-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 28px;
+/* Subtle gold glow decoration */
+.berita-grid-section::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 1200px;
+    height: 1200px;
+    background: radial-gradient(circle, var(--bpr-gold-glow), transparent 70%);
+    transform: translateX(-50%);
+    pointer-events: none;
+    opacity: 0.4;
+    animation: pulse-glow 15s ease-in-out infinite alternate;
 }
 
-.berita-grid-title {
-    font-size: 26px;
-    font-weight: 800;
-    color: var(--bpr-blue);
-    margin: 0;
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.2;
+        transform: translateX(-50%) scale(0.9);
+    }
+    100% {
+        opacity: 0.4;
+        transform: translateX(-50%) scale(1.1);
+    }
 }
 
-.berita-grid-btn {
-    background-color: var(--bpr-gold);
-    color: var(--bpr-blue);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 8px 18px;
-    border-radius: 8px;
-}
-
-.berita-grid-btn:hover {
-    background-color: #c27e00;
-}
-
-/* GRID */
+/* Grid Layout */
 .berita-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* CARD */
+/* Card Berita - Glassmorphism premium */
 .berita-card {
     position: relative;
-    border-radius: 14px;
+    border-radius: 32px;
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    height: 480px;
+    box-shadow: 0 15px 40px rgba(0, 50, 107, 0.1),
+        0 8px 25px rgba(0, 0, 0, 0.06);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(197, 160, 89, 0.15);
 }
 
+.berita-card:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 30px 70px rgba(0, 50, 107, 0.18),
+        0 15px 40px rgba(197, 160, 89, 0.15);
+}
+
+/* Image - Parallax zoom */
 .berita-card img {
     width: 100%;
-    height: 340px;
+    height: 100%;
     object-fit: cover;
+    transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* OVERLAY */
+.berita-card:hover img {
+    transform: scale(1.15);
+}
+
+/* Overlay - Luxury gradient navy to gold tint */
 .berita-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.75),
-        rgba(0, 0, 0, 0.2),
-        transparent
+        180deg,
+        transparent 30%,
+        rgba(0, 50, 107, 0.4) 60%,
+        rgba(0, 31, 68, 0.9) 100%
     );
     display: flex;
-    align-items: flex-end;
-    padding: 18px;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    transition: all 0.6s ease;
+    z-index: 2;
 }
 
-.berita-overlay-content h4 {
-    font-size: 15px;
+.berita-card:hover .berita-overlay {
+    background: linear-gradient(
+        180deg,
+        transparent 20%,
+        rgba(0, 50, 107, 0.6) 50%,
+        rgba(0, 31, 68, 0.95) 100%
+    );
+}
+
+/* Badge Kategori/Tanggal - Gold glass */
+.berita-badge {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background: rgba(197, 160, 89, 0.25);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: #ffffff;
-    line-height: 1.4;
-    margin-bottom: 6px;
+    letter-spacing: 1px;
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.2);
+    z-index: 3;
+    transition: all 0.4s ease;
 }
 
-.berita-overlay-content p {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
+.berita-card:hover .berita-badge {
+    background: var(--bpr-gold);
+    color: var(--bpr-blue-dark);
+    transform: translateY(-5px);
+}
+
+/* Judul Berita - Luxury typography */
+.berita-overlay h4 {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease 0.2s;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.berita-card:hover h4 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.berita-card:hover h4::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: var(--bpr-gold);
+    margin-top: 16px;
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4);
+    transition: width 0.6s ease;
+}
+
+/* Deskripsi Berita - Fade in */
+.berita-overlay p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease 0.3s;
+}
+
+.berita-card:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsif */
+@media (max-width: 992px) {
+    .berita-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    .berita-card {
+        height: 440px;
+    }
+}
+
+@media (max-width: 768px) {
+    .berita-grid-section {
+        padding: 80px 0;
+    }
+
+    .berita-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .berita-card {
+        height: 480px;
+    }
+
+    .berita-overlay {
+        padding: 30px;
+    }
+
+    .berita-overlay h4 {
+        font-size: 1.6rem;
+    }
+
+    .berita-badge {
+        top: 20px;
+        left: 20px;
+        padding: 8px 20px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .berita-grid {
+        padding: 0 15px;
+    }
+
+    .berita-card {
+        border-radius: 24px;
+        height: 460px;
+    }
+
+    .berita-overlay h4 {
+        font-size: 1.5rem;
+    }
 }

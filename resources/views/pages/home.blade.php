@@ -4,364 +4,240 @@
 
 @section('content')
 
-    {{-- ================= HERO SLIDER (TANPA TEKS/OVERLAY, MENGGUNAKAN GAMBAR SIMBADA) ================= --}}
+    {{-- 1. HERO SLIDER --}}
     <section class="hero-section">
-        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000" data-bs-pause="hover">
-
-            <div class="carousel-inner">
-
-                {{-- Slide 1: Gambar SIMBADA Anda (utama) --}}
-                <div class="carousel-item active">
-                    <div class="hero-slide" style="background-image: url('{{ asset('images/simbada.png') }}');">
-                    </div>
-                </div>
-
-                {{-- Slide 2: Gambar SIMBADA Anda (utama) --}}
-                <div class="carousel-item active">
-                    <div class="hero-slide" style="background-image: url('{{ asset('images/simbada.png') }}');">
-                    </div>
-                </div>
-
-                {{-- Slide 3: Gambar SIMBADA Anda (utama) --}}
-                <div class="carousel-item active">
-                    <div class="hero-slide" style="background-image: url('{{ asset('images/simbada.png') }}');">
-                    </div>
-                </div>
-
-                {{-- Slide 4: Gambar SIMBADA Anda (utama) --}}
-                <div class="carousel-item active">
-                    <div class="hero-slide" style="background-image: url('{{ asset('images/simbada.png') }}');">
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-
-            <!-- Indicators -->
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
             </div>
-
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="hero-slide"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('{{ asset('images/simbada.png') }}');">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="hero-slide" style="background-image: url('{{ asset('images/simbada.png') }}');"></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    {{-- ================= PROMO SECTION (GRID CARD SEPERTI CONTOH BNI) ================= --}}
+    {{-- 2. PRODUK UNGGULAN (PROMO) --}}
     <section class="promo-section">
         <div class="container">
-
-            <!-- Header -->
-            <div class="promo-header">
-                <h2 class="promo-title">Produk Unggulan Kami</h2>
-                <p class="promo-subtitle">Produk tabungan inovatif yang dirancang untuk memenuhi berbagai kebutuhan
-                    finansial Anda.</p>
+            <div class="section-header text-center mb-5">
+                <h2 class="fw-bold">Produk Unggulan Kami</h2>
+                <div class="header-line mx-auto"></div>
+                <p class="text-muted mt-3">Solusi perbankan terpercaya untuk masyarakat Nusa Tenggara Barat.</p>
             </div>
 
-            <!-- Grid Cards -->
-            <div class="promo-grid">
-
-                <!-- Card 1: TabunganKU -->
-                <div class="promo-card">
-                    <div class="promo-card-image">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card promo-card shadow-sm h-100">
                         <img src="{{ asset('images/tabunganku.jpg') }}" alt="TabunganKU">
-                    </div>
-                    <div class="promo-card-content">
-                        <h3 class="promo-card-title">TabunganKU</h3>
-                        <p>Setoran awal ringan, bebas biaya administrasi, cocok untuk semua kalangan.</p>
-                        <a href="#" class="promo-card-btn">Selengkapnya →</a>
+                        <div class="card-body">
+                            <h5 class="fw-bold">TabunganKU</h5>
+                            <p class="small text-muted">Setoran awal ringan, bebas biaya administrasi bulanan.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">Selengkapnya</a>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Card 2: SIMBADA (Produk Utama) -->
-                <div class="promo-card featured">
-                    <div class="promo-card-image">
+                <div class="col-md-4">
+                    <div class="card promo-card featured shadow h-100">
                         <img src="{{ asset('images/simbada-card.png') }}" alt="SIMBADA">
-                    </div>
-                    <div class="promo-card-content">
-                        <h3 class="promo-card-title">SIMBADA</h3>
-                        <p>Tabungan berjangka khusus Umroh & Haji dengan setoran rutin dan suku bunga menarik.</p>
-                        <a href="#" class="promo-card-btn">Selengkapnya →</a>
+                        <div class="card-body">
+                            <h5 class="fw-bold text-primary">SIMBADA</h5>
+                            <p class="small text-muted">Simpanan Berhadiah Anda. Dapatkan peluang memenangkan hadiah
+                                menarik.</p>
+                            <a href="#" class="btn btn-sm btn-primary rounded-pill">Detail Produk</a>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Card 3: Deposito -->
-                <div class="promo-card">
-                    <div class="promo-card-image">
+                <div class="col-md-4">
+                    <div class="card promo-card shadow-sm h-100">
                         <img src="{{ asset('images/deposito.jpg') }}" alt="Deposito">
-                    </div>
-                    <div class="promo-card-content">
-                        <h3 class="promo-card-title">Deposito Berjangka</h3>
-                        <p>Suku bunga tinggi hingga 6.00% p.a., dijamin LPS, pilihan tenor fleksibel.</p>
-                        <a href="#" class="promo-card-btn">Selengkapnya →</a>
+                        <div class="card-body">
+                            <h5 class="fw-bold">Deposito Berjangka</h5>
+                            <p class="small text-muted">Investasi aman dengan suku bunga kompetitif dan dijamin LPS.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">Selengkapnya</a>
+                        </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
 
-    {{-- ================= SUKU BUNGA ================= --}}
+    {{-- 3. SUKU BUNGA --}}
     <section class="suku-bunga-section">
         <div class="container">
-
-            <div class="suku-bunga-card">
-
-                <!-- JUDUL -->
-                <div class="suku-bunga-title">
-                    <h2>Suku Bunga</h2>
+            <div class="sb-card-wrapper row g-0">
+                <div class="col-md-4 sb-left-panel d-flex flex-column justify-content-center align-items-center">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2">TINGKAT BUNGA PENJAMINAN</span>
+                    <div class="sb-value">6.00%</div>
+                    <p class="mt-3 opacity-75">Simpanan Anda dijamin oleh LPS hingga Rp 2 Miliar.</p>
+                    <a href="https://apps.lps.go.id/BankPesertaLPSRate" target="_blank"
+                        class="btn btn-light btn-sm rounded-pill px-4">Cek LPS Rate</a>
                 </div>
-
-                <div class="suku-bunga-body">
-
-                    <!-- KIRI -->
-                    <div class="suku-bunga-left">
-                        <span class="sb-badge">LPS BPR</span>
-                        <div class="sb-value">6.00%</div>
-
-                        <div class="sb-note">
-                            <p>
-                                <strong>Keterangan:</strong><br>
-                                • LPS BPR periode <strong>01 Oktober 2025</strong> s/d <strong>31 Desember
-                                    2025</strong><br>
-                                • Suku bunga sewaktu-waktu dapat berubah<br>
-                                • Simpanan dijamin LPS hingga <strong>Rp 2 Miliar</strong> per nasabah per
-                                bank
-                            </p>
-                            <a href="https://apps.lps.go.id/BankPesertaLPSRate">Cek tingkat bunga penjaminan
-                                LPS →</a>
+                <div class="col-md-8 p-4 p-md-5">
+                    <h4 class="fw-bold mb-4"><i class="bi bi-graph-up-arrow me-2 text-primary"></i>Rincian Suku Bunga</h4>
+                    <div class="accordion shadow-sm" id="accBunga">
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#tabungan">
+                                    Suku Bunga Tabungan
+                                </button>
+                            </h2>
+                            <div id="tabungan" class="accordion-collapse collapse show" data-bs-parent="#accBunga">
+                                <div class="accordion-body">
+                                    <div class="d-flex justify-content-between border-bottom py-2"><span>Simbada</span>
+                                        <strong>5.00%</strong>
+                                    </div>
+                                    <div class="d-flex justify-content-between border-bottom py-2"><span>TabunganKU</span>
+                                        <strong>3.00%</strong>
+                                    </div>
+                                    <div class="d-flex justify-content-between py-2"><span>Tabungan Siswa</span>
+                                        <strong>4.00%</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#deposito">
+                                    Suku Bunga Deposito
+                                </button>
+                            </h2>
+                            <div id="deposito" class="accordion-collapse collapse" data-bs-parent="#accBunga">
+                                <div class="accordion-body">
+                                    <div class="d-flex justify-content-between border-bottom py-2"><span>1 Bulan</span>
+                                        <strong>5.00% p.a</strong>
+                                    </div>
+                                    <div class="d-flex justify-content-between border-bottom py-2"><span>6 Bulan</span>
+                                        <strong>5.50% p.a</strong>
+                                    </div>
+                                    <div class="d-flex justify-content-between py-2"><span>12 Bulan</span> <strong>6.00%
+                                            p.a</strong></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- KANAN -->
-                    <div class="suku-bunga-right">
-
-                        <!-- TABUNGAN -->
-                        <div class="sb-table">
-                            <div class="sb-table-header">
-                                <span>Tabungan</span>
-                                <span>% / tahun</span>
-                            </div>
-
-                            <div class="sb-row">
-                                <span>TabunganKU</span>
-                                <span>3%</span>
-                            </div>
-                            <div class="sb-row">
-                                <span>Simbada</span>
-                                <span>5%</span>
-                            </div>
-                            <div class="sb-row">
-                                <span>Tabungan Sukses</span>
-                                <span>4%</span>
-                            </div>
-                            <div class="sb-row">
-                                <span>Tabungan Siswa</span>
-                                <span>Max 4%</span>
-                            </div>
-                            <div class="sb-row">
-                                <span>Tabungan Simpel</span>
-                                <span>Max 2%</span>
-                            </div>
-                        </div>
-
-                        <!-- DEPOSITO -->
-                        <div class="sb-table mt-4">
-                            <div class="sb-table-header">
-                                <span>Deposito</span>
-                                <span>%</span>
-                            </div>
-
-                            <div class="sb-row">
-                                <span>1 Bulan</span>
-                                <span>5.00% p.a.</span>
-                            </div>
-                            <div class="sb-row">
-                                <span>3 Bulan</span>
-                                <span>5.25% p.a.</span>
-                            </div>
-                            <div class="sb-row">
-                                <span>6 Bulan</span>
-                                <span>5.50% p.a.</span>
-                            </div>
-                            <div class="sb-row">
-                                <span>12 Bulan</span>
-                                <span>6.00% p.a.</span>
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
             </div>
-
         </div>
     </section>
 
-
-    {{-- ================= BERITA TERKINI ================= --}}
-    <section class="berita-grid-section">
+    {{-- 4. BERITA TERKINI --}}
+    <section class="py-5">
         <div class="container">
-
-            <!-- HEADER -->
-            <div class="berita-grid-header">
-                <h2 class="berita-grid-title">BERITA TERKINI</h2>
-                <a href="#" class="berita-grid-btn">Berita Lainnya</a>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold m-0">Berita Terkini</h2>
+                <a href="#" class="btn btn-link text-primary fw-bold text-decoration-none">Berita Lainnya →</a>
             </div>
-
-            <!-- GRID -->
-            <div class="berita-grid">
-
-                @for ($i = 0; $i < 4; $i++)
-                    <div class="berita-card">
-
-                        <img src="{{ asset('images/berita.png') }}" alt="Berita">
-
-                        <div class="berita-overlay">
-                            <div class="berita-overlay-content">
-                                <h4>
-                                    PT. BPR NTB (Perseroda)
-                                    melakukan Pelatihan
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <div class="row g-4">
+                @for ($i = 0; $i < 3; $i++)
+                    <div class="col-md-4">
+                        <div class="berita-card shadow-sm">
+                            <img src="{{ asset('images/berita.png') }}" alt="Berita BPR NTB">
+                            <div class="berita-overlay">
+                                <h5 class="text-white fw-bold">Rapat Koordinasi Tahunan PT. BPR NTB (Perseroda)</h5>
+                                <p class="text-white-50 small mb-0">Membangun sinergi untuk memperkuat ekonomi daerah...
                                 </p>
                             </div>
                         </div>
-
                     </div>
                 @endfor
-
             </div>
-
         </div>
     </section>
 
-
-    {{-- ================= PRESTASI & PENGHARGAAN ================= --}}
+    {{-- PRESTASI --}}
     <section class="prestasi-section">
         <div class="container">
-
-            <div class="prestasi-card">
-
-                <!-- KIRI : GAMBAR -->
-                <div class="prestasi-image">
-                    <img src="{{ asset('images/penghargaan-infobank.png') }}" alt="Penghargaan Infobank">
+            <div class="info-box-custom">
+                <div class="info-box-img-wrapper">
+                    <img src="{{ asset('images/penghargaan-infobank.png') }}" class="info-box-img" alt="Prestasi">
                 </div>
-
-                <!-- KANAN : KONTEN -->
-                <div class="prestasi-content">
-                    <h2>PRESTASI & PENGHARGAAN</h2>
-
-                    <h4>
-                        Penghargaan Infobank Award
-                        <strong>“Sangat Bagus”</strong>
-                    </h4>
-
-                    <p>
-                        PT BPR NTB (Perseroda) meraih penghargaan Infobank Award
-                        dengan predikat “Sangat Bagus” atas kinerja keuangan
-                        yang sehat dan tata kelola perusahaan yang profesional.
-                    </p>
-
-                    <a href="#" class="prestasi-link">
-                        Selengkapnya →
-                    </a>
+                <div class="info-box-content">
+                    <span class="info-label label-prestasi">Penghargaan</span>
+                    <h2>Sangat Bagus: Infobank Award 2025</h2>
+                    <p>PT BPR NTB (Perseroda) kembali mengukir prestasi nasional dengan meraih predikat kinerja keuangan
+                        "Sangat Bagus" dari Infobank.</p>
+                    <a href="#" class="info-link link-prestasi">Selengkapnya <i
+                            class="bi bi-arrow-right ms-2"></i></a>
                 </div>
-
             </div>
-
         </div>
     </section>
 
-
-    {{-- ================= LELANG PENGADAAN ================= --}}
+    {{-- LELANG --}}
     <section class="lelang-section">
         <div class="container">
-
-            <div class="lelang-card">
-
-                <!-- KIRI : KONTEN -->
-                <div class="lelang-content">
-                    <h2>LELANG PENGADAAN</h2>
-
-                    <h4>
-                        Pengumuman Pemenang Seleksi
-                        Penyedia Jasa Audit
-                    </h4>
-
-                    <p>
-                        PT BPR NTB (Perseroda) telah melaksanakan proses seleksi
-                        penyedia jasa audit laporan keuangan secara terbuka,
-                        transparan, dan akuntabel sesuai dengan ketentuan
-                        yang berlaku.
-                    </p>
-
-                    <a href="#" class="lelang-link">
-                        Baca Selengkapnya →
-                    </a>
+            <div class="info-box-custom flex-md-row-reverse">
+                <div class="info-box-img-wrapper">
+                    <img src="{{ asset('images/lelang-pengadaan.png') }}" class="info-box-img" alt="Lelang">
                 </div>
-
-                <!-- KANAN : GAMBAR -->
-                <div class="lelang-image">
-                    <img src="{{ asset('images/lelang-pengadaan.png') }}" alt="Lelang Pengadaan">
+                <div class="info-box-content">
+                    <span class="info-label label-lelang">E-Procurement</span>
+                    <h2>Lelang Pengadaan Jasa Audit 2025</h2>
+                    <p>Kami mengundang Kantor Akuntan Publik (KAP) profesional untuk berpartisipasi dalam proses pengadaan
+                        jasa audit laporan keuangan tahun buku 2025.</p>
+                    <a href="#" class="info-link link-lelang">Baca Pengumuman <i
+                            class="bi bi-arrow-right ms-2"></i></a>
                 </div>
-
             </div>
-
         </div>
     </section>
 
-
-    {{-- ================= TESTIMONI & HUBUNGI KAMI ================= --}}
+    {{-- 6. KONTAK & TESTIMONI --}}
     <section class="kontak-section">
         <div class="container">
-
-            <div class="kontak-card">
-
-                <!-- KIRI: TESTIMONI -->
-                <div class="testimoni-box">
-                    <h3>Testimoni Nasabah</h3>
-
-                    <p class="testimoni-text">
-                        “Saya sudah menjadi nasabah PD. BPR NTB Mataram selama beberapa
-                        tahun dan merasa sangat terbantu dengan pelayanan yang cepat,
-                        ramah, dan transparan. Proses menabung maupun pengajuan kredit
-                        jelas dan mudah dipahami. Petugasnya juga selalu responsif dan
-                        memberikan solusi yang sesuai dengan kebutuhan saya.”
-                    </p>
-
-                    <p class="testimoni-nama">
-                        — Ahmad Fauzi, Nasabah PD. BPR NTB Mataram
-                    </p>
-                </div>
-
-                <!-- KANAN: HUBUNGI KAMI -->
-                <div class="hubungi-box">
-                    <h3>Hubungi Kami</h3>
-
-                    <form>
-                        <div class="form-row">
-                            <input type="text" placeholder="Nama">
-                            <input type="email" placeholder="Email">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h2 class="fw-bold mb-4">Apa Kata Nasabah?</h2>
+                    <div class="testimoni-card shadow">
+                        <i class="bi bi-quote fs-1 text-primary opacity-25"></i>
+                        <p class="mb-4">"Menjadi nasabah BPR NTB sangat memudahkan usaha kecil saya. Proses kreditnya
+                            cepat dan bunganya sangat bersaing. Sangat membantu UMKM!"</p>
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <div class="bg-primary rounded-circle" style="width: 50px; height: 50px;"></div>
+                            </div>
+                            <div class="ms-3 text-dark">
+                                <h6 class="fw-bold mb-0">H. Ahmad Fauzi</h6>
+                                <small class="text-muted">Pengusaha Lokal</small>
+                            </div>
                         </div>
-
-                        <input type="text" placeholder="Subject">
-
-                        <textarea rows="4" placeholder="Pesan"></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="fw-bold mb-4">Butuh Bantuan?</h2>
+                    <form class="form-custom">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Nama Lengkap">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Email Anda">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Subjek Pertanyaan">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="4" placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."></textarea>
+                            </div>
+                            <div class="col-12 text-end">
+                                <button type="submit" class="btn btn-warning px-5 py-2 fw-bold rounded-pill">Kirim
+                                    Pesan</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
-
             </div>
-
         </div>
     </section>
+
+@endsection

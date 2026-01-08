@@ -1,133 +1,158 @@
-/* ================= FOOTER ================= */
-
+/* ================= FOOTER PREMIUM ================= */
 .site-footer {
-    background-color: #06386b;
+    background: linear-gradient(180deg, #06386b 0%, #04294f 100%);
     color: #ffffff;
     font-size: 14px;
-    padding: 48px 0 24px;
+    padding: 80px 0 30px;
+    position: relative;
+    overflow: hidden;
 }
 
-/* ===== TOP FOOTER ===== */
+/* Tambahan Pola Halus di Background */
+.site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+/* ===== GRID TATA LETAK ===== */
 .footer-top {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1.2fr;
-    gap: 40px;
-    align-items: flex-start;
-    margin-bottom: 32px;
+    grid-template-columns: 1.5fr 0.8fr 1.2fr;
+    gap: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
 }
 
-.footer-map img {
+/* ===== MAP & BRAND ===== */
+.footer-about h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #ffc107; /* Warna Emas BPR */
+}
+
+.footer-map-wrapper {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-map-wrapper img {
     width: 100%;
-    max-width: 420px;
-    border-radius: 12px;
+    transition: transform 0.5s ease;
+    display: block;
 }
 
-/* ===== COLUMN ===== */
+.footer-map-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* ===== COLUMN & LINKS ===== */
 .footer-column h4 {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
-    margin-bottom: 14px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
 }
 
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.footer-column h4::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #ffc107;
 }
 
 .footer-column ul li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease;
 }
 
 .footer-column ul li a {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .footer-column ul li a:hover {
-    opacity: 1;
-    text-decoration: underline;
+    color: #ffc107;
+    transform: translateX(5px);
 }
 
-/* ===== BOTTOM FOOTER ===== */
+/* ===== BOTTOM SECTION ===== */
 .footer-bottom {
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 32px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-/* ===== LEGAL ===== */
-.footer-legal h5 {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 8px;
+    align-items: center;
 }
 
 .footer-legal p {
-    max-width: 620px;
     font-size: 13px;
-    line-height: 1.6;
-    opacity: 0.9;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 15px;
 }
 
-/* ===== COUNTER ===== */
-.footer-counter {
-    text-align: center;
-}
-
-.counter-label {
-    display: block;
-    font-size: 13px;
-    margin-bottom: 8px;
-    opacity: 0.9;
-}
-
+/* ===== VISITOR COUNTER ===== */
 .counter-box {
-    background: linear-gradient(to top, var(--bpr-blue) 0%, #0062d1 100%);
-    border: 3px solid var(--bpr-gold);
-    border-radius: 14px;
-    padding: 12px 26px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 193, 7, 0.4);
+    border-radius: 18px;
+    padding: 15px 30px;
     text-align: center;
-    color: #ffffff;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .counter-box strong {
-    display: block;
-    font-size: 24px;
-    font-weight: 800;
-}
-
-.counter-box small {
-    font-size: 12px;
-    opacity: 0.9;
+    font-size: 28px;
+    background: linear-gradient(to bottom, #fff, #ffc107);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
 }
 
 /* ===== COPYRIGHT ===== */
 .footer-copy {
-    margin-top: 24px;
+    margin-top: 40px;
+    padding-bottom: 10px;
     text-align: center;
-    font-size: 13px;
-    opacity: 0.85;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width: 992px) {
     .footer-top {
         grid-template-columns: 1fr;
-        text-align: center;
+        gap: 40px;
     }
-
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+        gap: 30px;
     }
-
-    .footer-counter {
-        margin: 0 auto;
+    .footer-column h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .footer-column ul li a {
+        justify-content: center;
     }
 }
