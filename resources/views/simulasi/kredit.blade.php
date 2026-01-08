@@ -4,7 +4,7 @@
 
 {{-- ================= PAGE CSS ================= --}}
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/simulasi.css') }}">
+<link rel="stylesheet" href="{{ asset('css/pages/imulasi.css') }}">
 @endpush
 
 @section('content')
