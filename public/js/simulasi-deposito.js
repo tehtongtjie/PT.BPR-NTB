@@ -1,86 +1,112 @@
-document.addEventListener('DOMContentLoaded', function () {
-
-    const bungaTenor = {
-        1: 5,
-        3: 5.25,
-        6: 5.5,
-        12: 6
+document.addEventListener("DOMContentLoaded", function () {
+    const CONFIG = {
+        bungaTenor: {
+            1: 5.0,
+            3: 5.25,
+            6: 5.5,
+            12: 6.0,
+        },
+        minNominal: 5000000,
+        thresholdPajak: 7500000,
+        ratePajak: 0.2,
     };
 
-    const nominalInput = document.getElementById('nominal');
-    const tenorSelect  = document.getElementById('tenor');
-    const bungaSelect  = document.getElementById('bunga');
-    const bungaOutput  = document.getElementById('estimasi_bunga');
-    const totalOutput  = document.getElementById('total_dana');
-    const errorText    = document.getElementById('nominal-error');
+    const nominalInput = document.getElementById("nominal");
+    const tenorSelect = document.getElementById("tenor");
+    const bungaSelect = document.getElementById("bunga");
+    const bungaOutput = document.getElementById("estimasi_bunga"); 
+    const totalOutput = document.getElementById("total_dana"); 
 
-    // ===== FORMAT RUPIAH =====
-    function formatRupiah(angka) {
-        return 'Rp ' + angka.toLocaleString('id-ID');
-    }
+    const displayBunga = document.getElementById("display_bunga");
+    const displayTotal = document.getElementById("display_total");
+    const errorText = document.getElementById("nominal-error");
 
-    function getAngka(nominal) {
-        return parseInt(nominal.replace(/[^0-9]/g, '')) || 0;
-    }
+    const formatIDR = (angka) => {
+        return new Intl.NumberFormat("id-ID", {
+            style: "currency",
+            currency: "IDR",
+            minimumFractionDigits: 0,
+        }).format(angka);
+    };
 
-    function validasiNominal(nominal) {
-        if (nominal < 5000000) {
-            nominalInput.classList.add('input-error');
-            errorText.classList.remove('d-none');
-            bungaOutput.value = '';
-            totalOutput.value = '';
-            return false;
-        }
-
-        nominalInput.classList.remove('input-error');
-        errorText.classList.add('d-none');
-        return true;
-    }
+    const parseRaw = (str) => parseInt(str.replace(/[^0-9]/g, "")) || 0;
 
     function hitungDeposito() {
-        const nominal = getAngka(nominalInput.value);
-        const tenor   = tenorSelect.value;
+        const nominal = parseRaw(nominalInput.value);
+        const tenor = parseInt(tenorSelect.value);
 
-        if (!nominal || !validasiNominal(nominal)) return;
-        if (!tenor) return;
+        if (nominal < CONFIG.minNominal && nominal > 0) {
+            errorText.classList.remove("d-none");
+            nominalInput.classList.add("input-error");
+        } else {
+            errorText.classList.add("d-none");
+            nominalInput.classList.remove("input-error");
+        }
 
-        const bungaTahunan = bungaTenor[tenor];
-        const bunga = nominal * (bungaTahunan / 100) * (tenor / 12);
-        const total = nominal + bunga;
+        if (!nominal || !tenor || nominal < CONFIG.minNominal) {
+            updateDisplay(0, 0);
+            return;
+        }
 
-        bungaOutput.value = formatRupiah(Math.floor(bunga));
-        totalOutput.value = formatRupiah(Math.floor(total));
+        const rateBunga = CONFIG.bungaTenor[tenor] / 100;
+
+        let bungaBruto = nominal * rateBunga * (tenor / 12);
+
+        let pajak = 0;
+        if (nominal > CONFIG.thresholdPajak) {
+            pajak = bungaBruto * CONFIG.ratePajak;
+        }
+
+        const bungaNetto = bungaBruto - pajak;
+        const total = nominal + bungaNetto;
+
+        updateDisplay(bungaNetto, total);
     }
 
-    // ===== EVENT =====
-    nominalInput.addEventListener('input', function () {
-        let angka = getAngka(this.value);
+    function updateDisplay(bunga, total) {
+        const valBunga = bunga > 0 ? formatIDR(Math.floor(bunga)) : "";
+        const valTotal = total > 0 ? formatIDR(Math.floor(total)) : "";
+
+        if (bungaOutput) bungaOutput.value = valBunga;
+        if (totalOutput) totalOutput.value = valTotal;
+
+        if (displayBunga) displayBunga.innerText = valBunga || "Rp 0";
+        if (displayTotal) displayTotal.innerText = valTotal || "Rp 0";
+    }
+
+    nominalInput.addEventListener("input", function (e) {
+        let cursorStart = this.selectionStart;
+        let oldLength = this.value.length;
+
+        let angka = parseRaw(this.value);
 
         if (angka > 0) {
-            this.value = formatRupiah(angka);
+            this.value = formatIDR(angka).replace("Rp", "").trim();
+            this.value = "Rp " + this.value;
         } else {
-            this.value = '';
+            this.value = "";
         }
+
+        let newLength = this.value.length;
+        cursorStart = cursorStart + (newLength - oldLength);
+        this.setSelectionRange(cursorStart, cursorStart);
 
         hitungDeposito();
     });
 
-    tenorSelect.addEventListener('change', function () {
-        if (this.value) {
-            bungaSelect.value = bungaTenor[this.value] + '%';
+    // Event Tenor
+    tenorSelect.addEventListener("change", function () {
+        const val = this.value;
+
+        // Update field bunga %
+        if (val) {
+            bungaSelect.value = CONFIG.bungaTenor[val].toFixed(2) + "%";
+            this.classList.add("changed");
+            setTimeout(() => this.classList.remove("changed"), 400);
         } else {
-            bungaSelect.value = '';
+            bungaSelect.value = "";
         }
+
         hitungDeposito();
     });
-    const tenor = document.getElementById('tenor');
-    if (tenor) {
-        tenor.addEventListener('change', () => {
-            tenor.classList.remove('changed');
-            void tenor.offsetWidth;
-            tenor.classList.add('changed');
-        });
-    }
-
-
 });

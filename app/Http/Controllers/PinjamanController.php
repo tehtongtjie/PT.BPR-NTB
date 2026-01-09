@@ -4,10 +4,6 @@ namespace App\Http\Controllers;
 
 class PinjamanController extends Controller
 {
-    /**
-     * /pinjaman
-     * Langsung arahkan ke pinjaman default
-     */
     public function index()
     {
         return redirect()->route(
@@ -16,10 +12,6 @@ class PinjamanController extends Controller
         );
     }
 
-    /**
-     * /pinjaman/{slug}
-     * Detail pinjaman
-     */
     public function show($slug)
     {
         $pinjaman = config("pinjaman.$slug");

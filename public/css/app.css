@@ -1,19 +1,16 @@
-/* ================= BASE ================= */
-@import url("base/reset.css");
-@import url("base/variables.css");
-@import url("base/base.css");
+@import url("/css/base/reset.css");
+@import url("/css/base/variables.css");
+@import url("/css/base/base.css");
 
-/* ================= LAYOUT ================= */
-@import url("layout/header.css");
-@import url("layout/topbar.css");
-@import url("layout/navbar.css");
-@import url("layout/sidebar.css");
-@import url("layout/footer.css");
+@import url("/css/layout/header.css");
+@import url("/css/layout/topbar.css");
+@import url("/css/layout/navbar.css");
+@import url("/css/layout/sidebar.css");
+@import url("/css/layout/footer.css");
 
-/* ================= COMPONENTS ================= */
-@import url("components/hero.css");
-@import url("components/promo.css");
-@import url("components/suku-bunga.css");
-@import url("components/berita.css");
-@import url("components/prestasi.css");
-@import url("components/kontak.css");
+@import url("/css/components/hero.css");
+@import url("/css/components/promo.css");
+@import url("/css/components/suku-bunga.css");
+@import url("/css/components/berita.css");
+@import url("/css/components/prestasi.css");
+@import url("/css/components/kontak.css");

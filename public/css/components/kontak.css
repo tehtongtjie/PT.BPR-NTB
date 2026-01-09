@@ -1,5 +1,3 @@
-/* ================= KONTAK & TESTIMONI SECTION - VERSI JAUH LEBIH BAGUS & ULTRA PREMIUM ================= */
-/* Section Wrapper - Navy gradient luxury */
 .kontak-section {
     padding: 140px 0;
     background: linear-gradient(
@@ -12,7 +10,6 @@
     overflow: hidden;
 }
 
-/* Decorative glow orbs */
 .kontak-section::before {
     content: "";
     position: absolute;
@@ -50,7 +47,6 @@
     }
 }
 
-/* Main Container - Centered card */
 .kontak-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -59,7 +55,6 @@
     z-index: 2;
 }
 
-/* Card Wrapper - Glassmorphism dual panel */
 .kontak-card {
     display: flex;
     background: rgba(255, 255, 255, 0.12);
@@ -78,7 +73,6 @@
         0 25px 60px rgba(197, 160, 89, 0.2);
 }
 
-/* Testimoni Side - White luxury card */
 .testimoni-card {
     flex: 1;
     background: #ffffff;
@@ -187,7 +181,6 @@
     color: var(--gray-600);
 }
 
-/* Form Side - Transparent navy */
 .hubungi-box {
     flex: 1;
     padding: 80px 60px;
@@ -247,7 +240,6 @@
     resize: vertical;
 }
 
-/* Submit Button - Gold luxury */
 .btn-kirim {
     background: linear-gradient(135deg, var(--bpr-gold), var(--bpr-gold-light));
     color: var(--bpr-blue-dark);
@@ -291,7 +283,6 @@
     background: linear-gradient(135deg, var(--bpr-gold-light), var(--bpr-gold));
 }
 
-/* Responsive */
 @media (max-width: 992px) {
     .kontak-card {
         flex-direction: column;

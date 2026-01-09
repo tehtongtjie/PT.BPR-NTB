@@ -1,10 +1,4 @@
-/* =========================================================
-   GLOBAL CSS VARIABLES - PT BPR NTB
-   Single Source of Truth
-========================================================= */
-
 :root {
-    /* ================= BRAND COLORS ================= */
     --bpr-blue: #00326b;
     --bpr-blue-light: #1e6fe8;
     --bpr-blue-dark: #001f44;
@@ -13,17 +7,14 @@
     --bpr-gold-light: #f1b94a;
     --bpr-gold-glow: rgba(233, 157, 18, 0.3);
 
-    /* ================= NEUTRAL ================= */
     --gray-900: #1f2937;
     --gray-700: #374151;
     --gray-600: #4b5563;
     --gray-300: #e5e7eb;
     --gray-100: #f8fafc;
 
-    /* ================= LAYOUT ================= */
     --header-height: 96px;
 
-    /* ================= TYPOGRAPHY ================= */
     --font-base: "Segoe UI", system-ui, sans-serif;
     --font-size-base: 14px;
 }

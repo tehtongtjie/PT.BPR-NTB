@@ -1,7 +1,4 @@
-/* ================= PAGES/TABUNGAN.CSS - COMPACT PREMIUM VERSION ================= */
-
 :root {
-    /* Warna Kombinasi Baru */
     --bpr-blue: #00326b;
     --bpr-blue-light: #1e6fe8;
     --bpr-gold: #e99d12;
@@ -17,12 +14,11 @@
     --gray-300: #e5e7eb;
 }
 
-.tabungan-page {
+.pinjaman-page {
     padding: 50px 0;
     background: radial-gradient(circle at top right, #f8fafc, #eef2ff);
 }
 
-/* --- Main Card --- */
 .main-product-card {
     background: #ffffff;
     border-radius: 28px;
@@ -40,7 +36,6 @@
     box-shadow: 0 30px 70px rgba(0, 50, 107, 0.18);
 }
 
-/* --- Header --- */
 .product-header {
     background: linear-gradient(145deg, var(--bpr-blue), var(--bpr-blue-light));
     color: #ffffff;
@@ -58,7 +53,6 @@
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4v-4H4v4H0v2h4v4h2v-4h4v-2H6zM36 4v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Gambar Kartu ATM */
 .product-header img {
     position: absolute;
     right: 40px;
@@ -91,12 +85,10 @@
     margin-top: 5px;
 }
 
-/* --- Body Content --- */
 .product-body {
     padding: 60px 45px 40px 45px;
 }
 
-/* --- Benefit Grid --- */
 .benefits-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -151,7 +143,6 @@
     line-height: 1.4;
 }
 
-/* --- Syarat Pengajuan --- */
 .requirements-list {
     background: #ffffff;
     border-radius: 28px;
@@ -217,14 +208,12 @@
     transform: scale(1.1);
 }
 
-/* --- CTA Container --- */
 .cta-container {
     text-align: center;
     width: 100%;
     padding-bottom: 20px;
 }
 
-/* --- CTA Button Base --- */
 .cta-button {
     display: inline-block;
     background: var(--bpr-blue);
@@ -271,7 +260,6 @@
     transition: all 0.8s ease-in-out;
 }
 
-/* --- Animations --- */
 @keyframes float {
     0% {
         transform: translateY(0px);

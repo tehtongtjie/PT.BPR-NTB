@@ -1,4 +1,3 @@
-/* ================= FOOTER PREMIUM ================= */
 .site-footer {
     background: linear-gradient(180deg, #06386b 0%, #04294f 100%);
     color: #ffffff;
@@ -8,7 +7,6 @@
     overflow: hidden;
 }
 
-/* Tambahan Pola Halus di Background */
 .site-footer::before {
     content: "";
     position: absolute;
@@ -20,7 +18,6 @@
     pointer-events: none;
 }
 
-/* ===== GRID TATA LETAK ===== */
 .footer-top {
     display: grid;
     grid-template-columns: 1.5fr 0.8fr 1.2fr;
@@ -30,12 +27,11 @@
     z-index: 1;
 }
 
-/* ===== MAP & BRAND ===== */
 .footer-about h3 {
     font-size: 22px;
     font-weight: 800;
     margin-bottom: 20px;
-    color: #ffc107; /* Warna Emas BPR */
+    color: #ffc107;
 }
 
 .footer-map-wrapper {
@@ -56,7 +52,6 @@
     transform: scale(1.05);
 }
 
-/* ===== COLUMN & LINKS ===== */
 .footer-column h4 {
     font-size: 17px;
     font-weight: 700;
@@ -93,7 +88,6 @@
     transform: translateX(5px);
 }
 
-/* ===== BOTTOM SECTION ===== */
 .footer-bottom {
     padding-top: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
@@ -109,7 +103,6 @@
     margin-top: 15px;
 }
 
-/* ===== VISITOR COUNTER ===== */
 .counter-box {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -128,7 +121,6 @@
     font-weight: 900;
 }
 
-/* ===== COPYRIGHT ===== */
 .footer-copy {
     margin-top: 40px;
     padding-bottom: 10px;
@@ -137,7 +129,6 @@
     font-size: 12px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 992px) {
     .footer-top {
         grid-template-columns: 1fr;

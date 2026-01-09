@@ -1,5 +1,3 @@
-/* ================= LAYOUT/SIDEBAR.CSS ================= */
-
 .sidebar-universal {
     background: #ffffff;
     border-radius: 18px;
@@ -8,7 +6,6 @@
     border: 1px solid #eef2f7;
 }
 
-/* === HEADER (dulu .sidebar-header) === */
 .sidebar-heading {
     background: var(--bpr-blue);
     color: white;
@@ -21,7 +18,6 @@
     margin-bottom: 25px;
 }
 
-/* === BODY (dulu .sidebar-body) === */
 .sidebar-list {
     list-style: none;
     padding: 0 0 0 24px;
@@ -29,13 +25,11 @@
     margin-left: 12px;
 }
 
-/* Item */
 .sidebar-list li {
     position: relative;
     margin-bottom: 4px;
 }
 
-/* Link */
 .sidebar-list li a {
     display: block;
     padding: 12px 0;
@@ -46,19 +40,16 @@
     transition: all 0.2s ease;
 }
 
-/* Hover (tetap sama tampilannya) */
 .sidebar-list li a:hover {
     color: var(--bpr-blue-light);
     padding-left: 4px;
 }
 
-/* Active (tetap sama) */
 .sidebar-list li.active a {
     color: var(--bpr-blue);
     font-weight: 700;
 }
 
-/* Garis emas active (tetap sama) */
 .sidebar-list li.active::before {
     content: "";
     position: absolute;

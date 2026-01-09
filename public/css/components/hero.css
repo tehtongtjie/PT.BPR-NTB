@@ -5,15 +5,15 @@
 }
 .hero-slide {
     width: 100%;
-    /* Gunakan aspect ratio agar tinggi mengikuti lebar gambar (fit) */
+
     aspect-ratio: 1920 / 700;
-    background-size: contain; /* Gambar tidak akan terpotong */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     transition: transform 10s ease;
 }
 .carousel-item.active .hero-slide {
-    transform: scale(1.02); /* Zoom sangat tipis agar tetap fit */
+    transform: scale(1.02); 
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
