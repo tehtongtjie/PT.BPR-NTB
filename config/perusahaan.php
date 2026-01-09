@@ -89,4 +89,68 @@ return [
             ],
         ],
     ],
+    'komisaris' => [
+        'title' => 'Dewan Komisaris',
+        'subtitle' => 'Profil Dewan Komisaris',
+        'image' => 'images/simulasi-bg.png',
+
+        'members' => [
+            [
+                'name' => 'Ria Prayuniarti, SP',
+                'position' => 'Komisaris Independen',
+                'photo' => 'images/perusahaan/ria-prayuniarti.png',
+                'summary' => 'Ria Prayuniarti merupakan lulusan S1 Sarjana Pertanian Universitas Mataram pada tahun 1995. Mengawali kariernya di LKP Mujur pada tahun 1997–1998 sebagai staf administrasi...',
+            ],
+            [
+                'name' => 'Syarif Mustaan, SE., M.Si',
+                'position' => 'Komisaris Independen',
+                'photo' => 'images/perusahaan/syarif-mustaan.png',
+                'summary' => 'Syarif Mustaan merupakan lulusan S1 Sarjana Ekonomi dari Universitas Muhammadiyah Malang dan menyelesaikan pendidikan Magister Sains (M.Si)...',
+            ],
+        ],
+    ],
+    'direksi' => [
+        'title' => 'Dewan Direksi',
+        'subtitle' => 'Manajemen Eksekutif',
+        'image' => 'images/simulasi-bg.png',
+
+        'members' => [
+            [
+                'name' => 'Hj. Denda Sucihartiani, SE',
+                'position' => 'Direktur Bisnis',
+                'image' => 'images/perusahaan/denda-sucihartiani.png',
+                'excerpt' => 'Hj. Denda Sucihartiani merupakan lulusan S1 Ekonomi Pembangunan Universitas Al-Azhar Mataram. Mengawali karir perbankannya di PD.BPR NTB selama 35 tahun...',
+                'slug' => 'denda-sucihartiani'
+            ],
+            [
+                'name' => 'Zulkifli Hamdani',
+                'position' => 'Direktur Kepatuhan',
+                'image' => 'images/perusahaan/zulkifli-hamdani.png',
+                'excerpt' => 'Zulkifli Hamdani merupakan lulusan Ekonomi Manajemen Universitas Teknologi Yogyakarta pada tahun 2008. Putra kelahiran Pancor, Lombok Timur...',
+                'slug' => 'zulkifli-hamdani'
+            ],
+        ],
+    ],
+    'tata-kelola' => [
+        'title' => 'Tata Kelola Perusahaan',
+        'subtitle' => 'Good Corporate Governance',
+        'image' => 'images/simulasi-bg.png',
+
+        'intro' => [
+            'Penerapan tata kelola perusahaan yang baik dan sehat (Good Corporate Governance) akan meningkatkan kinerja bank, baik dilihat dari sisi keuangan maupun operasional, serta meningkatkan kepercayaan para pemangku kepentingan (Stakeholders).',
+
+            'Oleh karena pentingnya penerapan tata kelola perusahaan yang baik, PT BPR NTB PERSERODA berkomitmen untuk terus meningkatkan pelaksanaan Good Corporate Governance secara konsisten dan berkelanjutan. Penerapan tata kelola perusahaan yang baik dilakukan secara konsisten dan berkelanjutan, serta didukung oleh komitmen yang kuat dari Dewan Komisaris dan Direksi beserta seluruh jajaran organisasi BPR.',
+
+            'Sebagai wujud komitmen BPR terhadap penerapan tata kelola yang baik dan berkelanjutan, BPR telah memiliki dan didukung dengan adanya:'
+        ],
+
+        'principles' => [
+            'Visi dan Misi yang jelas, serta dikaji dan dievaluasi secara berkala oleh Dewan Komisaris dan Direksi.',
+            'Pedoman dan tata tertib kerja Dewan Komisaris dan Direksi.',
+            'Penetapan Kode Etik Bank sebagai acuan karyawan dalam berperilaku di lingkungan kerja.',
+            'Sistem pengendalian internal berupa fungsi audit internal dan eksternal, serta fungsi kepatuhan yang independen.',
+            'Kebijakan dan prosedur kerja yang jelas dalam mendukung terlaksananya tujuan perusahaan.',
+            'Penetapan struktur, tanggung jawab, dan akuntabilitas yang jelas bagi seluruh organisasi BPR.',
+        ],
+    ],
 ];

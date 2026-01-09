@@ -64,7 +64,7 @@
                                 @endif
                             </div>
 
-                            {{-- ================= VISI & MISI ================= --}}
+                        {{-- ================= VISI & MISI ================= --}}
                         @elseif ($slug === 'visi-misi')
                             <div class="vision-mission-grid">
                                 <div class="vision-card mb-5">
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
 
-                            {{-- ================= BUDAYA PERUSAHAAN ================= --}}
+                        {{-- ================= BUDAYA PERUSAHAAN ================= --}}
                         @elseif ($slug === 'budaya')
                             <div class="culture-section">
                                 @foreach ($data['intro'] as $paragraph)
@@ -111,8 +111,82 @@
                                     </div>
                                 </div>
                             </div>
-                        @endif
+                        @elseif ($slug === 'komisaris')
 
+                        {{-- DEWAN KOMISARIS --}}
+                        <div class="commissioner-section">
+                            @foreach ($data['members'] as $member)
+                                <div class="commissioner-card">
+                                    <div class="commissioner-photo">
+                                        <img src="{{ asset($member['photo']) }}" alt="{{ $member['name'] }}">
+                                    </div>
+
+                                    <div class="commissioner-info">
+                                        <h3>{{ $member['name'] }}</h3>
+                                        <span class="commissioner-role">{{ $member['position'] }}</span>
+
+                                        <p>{{ $member['summary'] }}</p>
+
+                                        <a href="#" class="btn-detail">Selengkapnya</a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        {{-- ================= DEWAN DIREKSI ================= --}}
+                        @elseif ($slug === 'direksi')
+
+                        <div class="executive-section">
+
+                            @foreach ($data['members'] as $member)
+                                <div class="executive-card">
+
+                                    <div class="executive-photo">
+                                        <img src="{{ asset($member['image']) }}" alt="{{ $member['name'] }}">
+                                    </div>
+
+                                    <div class="executive-content">
+                                        <h3 class="executive-name">{{ $member['name'] }}</h3>
+                                        <span class="executive-position">{{ $member['position'] }}</span>
+
+                                        <p class="executive-excerpt">
+                                            {{ $member['excerpt'] }}
+                                        </p>
+
+                                        <a href="{{ url('/perusahaan/direksi/' . $member['slug']) }}"
+                                        class="btn-executive">
+                                            Selengkapnya
+                                        </a>
+                                    </div>
+
+                                </div>
+                            @endforeach
+                        </div>
+
+                        {{-- ================= TATA KELOLA PERUSAHAAN ================= --}}
+                        @elseif ($slug === 'tata-kelola')
+
+                        <div class="governance-section">
+
+                            @foreach ($data['intro'] as $paragraph)
+                                <p class="lead-text">{{ $paragraph }}</p>
+                            @endforeach
+
+                            <div class="governance-points mt-5">
+                                <h5 class="content-subtitle-inner">
+                                    <i class="fas fa-balance-scale me-2"></i>
+                                    Prinsip Tata Kelola
+                                </h5>
+
+                                <ol class="premium-ordered-list mt-4">
+                                    @foreach ($data['principles'] as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                </ol>
+                            </div>
+
+                        </div>
+                        @endif
+                        
                     </div>
                 </div>
 
