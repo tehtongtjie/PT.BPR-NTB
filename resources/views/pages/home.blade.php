@@ -4,21 +4,14 @@
 
 @section('content')
 
-    {{-- 1. HERO SLIDER --}}
     <section class="hero-section">
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-            </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="hero-slide"
-                        style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('{{ asset('images/simbada.png') }}');">
-                    </div>
+                    <div class="hero-slide" style="background-image: url('{{ asset('images/SimbadaHero.png') }}');"></div>
                 </div>
                 <div class="carousel-item">
-                    <div class="hero-slide" style="background-image: url('{{ asset('images/simbada.png') }}');"></div>
+                    <div class="hero-slide" style="background-image: url('{{ asset('images/SlideLain.png') }}');"></div>
                 </div>
             </div>
         </div>
@@ -36,7 +29,7 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card promo-card shadow-sm h-100">
-                        <img src="{{ asset('images/tabunganku.jpg') }}" alt="TabunganKU">
+                        <img src="{{ asset('images/tabunganku.png') }}" alt="TabunganKU">
                         <div class="card-body">
                             <h5 class="fw-bold">TabunganKU</h5>
                             <p class="small text-muted">Setoran awal ringan, bebas biaya administrasi bulanan.</p>
@@ -57,9 +50,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card promo-card shadow-sm h-100">
-                        <img src="{{ asset('images/deposito.jpg') }}" alt="Deposito">
+                        <img src="{{ asset('images/tabungan-sukses.png') }}" alt="Deposito">
                         <div class="card-body">
-                            <h5 class="fw-bold">Deposito Berjangka</h5>
+                            <h5 class="fw-bold">Tabungan Sukses</h5>
                             <p class="small text-muted">Investasi aman dengan suku bunga kompetitif dan dijamin LPS.</p>
                             <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">Selengkapnya</a>
                         </div>
@@ -72,59 +65,78 @@
     {{-- 3. SUKU BUNGA --}}
     <section class="suku-bunga-section">
         <div class="container">
-            <div class="sb-card-wrapper row g-0">
-                <div class="col-md-4 sb-left-panel d-flex flex-column justify-content-center align-items-center">
-                    <span class="badge bg-warning text-dark mb-3 px-3 py-2">TINGKAT BUNGA PENJAMINAN</span>
-                    <div class="sb-value">6.00%</div>
-                    <p class="mt-3 opacity-75">Simpanan Anda dijamin oleh LPS hingga Rp 2 Miliar.</p>
-                    <a href="https://apps.lps.go.id/BankPesertaLPSRate" target="_blank"
-                        class="btn btn-light btn-sm rounded-pill px-4">Cek LPS Rate</a>
+
+            <div class="sb-card-wrapper">
+
+                {{-- LEFT PANEL --}}
+                <div class="sb-left-panel">
+                    <span>TINGKAT BUNGA PENJAMINAN (LPS)</span>
+
+                    <h2 class="sb-value">6.00%</h2>
+
+                    <p>
+                        Suku bunga BPR sebesar <strong>6.00%</strong>
+                        sesuai ketentuan penjaminan LPS.
+                        Simpanan dijamin hingga Rp 2 Miliar.
+                    </p>
+
+                    <a href="https://apps.lps.go.id/BankPesertaLPSRate" target="_blank" rel="noopener"
+                        class="btn btn-light btn-sm rounded-pill px-4 mt-3">
+                        Cek LPS Rate Resmi
+                    </a>
                 </div>
-                <div class="col-md-8 p-4 p-md-5">
-                    <h4 class="fw-bold mb-4"><i class="bi bi-graph-up-arrow me-2 text-primary"></i>Rincian Suku Bunga</h4>
-                    <div class="accordion shadow-sm" id="accBunga">
-                        <div class="accordion-item border-0">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#tabungan">
-                                    Suku Bunga Tabungan
-                                </button>
-                            </h2>
-                            <div id="tabungan" class="accordion-collapse collapse show" data-bs-parent="#accBunga">
-                                <div class="accordion-body">
-                                    <div class="d-flex justify-content-between border-bottom py-2"><span>Simbada</span>
-                                        <strong>5.00%</strong>
-                                    </div>
-                                    <div class="d-flex justify-content-between border-bottom py-2"><span>TabunganKU</span>
-                                        <strong>3.00%</strong>
-                                    </div>
-                                    <div class="d-flex justify-content-between py-2"><span>Tabungan Siswa</span>
-                                        <strong>4.00%</strong>
-                                    </div>
-                                </div>
+
+                {{-- RIGHT PANEL --}}
+                <div class="sb-right-panel">
+
+                    <h3 class="sb-right-title">Rincian Suku Bunga</h3>
+
+                    {{-- DROPDOWN TABUNGAN --}}
+                    <div class="sb-dropdown active">
+                        <button class="sb-dropdown-header" type="button">
+                            <span>Suku Bunga Tabungan</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+
+                        <div class="sb-dropdown-content">
+                            <div class="sb-row">
+                                <span>Simbada</span>
+                                <span>5.00%</span>
                             </div>
-                        </div>
-                        <div class="accordion-item border-0">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#deposito">
-                                    Suku Bunga Deposito
-                                </button>
-                            </h2>
-                            <div id="deposito" class="accordion-collapse collapse" data-bs-parent="#accBunga">
-                                <div class="accordion-body">
-                                    <div class="d-flex justify-content-between border-bottom py-2"><span>1 Bulan</span>
-                                        <strong>5.00% p.a</strong>
-                                    </div>
-                                    <div class="d-flex justify-content-between border-bottom py-2"><span>6 Bulan</span>
-                                        <strong>5.50% p.a</strong>
-                                    </div>
-                                    <div class="d-flex justify-content-between py-2"><span>12 Bulan</span> <strong>6.00%
-                                            p.a</strong></div>
-                                </div>
+                            <div class="sb-row">
+                                <span>TabunganKU</span>
+                                <span>3.00%</span>
+                            </div>
+                            <div class="sb-row">
+                                <span>Tabungan Siswa</span>
+                                <span>4.00%</span>
                             </div>
                         </div>
                     </div>
+
+                    {{-- DROPDOWN DEPOSITO --}}
+                    <div class="sb-dropdown">
+                        <button class="sb-dropdown-header" type="button">
+                            <span>Suku Bunga Deposito</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+
+                        <div class="sb-dropdown-content">
+                            <div class="sb-row">
+                                <span>1 Bulan</span>
+                                <span>5.00% p.a</span>
+                            </div>
+                            <div class="sb-row">
+                                <span>6 Bulan</span>
+                                <span>5.50% p.a</span>
+                            </div>
+                            <div class="sb-row">
+                                <span>12 Bulan</span>
+                                <span>6.00% p.a</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

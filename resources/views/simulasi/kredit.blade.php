@@ -90,6 +90,3 @@
     </section>
 @endsection
 
-@push('scripts')
-    <script src="{{ asset('js/simulasi-kredit.js') }}"></script>
-@endpush

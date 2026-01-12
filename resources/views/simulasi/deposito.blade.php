@@ -67,7 +67,3 @@
     </section>
 
 @endsection
-
-@push('scripts')
-    <script src="{{ asset('js/simulasi-deposito.js') }}"></script>
-@endpush

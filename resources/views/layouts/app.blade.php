@@ -7,14 +7,14 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Vendor CSS -->
+    <!-- ================= VENDOR CSS ================= -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- ================= VITE ASSETS ================= -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Page Specific CSS -->
+    <!-- ================= PAGE SPECIFIC CSS ================= -->
     @stack('styles')
 </head>
 
@@ -26,7 +26,7 @@
         @include('partials.navbar')
     </header>
 
-    <!-- ================= CONTENT (OFFSET DARI HEADER) ================= -->
+    <!-- ================= CONTENT ================= -->
     <main class="site-main pt-navbar">
         @yield('content')
     </main>
@@ -34,28 +34,11 @@
     <!-- ================= FOOTER ================= -->
     @include('partials.footer')
 
-    <script>
-        function toggleSB(id) {
-            // Menutup dropdown lain agar hanya satu yang terbuka
-            const allWrappers = document.querySelectorAll('.sb-table-wrapper');
-            allWrappers.forEach(w => {
-                if (w.id !== id) w.classList.remove('active');
-            });
-
-            // Toggle dropdown yang diklik
-            const wrapper = document.getElementById(id);
-            wrapper.classList.toggle('active');
-        }
-    </script>
-
-    <!-- Vendor JS -->
+    <!-- ================= VENDOR JS ================= -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="{{ asset('js/navbar-dropdown.js') }}"></script>
-
-    <!-- Page Specific JS -->
+    <!-- ================= PAGE SPECIFIC JS ================= -->
     @stack('scripts')
 
 </body>
-
 </html>

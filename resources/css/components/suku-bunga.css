@@ -1,0 +1,184 @@
+/* =========================================================
+   SUKU BUNGA - LUXURY MINIMALIST
+   ========================================================= */
+
+.suku-bunga-section {
+    padding: 100px 0;
+    background: radial-gradient(circle at top right, #ffffff, #f4f7fa);
+}
+
+.sb-card-wrapper {
+    max-width: 920px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 32px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 50, 107, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: transform 0.4s ease;
+}
+
+.sb-card-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+/* --- LEFT PANEL --- */
+.sb-left-panel {
+    flex: 1;
+    background: linear-gradient(160deg, #001f44 0%, #00326b 100%);
+    color: #ffffff;
+    padding: 60px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.sb-left-panel span {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: #e99d12; /* BPR Gold */
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.sb-value {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+    background: linear-gradient(
+        180deg,
+        #ffffff 60%,
+        rgba(255, 255, 255, 0.7) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sb-left-panel p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 20px;
+    opacity: 0.8;
+    max-width: 260px;
+}
+
+.sb-left-panel .btn-light {
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.sb-left-panel .btn-light:hover {
+    background: #e99d12;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* --- RIGHT PANEL --- */
+.sb-right-panel {
+    flex: 1.2;
+    padding: 50px 55px;
+    background: #ffffff;
+}
+
+.sb-right-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #001f44;
+    margin-bottom: 30px;
+}
+
+/* --- DROPDOWN --- */
+.sb-dropdown {
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.sb-dropdown:last-child {
+    border-bottom: none;
+}
+
+.sb-dropdown-header {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00326b;
+    transition: color 0.3s ease;
+}
+
+.sb-dropdown-header i {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- CONTENT ANIMATION --- */
+.sb-dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.sb-dropdown.active .sb-dropdown-content {
+    max-height: 500px;
+    transition: max-height 0.8s ease-in-out;
+    padding-bottom: 20px;
+}
+
+.sb-dropdown.active .sb-dropdown-header i {
+    transform: rotate(180deg);
+    color: #e99d12;
+}
+
+/* --- ROWS --- */
+.sb-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-radius: 12px;
+    transition: background 0.3s ease;
+}
+
+.sb-row:hover {
+    background: #f8fafc;
+}
+
+.sb-row span:first-child {
+    color: #64748b;
+    font-weight: 500;
+}
+
+.sb-row span:last-child {
+    color: #001f44;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .sb-card-wrapper {
+        flex-direction: column;
+    }
+    .sb-left-panel,
+    .sb-right-panel {
+        padding: 40px 30px;
+    }
+    .sb-value {
+        font-size: 4rem;
+    }
+}
