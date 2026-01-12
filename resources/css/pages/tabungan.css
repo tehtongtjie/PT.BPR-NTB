@@ -286,3 +286,125 @@
 .product-header img {
     animation: float 6s ease-in-out infinite;
 }
+
+@media (max-width: 992px) {
+    .tabungan-page {
+        padding: 40px 16px;
+    }
+
+    .main-product-card {
+        max-width: 100%;
+        border-radius: 24px;
+    }
+
+    .product-header {
+        padding: 35px 30px 60px;
+    }
+
+    .product-header img {
+        right: 20px;
+        max-height: 140px;
+    }
+
+    .product-body {
+        padding: 45px 30px 35px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .requirements-list {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-header {
+        text-align: center;
+        padding: 30px 22px 80px;
+    }
+
+    .product-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .product-header p {
+        letter-spacing: 2px;
+    }
+
+    .product-header img {
+        position: static;
+        margin-top: 25px;
+        max-height: 120px;
+    }
+
+    .product-body {
+        padding: 40px 22px 30px;
+    }
+
+    .benefit-item {
+        padding: 18px;
+    }
+
+    .benefit-item i {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+    }
+
+    .requirements-list {
+        padding: 26px 22px;
+        border-radius: 22px;
+    }
+
+    .requirements-list li {
+        font-size: 0.95rem;
+        padding: 14px 0;
+    }
+
+    .cta-button {
+        padding: 14px 36px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .product-header {
+        padding: 26px 18px 70px;
+        border-radius: 22px 22px 6px 6px;
+    }
+
+    .product-header h3 {
+        font-size: 1.6rem;
+    }
+
+    .product-body {
+        padding: 32px 18px 24px;
+    }
+
+    .benefit-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .benefit-item strong {
+        font-size: 0.95rem;
+    }
+
+    .benefit-item small {
+        font-size: 0.8rem;
+    }
+
+    .requirements-list {
+        padding: 22px 18px;
+    }
+
+    .cta-button {
+        width: 100%;
+        padding: 14px;
+    }
+}

@@ -2,6 +2,9 @@
     --bpr-blue-dark: #001f44;
 }
 
+/* ==========================
+   HERO SECTION (DEFAULT)
+========================== */
 .hero-section {
     position: relative;
     width: 100%;
@@ -11,12 +14,14 @@
     background-color: var(--bpr-blue-dark);
 }
 
+/* Carousel Full Height */
 .hero-section .carousel,
 .hero-section .carousel-inner,
 .hero-section .carousel-item {
     height: 100%;
 }
 
+/* Background Slide */
 .hero-slide {
     width: 100%;
     height: 100%;
@@ -24,27 +29,44 @@
     background-position: center center;
     background-repeat: no-repeat;
 
-    /* Animasi Zoom Smooth */
+    /* Cinematic zoom */
+    transform: scale(1.15);
     transition: transform 10s ease-out;
-    transform: scale(1.15); /* Posisi awal sedikit zoom */
     will-change: transform;
 }
 
-/* Saat slide aktif, gambar perlahan mengecil ke ukuran normal */
+/* Saat aktif */
 .carousel-item.active .hero-slide {
     transform: scale(1);
 }
 
-/* Responsif Mobile agar gambar tetap proporsional */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .hero-section {
-        /* Ubah ke aspek rasio portrait agar subjek foto tidak terpotong di HP */
-        height: auto !important;
-        aspect-ratio: 9 / 16;
-        min-height: 500px;
+        height: auto;
+        background-color: transparent;
+    }
+
+    .hero-section .carousel,
+    .hero-section .carousel-inner,
+    .hero-section .carousel-item {
+        height: auto;
     }
 
     .hero-slide {
-        transform: none !important; /* Matikan animasi di HP jika ingin hemat baterai/performa */
+        background-size: contain;
+        background-position: center top;
+        background-repeat: no-repeat;
+
+        /* KUNCI UTAMA */
+        height: 0;
+        padding-top: 62%; /* rasio gambar */
+        transform: none;
+        transition: none;
+    }
+}
+
+@media (max-width: 430px) {
+    .hero-slide {
+        padding-top: 70%;
     }
 }
