@@ -28,6 +28,15 @@ Route::get('/simulasi/kredit', fn () => view('simulasi.kredit'))
 
 /*
 |--------------------------------------------------------------------------
+| DEPOSITO (INFORMASI – TANPA DATABASE)
+|--------------------------------------------------------------------------
+*/
+Route::get('/deposito', function () {
+    return view('deposito.show');
+})->name('deposito.show');
+
+/*
+|--------------------------------------------------------------------------
 | FORM PERMINTAAN INFORMASI SIMULASI
 |--------------------------------------------------------------------------
 */

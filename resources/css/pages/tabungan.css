@@ -259,6 +259,10 @@
     left: 150%;
     transition: all 0.8s ease-in-out;
 }
+.section-title {
+    margin-top: 12px;      /* sebelumnya biasanya 24px / 32px */
+    margin-bottom: 16px;
+}
 
 @keyframes float {
     0% {

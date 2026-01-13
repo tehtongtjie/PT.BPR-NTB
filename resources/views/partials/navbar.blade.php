@@ -24,26 +24,55 @@
 
                 {{-- PRODUK & LAYANAN --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link nav-link-bpr dropdown-toggle {{ request()->is('tabungan*') || request()->is('pinjaman*') || request()->is('simulasi*') ? 'active' : '' }}"
+                    <a class="nav-link nav-link-bpr dropdown-toggle
+                        {{ request()->is('tabungan*') 
+                        || request()->is('deposito*') 
+                        || request()->is('pinjaman*') 
+                        || request()->is('simulasi*') ? 'active' : '' }}"
                         href="#" role="button" data-bs-toggle="dropdown">
                         Produk & Layanan
                     </a>
+
                     <ul class="dropdown-menu dropdown-bpr animate slideIn">
-                        <li><a class="dropdown-item" href="{{ route('tabungan.show', 'tabunganku') }}">Tabungan</a></li>
-                        <li><a class="dropdown-item" href="{{ route('pinjaman.index') }}">Pinjaman</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('tabungan.show', 'tabunganku') }}">
+                                Tabungan
+                            </a>
+                        </li>
+
+                        {{-- ✅ DEPOSITO (PAKAI SHOW) --}}
+                        <li>
+                            <a class="dropdown-item" href="{{ route('deposito.show') }}">
+                                Deposito
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="{{ route('pinjaman.index') }}">
+                                Pinjaman
+                            </a>
+                        </li>
+
                         <li class="dropdown-submenu">
                             <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
                                 Simulasi <i class="bi bi-chevron-right arrow-sub"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-bpr shadow">
-                                <li><a class="dropdown-item" href="{{ route('simulasi.deposito') }}">Simulasi
-                                        Deposito</a></li>
-                                <li><a class="dropdown-item" href="{{ route('simulasi.kredit') }}">Simulasi Kredit</a>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('simulasi.deposito') }}">
+                                        Simulasi Deposito
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('simulasi.kredit') }}">
+                                        Simulasi Kredit
+                                    </a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
+
 
                 {{-- PERUSAHAAN --}}
                 <li class="nav-item dropdown">

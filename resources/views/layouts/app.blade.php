@@ -40,5 +40,11 @@
     <!-- ================= PAGE SPECIFIC JS ================= -->
     @stack('scripts')
 
+    <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
 </body>
 </html>
