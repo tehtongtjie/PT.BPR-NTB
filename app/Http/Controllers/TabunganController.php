@@ -14,6 +14,6 @@ class TabunganController extends Controller
             abort(404);
         }
 
-        return view('tabungan.show', compact('tabungan'));
+        return view('users.tabungan.show', compact('tabungan'));
     }
 }

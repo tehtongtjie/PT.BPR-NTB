@@ -14,6 +14,6 @@ class PerusahaanController extends Controller
             abort(404);
         }
 
-        return view('perusahaan.show', compact('data', 'slug'));
+        return view('users.perusahaan.show', compact('data', 'slug'));
     }
 }

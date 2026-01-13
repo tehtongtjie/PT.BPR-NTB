@@ -8,32 +8,25 @@ use App\Http\Controllers\PerusahaanController;
 
 /*
 |--------------------------------------------------------------------------
-| HALAMAN UTAMA
+| HALAMAN UTAMA (PUBLIC USER)
 |--------------------------------------------------------------------------
 */
 Route::get('/', function () {
-    return view('pages.home');
-});
+    return view('users.pages.home');
+})->name('home');
 
 /*
 |--------------------------------------------------------------------------
 | HALAMAN SIMULASI (AWAL)
 |--------------------------------------------------------------------------
 */
-Route::get('/simulasi/deposito', fn () => view('simulasi.deposito'))
-    ->name('simulasi.deposito');
+Route::get('/simulasi/deposito', function () {
+    return view('users.simulasi.deposito');
+})->name('simulasi.deposito');
 
-Route::get('/simulasi/kredit', fn () => view('simulasi.kredit'))
-    ->name('simulasi.kredit');
-
-/*
-|--------------------------------------------------------------------------
-| DEPOSITO (INFORMASI – TANPA DATABASE)
-|--------------------------------------------------------------------------
-*/
-Route::get('/deposito', function () {
-    return view('deposito.show');
-})->name('deposito.show');
+Route::get('/simulasi/kredit', function () {
+    return view('users.simulasi.kredit');
+})->name('simulasi.kredit');
 
 /*
 |--------------------------------------------------------------------------
@@ -41,11 +34,13 @@ Route::get('/deposito', function () {
 |--------------------------------------------------------------------------
 */
 Route::get('/simulasi/{jenis}/permintaan', function ($jenis) {
+
     if (!in_array($jenis, ['deposito', 'kredit'])) {
         abort(404);
     }
 
-    return view('simulasi.permintaan-simulasi', compact('jenis'));
+    return view('users.simulasi.permintaan-simulasi', compact('jenis'));
+
 })->name('simulasi.permintaan');
 
 /*
@@ -53,33 +48,51 @@ Route::get('/simulasi/{jenis}/permintaan', function ($jenis) {
 | SUBMIT FORM PERMINTAAN SIMULASI
 |--------------------------------------------------------------------------
 */
-Route::post('/simulasi/permintaan/submit',
+Route::post(
+    '/simulasi/permintaan/submit',
     [SimulasiController::class, 'submit']
 )->name('simulasi.permintaan.submit');
 
 /*
 |--------------------------------------------------------------------------
-| TABUNGAN (INFORMASI – TANPA DATABASE)
+| DEPOSITO (INFORMASI – TANPA DATABASE)
 |--------------------------------------------------------------------------
 */
-Route::get('/tabungan/{slug}', [TabunganController::class, 'show'])
-    ->name('tabungan.show');
+Route::get('/deposito', function () {
+    return view('users.deposito.show');
+})->name('deposito.show');
 
-    /*
+/*
 |--------------------------------------------------------------------------
-| PINJAMAN (INFORMASI – TANPA DATABASE)
+| TABUNGAN (INFORMASI – VIA CONTROLLER)
 |--------------------------------------------------------------------------
 */
-Route::get('/pinjaman', [PinjamanController::class, 'index'])
-    ->name('pinjaman.index');
+Route::get(
+    '/tabungan/{slug}',
+    [TabunganController::class, 'show']
+)->name('tabungan.show');
 
-Route::get('/pinjaman/{slug}', [PinjamanController::class, 'show'])
-    ->name('pinjaman.show');
+/*
+|--------------------------------------------------------------------------
+| PINJAMAN (INFORMASI – VIA CONTROLLER)
+|--------------------------------------------------------------------------
+*/
+Route::get(
+    '/pinjaman',
+    [PinjamanController::class, 'index']
+)->name('pinjaman.index');
 
-    /*
+Route::get(
+    '/pinjaman/{slug}',
+    [PinjamanController::class, 'show']
+)->name('pinjaman.show');
+
+/*
 |--------------------------------------------------------------------------
 | HALAMAN PROFIL / PERUSAHAAN
 |--------------------------------------------------------------------------
 */
-Route::get('/perusahaan/{slug}', [PerusahaanController::class, 'show'])
-    ->name('perusahaan.show');
+Route::get(
+    '/perusahaan/{slug}',
+    [PerusahaanController::class, 'show']
+)->name('perusahaan.show');

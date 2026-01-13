@@ -21,6 +21,6 @@ class SimulasiController extends Controller
             return redirect()->route('simulasi.deposito');
         }
 
-        return redirect()->route('simulasi.kredit');
+        return redirect()->route('users.simulasi.kredit');
     }
 }
