@@ -5,6 +5,7 @@
     --bpr-gold-glow: rgba(233, 157, 18, 0.3);
     --gray-100: #f8fafc;
     --gray-300: #e5e7eb;
+    --navbar-height: 80px;
 }
 
 .bpr-navbar {
@@ -128,7 +129,7 @@
 
 @media (max-width: 991px) {
     .dropdown-submenu .dropdown-menu {
-        display: none;
+        display: none !important;
         position: static !important;
         background-color: var(--gray-100) !important;
         border: none !important;
@@ -136,6 +137,7 @@
         margin-left: 1rem !important;
         border-left: 2px solid var(--bpr-gold) !important;
         padding: 5px 0;
+
     }
 
     .dropdown-submenu .dropdown-menu.show {
@@ -173,4 +175,24 @@
 
 .slideIn {
     animation-name: slideIn;
+}
+
+@media (max-width: 1024px) {
+    .hero-section {
+        padding-top: var(--navbar-height);
+    }
+}
+@media (max-width: 576px) {
+    .bpr-navbar {
+        padding: 8px 0;
+    }
+
+    .navbar-logo {
+        height: 42px;
+    }
+}
+@media (max-width: 768px) {
+    .berita-grid-section {
+        padding-top: 32px;
+    }
 }

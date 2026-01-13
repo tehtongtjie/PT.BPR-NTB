@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const subMenuToggles = document.querySelectorAll(
-        ".dropdown-submenu .dropdown-toggle"
+        ".dropdown-submenu > a"
     );
 
     subMenuToggles.forEach(function (el) {
