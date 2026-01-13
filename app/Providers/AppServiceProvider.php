@@ -17,8 +17,11 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        //
-    }
+    // public function boot()
+    // {
+    //     parent::boot();
+
+    //     Route::middleware('web')
+    //         ->group(base_path('routes/admin.php'));
+    // }
 }

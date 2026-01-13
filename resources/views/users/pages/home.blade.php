@@ -11,7 +11,7 @@
                     <div class="hero-slide" style="background-image: url('{{ asset('images/SimbadaHero.png') }}');"></div>
                 </div>
                 <div class="carousel-item">
-                    <div class="hero-slide" style="background-image: url('{{ asset('images/SlideLain.png') }}');"></div>
+                    <div class="hero-slide" style="background-image: url('{{ asset('images/tabungan-hero.png') }}');"></div>
                 </div>
             </div>
         </div>
