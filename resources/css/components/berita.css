@@ -1,229 +1,256 @@
-.berita-grid-section {
-    padding: 120px 0;
-    background: linear-gradient(180deg, #f8f9fc 0%, #ffffff 100%);
-    position: relative;
-    overflow: hidden;
+/* =========================================================
+   BERITA SECTION – ULTRA PREMIUM & CRISP 2026 (GAMBAR TAJAM 100%)
+   ========================================================= */
+
+:root {
+    --bpr-blue-dark: #001f44;
+    --bpr-gold: #c5a059;
+    --transition-premium: all 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.berita-grid-section::before {
+/* =========================================================
+   SECTION BASE
+   ========================================================= */
+.berita-grid-section {
+    background: #ffffff;
+    overflow: hidden;
+    padding-top: 64px;
+    padding-bottom: 32px;
+}
+
+/* Header – lebih mewah */
+.berita-grid-section h2 {
+    color: var(--bpr-blue-dark);
+    letter-spacing: -0.5px;
+    font-weight: 900;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.berita-grid-section h2::after {
     content: "";
     position: absolute;
-    top: 20%;
+    bottom: -12px;
     left: 50%;
-    width: 1200px;
-    height: 1200px;
-    background: radial-gradient(circle, var(--bpr-gold-glow), transparent 70%);
     transform: translateX(-50%);
-    pointer-events: none;
-    opacity: 0.4;
-    animation: pulse-glow 15s ease-in-out infinite alternate;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--bpr-gold),
+        transparent
+    );
+    border-radius: 3px;
 }
 
-@keyframes pulse-glow {
-    0% {
-        opacity: 0.2;
-        transform: translateX(-50%) scale(0.9);
-    }
-    100% {
-        opacity: 0.4;
-        transform: translateX(-50%) scale(1.1);
-    }
+.berita-grid-section .btn-link {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--bpr-gold) !important;
+    transition: var(--transition-premium);
 }
 
+.berita-grid-section .btn-link:hover {
+    letter-spacing: 1.5px;
+    transform: translateX(6px);
+}
+
+/* =========================================================
+   GRID DESKTOP
+   ========================================================= */
 .berita-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 16px;
 }
 
+/* =========================================================
+   CARD – GAMBAR TAJAM, TANPA BLUR
+   ========================================================= */
 .berita-card {
     position: relative;
+    height: 480px;
     border-radius: 32px;
     overflow: hidden;
-    height: 480px;
-    box-shadow: 0 15px 40px rgba(0, 50, 107, 0.1),
-        0 8px 25px rgba(0, 0, 0, 0.06);
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(197, 160, 89, 0.15);
-}
-
-.berita-card:hover {
-    transform: translateY(-20px) scale(1.02);
-    box-shadow: 0 30px 70px rgba(0, 50, 107, 0.18),
-        0 15px 40px rgba(197, 160, 89, 0.15);
+    background: #000;
+    border: 1px solid rgba(197, 160, 89, 0.08);
+    box-shadow: 0 16px 40px rgba(0, 31, 68, 0.08);
+    transition: var(--transition-premium);
 }
 
 .berita-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    object-position: center;
+    opacity: 1; /* Full opacity – tidak burem */
+    image-rendering: crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated; /* fallback tajam untuk browser lama */
+    transform: scale(1.02); /* sedikit zoom awal agar terasa lebih tajam */
+    transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.berita-card:hover img {
-    transform: scale(1.15);
-}
-
+/* =========================================================
+   OVERLAY – Glassmorphic tanpa blur gambar
+   ========================================================= */
 .berita-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        180deg,
-        transparent 30%,
-        rgba(0, 50, 107, 0.4) 60%,
-        rgba(0, 31, 68, 0.9) 100%
-    );
+    z-index: 2;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 40px;
-    transition: all 0.6s ease;
-    z-index: 2;
-}
-
-.berita-card:hover .berita-overlay {
     background: linear-gradient(
-        180deg,
-        transparent 20%,
-        rgba(0, 50, 107, 0.6) 50%,
-        rgba(0, 31, 68, 0.95) 100%
+        to bottom,
+        transparent 25%,
+        rgba(0, 31, 68, 0.45) 55%,
+        rgba(0, 20, 45, 0.94) 100%
     );
+    transition: var(--transition-premium);
 }
 
-.berita-badge {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    background: rgba(197, 160, 89, 0.25);
-    backdrop-filter: blur(10px);
-    color: white;
-    padding: 10px 24px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    border: 1px solid rgba(197, 160, 89, 0.4);
-    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.2);
-    z-index: 3;
-    transition: all 0.4s ease;
-}
-
-.berita-card:hover .berita-badge {
-    background: var(--bpr-gold);
-    color: var(--bpr-blue-dark);
-    transform: translateY(-5px);
-}
-
-.berita-overlay h4 {
-    color: white;
-    font-size: 1.8rem;
+.berita-overlay h5 {
+    color: #ffffff;
+    font-size: 1.42rem;
     font-weight: 900;
-    line-height: 1.3;
-    margin-bottom: 16px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease 0.2s;
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.berita-card:hover h4 {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.berita-card:hover h4::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 5px;
-    background: var(--bpr-gold);
-    margin-top: 16px;
-    border-radius: 3px;
-    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4);
-    transition: width 0.6s ease;
+    line-height: 1.28;
+    margin-bottom: 12px;
+    transform: translateY(16px);
+    transition: var(--transition-premium);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .berita-overlay p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.05rem;
-    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.98rem;
+    line-height: 1.65;
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.6s ease 0.3s;
+    transform: translateY(24px);
+    transition: var(--transition-premium);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.berita-card:hover p {
-    opacity: 1;
-    transform: translateY(0);
+/* =========================================================
+   HOVER DESKTOP
+   ========================================================= */
+@media (min-width: 992px) {
+    .berita-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 40px 80px rgba(0, 31, 68, 0.18);
+    }
+
+    .berita-card:hover img {
+        transform: scale(1.12);
+    }
+
+    .berita-card:hover .berita-overlay {
+        background: linear-gradient(
+            to bottom,
+            transparent 20%,
+            rgba(0, 31, 68, 0.55) 50%,
+            rgba(0, 20, 45, 0.98) 100%
+        );
+    }
+
+    .berita-card:hover h5,
+    .berita-card:hover p {
+        transform: translateY(0);
+    }
+
+    .berita-card:hover p {
+        opacity: 1;
+        transition-delay: 0.12s;
+    }
 }
 
-@media (max-width: 992px) {
+/* =========================================================
+   MOBILE – Swipe smooth, gambar tetap tajam
+   ========================================================= */
+@media (max-width: 991px) {
+    .berita-grid-section {
+        padding-top: 48px;
+        padding-bottom: 20px;
+    }
+
     .berita-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px;
+        display: flex;
+        overflow-x: auto;
+        padding: 12px 12px 28px;
+        margin: 0 -12px;
+        gap: 16px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .berita-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .berita-grid > * {
+        flex: 0 0 86%;
+        max-width: 86%;
+        scroll-snap-align: center;
     }
 
     .berita-card {
         height: 440px;
-    }
-}
-
-@media (max-width: 768px) {
-    .berita-grid-section {
-        top: 40%;
-        width: 700px;
-        height: 700px;
-        opacity: 0.25;
-    }
-    .berita-grid-section::before {
-        top: 40%;
-        width: 700px;
-        height: 700px;
-        opacity: 0.25;
-    }
-
-    .berita-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    .berita-card {
-        height: 480px;
+        border-radius: 28px;
     }
 
     .berita-overlay {
-        padding: 30px;
+        padding: 32px;
     }
 
-    .berita-overlay h4 {
-        font-size: 1.6rem;
+    .berita-overlay h5 {
+        font-size: 1.28rem;
     }
 
-    .berita-badge {
-        top: 20px;
-        left: 20px;
-        padding: 8px 20px;
-        font-size: 0.8rem;
+    .berita-overlay p {
+        font-size: 0.92rem;
+        -webkit-line-clamp: 2;
     }
 }
 
+/* =========================================================
+   EXTRA SMALL
+   ========================================================= */
 @media (max-width: 576px) {
-    .berita-grid {
-        padding: 0 15px;
+    .berita-grid-section {
+        padding-top: 40px;
+        padding-bottom: 16px;
     }
 
     .berita-card {
-        border-radius: 24px;
-        height: 460px;
+        height: 400px;
     }
 
-    .berita-overlay h4 {
-        font-size: 1.5rem;
+    .berita-overlay {
+        padding: 28px;
+    }
+
+    .berita-overlay h5 {
+        font-size: 1.18rem;
+    }
+}
+
+/* =========================================================
+   FIX JARAK KE SECTION SETELAHNYA
+   ========================================================= */
+.prestasi-section,
+.lelang-section {
+    padding-top: 40px !important;
+}
+
+@media (max-width: 576px) {
+    .prestasi-section,
+    .lelang-section {
+        padding-top: 28px !important;
     }
 }

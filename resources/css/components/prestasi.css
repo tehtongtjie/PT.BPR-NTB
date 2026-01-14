@@ -1,228 +1,224 @@
+/* =========================================================
+   PRESTASI SECTION – ELEGANT & PREMIUM
+   ========================================================= */
+
 .prestasi-section {
-    padding: 120px 0;
-    background: linear-gradient(to bottom, #ffffff, #f8f9fc);
+    padding: 100px 0 70px;
+    position: relative;
+    overflow: hidden;
 }
 
-.lelang-section {
-    padding: 120px 0;
-    background: linear-gradient(to bottom, #f8f9fc, #ffffff);
-}
-
-.prestasi-section::before,
-.lelang-section::before {
+/* Enhanced Glow Background */
+.prestasi-section::before {
     content: "";
     position: absolute;
-    top: 20%;
-    left: 50%;
-    width: 1000px;
-    height: 1000px;
-    background: radial-gradient(circle, var(--bpr-gold-glow), transparent 70%);
-    transform: translateX(-50%);
+    inset: 0;
     pointer-events: none;
-    opacity: 0.3;
+    background: radial-gradient(
+            ellipse at 30% 40%,
+            rgba(197, 160, 89, 0.18) 0%,
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 70% 60%,
+            rgba(197, 160, 89, 0.11) 0%,
+            transparent 50%
+        );
+    opacity: 0.7;
+    z-index: -1;
 }
 
+/* Optional subtle noise (bisa dihapus kalau mau lebih clean) */
+.prestasi-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Card Style – Prestasi (gambar di kiri, konten di kanan) */
+.prestasi-section .info-box-custom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    direction: ltr; /* Normal order */
+}
+
+/* Sisanya sama untuk kedua section (shared styles) */
 .info-box-custom {
-    display: flex;
-    align-items: stretch;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 40px;
-    box-shadow: 0 20px 50px rgba(0, 50, 107, 0.1),
-        0 10px 30px rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-radius: 32px;
+    border: 1px solid rgba(197, 160, 89, 0.12);
+    box-shadow: 0 30px 80px -20px rgba(0, 50, 107, 0.14),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.25);
     overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-    border: 1px solid rgba(197, 160, 89, 0.15);
-    backdrop-filter: blur(12px);
-    position: relative;
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .info-box-custom:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 35px 80px rgba(0, 50, 107, 0.15),
-        0 20px 50px rgba(197, 160, 89, 0.12);
+    transform: translateY(-16px) scale(1.008);
+    box-shadow: 0 50px 120px -30px rgba(0, 50, 107, 0.22),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.35);
 }
 
-.prestasi-section .info-box-custom {
-    flex-direction: row;
-}
-
-.lelang-section .info-box-custom {
-    flex-direction: row-reverse;
-}
-
+/* Image Area (shared) */
 .info-box-img-wrapper {
-    flex: 1;
     position: relative;
     overflow: hidden;
-    min-height: 500px;
 }
 
 .info-box-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(1.03);
+    transition: transform 1.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .info-box-custom:hover .info-box-img {
-    transform: scale(1.1);
+    transform: scale(1.14) rotate(0.6deg);
 }
 
-.info-box-img-wrapper::before {
+.info-box-img-wrapper::after {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        135deg,
-        rgba(197, 160, 89, 0.1),
-        transparent 50%
+        to right,
+        rgba(0, 0, 0, 0.18) 0%,
+        transparent 60%
     );
     opacity: 0;
-    transition: opacity 0.6s ease;
-    z-index: 1;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
 }
 
-.info-box-custom:hover .info-box-img-wrapper::before {
+.prestasi-section .info-box-custom:hover .info-box-img-wrapper::after {
     opacity: 1;
 }
 
+/* Content Area (shared) */
 .info-box-content {
-    flex: 1;
-    padding: 80px 70px;
+    padding: 80px 64px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative;
-    background: linear-gradient(to right, #ffffff, #f8fbff);
 }
 
 .info-label {
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    display: inline-block;
-    padding: 12px 32px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    padding: 10px 32px;
     border-radius: 50px;
-    background: linear-gradient(135deg, var(--bpr-gold), var(--bpr-gold-light));
-    color: var(--bpr-blue-dark);
-    box-shadow: 0 8px 25px rgba(197, 160, 89, 0.3);
-    transition: all 0.4s ease;
-}
-
-.info-box-custom:hover .info-label {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(197, 160, 89, 0.4);
+    background: linear-gradient(135deg, #c5a059 0%, #e8c88a 100%);
+    color: #0f2942;
+    margin-bottom: 24px;
+    width: fit-content;
+    box-shadow: 0 4px 20px rgba(197, 160, 89, 0.25);
 }
 
 .info-box-content h2 {
     font-size: 3rem;
     font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
     color: var(--bpr-blue);
     margin-bottom: 24px;
-    line-height: 1.2;
-    letter-spacing: -1px;
 }
 
 .info-box-content p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: var(--gray-700);
+    font-size: 1.08rem;
+    line-height: 1.78;
+    color: #334155;
     margin-bottom: 40px;
-    max-width: 600px;
+    max-width: 520px;
 }
 
 .info-link {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    font-weight: 700;
-    font-size: 1.1rem;
+    font-weight: 800;
+    font-size: 1.05rem;
     color: var(--bpr-blue);
     text-decoration: none;
-    transition: all 0.5s ease;
-}
-
-.info-link:hover {
-    gap: 20px;
-    color: var(--bpr-gold);
-    transform: translateX(8px);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .info-link::after {
-    content: "→";
-    font-size: 1.4rem;
-    transition: transform 0.5s ease;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background: var(--bpr-gold);
+    transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.info-link:hover::after {
+.info-link:hover {
+    color: var(--bpr-gold);
+    gap: 20px;
     transform: translateX(8px);
 }
 
-@media (max-width: 992px) {
-    .prestasi-section .info-box-custom,
-    .lelang-section .info-box-custom {
-        flex-direction: column !important;
-    }
+.info-link:hover::after {
+    width: 100%;
+}
 
-    .info-box-img-wrapper {
-        min-height: 400px;
+/* Responsive untuk Prestasi */
+@media (max-width: 1100px) {
+    .prestasi-section .info-box-content {
+        padding: 60px 48px;
     }
-
-    .info-box-content {
-        padding: 60px 50px;
-        text-align: center;
-    }
-
-    .info-box-content h2 {
+    .prestasi-section .info-box-content h2 {
         font-size: 2.6rem;
     }
 }
 
-@media (max-width: 768px) {
-    .prestasi-section,
-    .lelang-section {
-        padding: 80px 0;
+@media (max-width: 992px) {
+    .prestasi-section {
+        padding: 80px 0 60px;
     }
-
-    .info-box-custom {
-        border-radius: 32px;
+    .prestasi-section .info-box-custom {
+        grid-template-columns: 1fr;
     }
-
-    .info-box-img-wrapper {
-        min-height: 350px;
+    .prestasi-section .info-box-img-wrapper {
+        min-height: 380px;
     }
-
-    .info-box-content {
-        padding: 50px 40px;
+    .prestasi-section .info-box-content {
+        text-align: center;
+        padding: 60px 40px;
     }
-
-    .info-box-content h2 {
-        font-size: 2.4rem;
+    .prestasi-section .info-label {
+        margin: 0 auto 28px;
+    }
+    .prestasi-section .info-box-content p {
+        max-width: 480px;
+        margin: 0 auto 36px;
     }
 }
 
 @media (max-width: 576px) {
-    .info-box-custom {
-        border-radius: 28px;
-        margin: 0 15px;
+    .prestasi-section {
+        padding: 60px 0 40px;
     }
-
-    .info-box-img-wrapper {
-        min-height: 300px;
+    .prestasi-section .info-box-custom {
+        border-radius: 24px;
+        margin: 0 16px;
     }
-
-    .info-box-content {
-        padding: 40px 30px;
+    .prestasi-section .info-box-img-wrapper {
+        min-height: 240px;
     }
-
-    .info-box-content h2 {
-        font-size: 2.1rem;
+    .prestasi-section .info-box-content {
+        padding: 40px 28px;
     }
-
-    .info-label {
-        padding: 10px 24px;
-        font-size: 0.85rem;
+    .prestasi-section .info-box-content h2 {
+        font-size: 2rem;
     }
 }

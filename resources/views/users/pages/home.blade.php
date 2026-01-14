@@ -6,6 +6,13 @@
 
     <section class="hero-section">
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+            {{-- Indicators (Dots) --}}
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            </div>
+
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="hero-slide" style="background-image: url('{{ asset('images/SimbadaHero.png') }}');"></div>
@@ -14,11 +21,23 @@
                     <div class="hero-slide" style="background-image: url('{{ asset('images/tabungan-hero.png') }}');"></div>
                 </div>
             </div>
+
+            {{-- Tombol Navigasi Slider --}}
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <div class="control-btn">
+                    <i class="bi bi-chevron-left"></i>
+                </div>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <div class="control-btn">
+                    <i class="bi bi-chevron-right"></i>
+                </div>
+            </button>
         </div>
     </section>
 
     {{-- 2. PRODUK UNGGULAN (PROMO) --}}
-    <section class="promo-section">
+    <section class="promo-section section-white">
         <div class="container">
             <div class="section-header text-center mb-5">
                 <h2 class="fw-bold">Produk Unggulan Kami</h2>
@@ -63,7 +82,7 @@
     </section>
 
     {{-- 3. SUKU BUNGA --}}
-    <section class="suku-bunga-section">
+    <section class="suku-bunga-section section-white">
         <div class="container">
 
             <div class="sb-card-wrapper">
@@ -143,31 +162,38 @@
     </section>
 
     {{-- 4. BERITA TERKINI --}}
-    <section class="py-5">
+    <section class="berita-grid-section section-white py-5">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="fw-bold m-0">Berita Terkini</h2>
-                <a href="#" class="btn btn-link text-primary fw-bold text-decoration-none">Berita Lainnya →</a>
+                <a href="#" class="btn btn-link text-primary fw-bold text-decoration-none">
+                    Berita Lainnya →
+                </a>
             </div>
-            <div class="row g-4">
+
+            {{-- GRID DIPEGANG CSS, BUKAN BOOTSTRAP --}}
+            <div class="berita-grid">
                 @for ($i = 0; $i < 3; $i++)
-                    <div class="col-md-4">
+                    <article class="berita-item">
                         <div class="berita-card shadow-sm">
                             <img src="{{ asset('images/berita.png') }}" alt="Berita BPR NTB">
                             <div class="berita-overlay">
-                                <h5 class="text-white fw-bold">Rapat Koordinasi Tahunan PT. BPR NTB (Perseroda)</h5>
-                                <p class="text-white-50 small mb-0">Membangun sinergi untuk memperkuat ekonomi daerah...
+                                <h5 class="text-white fw-bold">
+                                    Rapat Koordinasi Tahunan PT. BPR NTB (Perseroda)
+                                </h5>
+                                <p class="text-white-50 small mb-0">
+                                    Membangun sinergi untuk memperkuat ekonomi daerah...
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 @endfor
             </div>
         </div>
     </section>
 
     {{-- PRESTASI --}}
-    <section class="prestasi-section">
+    <section class="prestasi-section section-white">
         <div class="container">
             <div class="info-box-custom">
                 <div class="info-box-img-wrapper">
@@ -185,69 +211,68 @@
         </div>
     </section>
 
-    {{-- LELANG --}}
+    {{-- LELANG SECTION – Versi Diperbaiki & Lebih Elegan --}}
     <section class="lelang-section">
         <div class="container">
-            <div class="info-box-custom flex-md-row-reverse">
+            <div class="info-box-custom">
+                <!-- Gambar di kanan (reverse di desktop) -->
                 <div class="info-box-img-wrapper">
-                    <img src="{{ asset('images/lelang-pengadaan.png') }}" class="info-box-img" alt="Lelang">
+                    <img src="{{ asset('images/lelang-pengadaan.png') }}" class="info-box-img"
+                        alt="Lelang Pengadaan Jasa Audit 2025" loading="lazy">
                 </div>
+
+                <!-- Konten di kiri -->
                 <div class="info-box-content">
                     <span class="info-label label-lelang">E-Procurement</span>
-                    <h2>Lelang Pengadaan Jasa Audit 2025</h2>
-                    <p>Kami mengundang Kantor Akuntan Publik (KAP) profesional untuk berpartisipasi dalam proses pengadaan
-                        jasa audit laporan keuangan tahun buku 2025.</p>
-                    <a href="#" class="info-link link-lelang">Baca Pengumuman <i
-                            class="bi bi-arrow-right ms-2"></i></a>
+                    <h2>Lelang Pengadaan Jasa Audit Tahun Buku 2025</h2>
+                    <p>
+                        Kami mengundang Kantor Akuntan Publik (KAP) yang profesional dan berpengalaman
+                        untuk berpartisipasi dalam proses pengadaan jasa audit laporan keuangan
+                        Tahun Buku 2025.
+                    </p>
+                    <a href="#" class="info-link link-lelang">
+                        Baca Pengumuman Lengkap
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- 6. KONTAK & TESTIMONI --}}
-    <section class="kontak-section">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-5">
-                    <h2 class="fw-bold mb-4">Apa Kata Nasabah?</h2>
-                    <div class="testimoni-card shadow">
-                        <i class="bi bi-quote fs-1 text-primary opacity-25"></i>
-                        <p class="mb-4">"Menjadi nasabah BPR NTB sangat memudahkan usaha kecil saya. Proses kreditnya
-                            cepat dan bunganya sangat bersaing. Sangat membantu UMKM!"</p>
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0">
-                                <div class="bg-primary rounded-circle" style="width: 50px; height: 50px;"></div>
-                            </div>
-                            <div class="ms-3 text-dark">
-                                <h6 class="fw-bold mb-0">H. Ahmad Fauzi</h6>
-                                <small class="text-muted">Pengusaha Lokal</small>
-                            </div>
+    <!-- HTML -->
+    <section class="kontak-section" id="kontak">
+        <div class="kontak-container">
+            <div class="kontak-card">
+
+                <!-- Bagian Testimoni Nasabah -->
+                <div class="testimoni-card">
+                    <h2>Testimoni Nasabah</h2>
+                    <p class="testimoni-text">
+                        "Proses lelangnya sangat transparan dan cepat. Timnya profesional,
+                        hasilnya melebihi ekspektasi saya. Terima kasih banyak!"
+                    </p>
+                    <div class="testimoni-author">
+                        <div class="author-img">NS</div>
+                        <div>
+                            <div class="author-name">Ni Made Sari</div>
+                            <div class="author-title">Pengusaha UMKM - Bali</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7">
-                    <h2 class="fw-bold mb-4">Butuh Bantuan?</h2>
+
+                <!-- Bagian Form Hubungi Kami -->
+                <div class="hubungi-box">
+                    <h2>Hubungi Kami</h2>
                     <form class="form-custom">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Nama Lengkap">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Email Anda">
-                            </div>
-                            <div class="col-12">
-                                <input type="text" class="form-control" placeholder="Subjek Pertanyaan">
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control" rows="4" placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."></textarea>
-                            </div>
-                            <div class="col-12 text-end">
-                                <button type="submit" class="btn btn-warning px-5 py-2 fw-bold rounded-pill">Kirim
-                                    Pesan</button>
-                            </div>
-                        </div>
+                        <input type="text" class="form-control" placeholder="Nama Lengkap" required>
+                        <input type="email" class="form-control" placeholder="Email" required>
+                        <input type="tel" class="form-control" placeholder="Nomor Telepon" required>
+                        <textarea class="form-control" placeholder="Pesan Anda..." rows="4" required></textarea>
+                        <button type="submit" class="btn-kirim">Kirim Pesan</button>
                     </form>
                 </div>
+
             </div>
         </div>
     </section>

@@ -1,206 +1,181 @@
 /* =========================================================
-   PROMO SECTION LUXURY VERSION
+   PROMO SECTION – ULTRA PREMIUM, COMPACT & CLOSE-SPACING 2026
    ========================================================= */
 
 :root {
-    --gray-600: #4b5563;
-    --gray-700: #374151;
-    --bpr-gold-glow: rgba(233, 157, 18, 0.15);
-    --shadow-premium: 0 20px 40px rgba(0, 50, 107, 0.06);
+    --bpr-blue: #002b5c;
+    --bpr-blue-dark: #001536;
+    --bpr-gold: #f4a51a;
+    --bpr-gold-light: #ffc045;
+    --glass-bg: rgba(255, 255, 255, 0.82);
+    --shadow-soft: 0 16px 52px rgba(0, 43, 92, 0.1);
+    --shadow-hover: 0 42px 110px rgba(0, 43, 92, 0.2);
+    --transition-lux: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+/* =========================================================
+   SECTION WRAPPER – DESKTOP (TIDAK DIUBAH)
+   ========================================================= */
 .promo-section {
-    padding: 120px 0;
-    /* Soft mesh gradient background */
+    position: relative;
+    padding: 80px 0 60px;
+    background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+    overflow: hidden;
+}
+
+/* Ambient glow */
+.promo-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
     background: radial-gradient(
-            at 0% 0%,
-            rgba(233, 157, 18, 0.03) 0%,
-            transparent 50%
+            circle at 15% 25%,
+            rgba(244, 165, 26, 0.08) 0%,
+            transparent 45%
         ),
         radial-gradient(
-            at 100% 100%,
-            rgba(0, 50, 107, 0.03) 0%,
+            circle at 85% 75%,
+            rgba(244, 165, 26, 0.05) 0%,
             transparent 50%
-        ),
-        #ffffff;
-    position: relative;
-    overflow: hidden;
+        );
+    opacity: 0.75;
+    z-index: 0;
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 70px;
-}
-
-.section-header h2 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 800;
-    color: var(--bpr-blue);
-    margin-bottom: 15px;
-    letter-spacing: -0.03em;
-}
-
-/* Dekorasi Garis Emas di bawah Judul */
-.section-header h2::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: var(--bpr-gold);
-    margin: 15px auto 0;
-    border-radius: 10px;
-}
-
-/* CARD ENHANCEMENT */
+/* =========================================================
+   PROMO CARD
+   ========================================================= */
 .promo-card {
-    background: #ffffff;
-    border-radius: 28px;
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: blur(28px) saturate(190%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
+    border-radius: 32px;
+    box-shadow: var(--shadow-soft);
     overflow: hidden;
-    box-shadow: var(--shadow-premium);
-    border: 1px solid rgba(0, 50, 107, 0.03);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: var(--transition-lux);
     height: 100%;
     display: flex;
     flex-direction: column;
+    isolation: isolate;
 }
 
-/* Efek Shine (Kilauan) yang lebih smooth */
-.promo-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
-    z-index: 4;
-}
-
-.promo-card:hover::before {
-    left: 150%;
-    transition: 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.promo-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 30px 60px rgba(0, 50, 107, 0.1);
-    border-color: rgba(233, 157, 18, 0.3);
-}
-
-/* IMAGE WRAPPER DENGAN ZOOM */
 .card-img-wrapper {
     position: relative;
-    height: 220px;
     overflow: hidden;
-    /* Soft curves on image */
-    margin: 12px;
-    border-radius: 20px;
+    margin: 14px;
+    border-radius: 24px;
 }
 
 .promo-card img {
     width: 100%;
-    height: 100%;
+    height: 190px;
     object-fit: cover;
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.promo-card:hover img {
-    transform: scale(1.1);
-}
-
-/* Badge Promo Bergaya Glassmorphism */
-.promo-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(0, 50, 107, 0.85);
-    backdrop-filter: blur(8px);
-    color: white;
-    padding: 6px 16px;
-    border-radius: 100px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    z-index: 5;
-    letter-spacing: 0.5px;
-}
-
-.promo-card .card-body {
-    padding: 24px 30px 35px;
-    flex-grow: 1;
+.card-body {
+    padding: 20px 28px 28px;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .promo-card h5 {
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: 1.38rem;
+    font-weight: 900;
     color: var(--bpr-blue-dark);
-    margin-bottom: 12px;
-    line-height: 1.4;
+    margin-bottom: 10px;
+    line-height: 1.2;
 }
 
 .promo-card p {
-    color: var(--gray-600);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    font-size: 0.96rem;
+    color: #556983;
+    line-height: 1.65;
+    margin-bottom: 18px;
+    flex-grow: 1;
 }
 
-/* TOMBOL MODERN - FULL WIDTH */
-.promo-card .btn-outline-primary {
+.promo-card .btn {
     margin-top: auto;
-    width: 100%;
-    padding: 14px;
-    border-radius: 14px;
-    border: 1.5px solid #e5e7eb;
-    background: #f9fafb;
-    color: var(--bpr-blue);
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-}
-
-.promo-card .btn-outline-primary:hover {
-    background: var(--bpr-blue);
-    border-color: var(--bpr-blue);
-    color: white !important;
-    transform: translateY(-2px);
-}
-
-/* FEATURED CARD ENHANCEMENT */
-.promo-card.featured {
-    background: linear-gradient(180deg, #ffffff 0%, #fffef0 100%);
-    border: 1.5px solid rgba(233, 157, 18, 0.4);
-}
-
-.promo-card.featured .promo-badge {
-    background: rgba(233, 157, 18, 0.9);
+    padding: 13px 34px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--bpr-gold), var(--bpr-gold-light));
     color: var(--bpr-blue-dark);
+    border: none;
+    transition: var(--transition-lux);
 }
 
-/* RESPONSIVE OPTIMIZATION */
-@media (max-width: 992px) {
-    .promo-grid {
-        gap: 25px;
+/* =========================================================
+   DESKTOP HOVER (TIDAK DIUBAH)
+   ========================================================= */
+@media (min-width: 992px) {
+    .promo-card:hover {
+        transform: translateY(-18px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .promo-card:hover img {
+        transform: scale(1.12);
     }
 }
 
-@media (max-width: 768px) {
+/* =========================================================
+   MOBILE – JARAK ANTAR SECTION DIPERKETAT
+   ========================================================= */
+@media (max-width: 767.98px) {
+    /* SECTION LEBIH DEKAT KE ATAS & BAWAH */
     .promo-section {
-        padding: 80px 0;
+        padding-top: 48px;
+        padding-bottom: 24px;
+        margin-bottom: 0;
     }
-    .promo-card {
-        border-radius: 24px;
+
+    /* HILANGKAN GAP TAMBAHAN DARI ROW */
+    .promo-section .row {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 16px 16px 24px;
+        margin: 0 -16px;
+        gap: 16px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
     }
-    .card-img-wrapper {
-        height: 200px;
+
+    .promo-section .row::-webkit-scrollbar {
+        display: none;
+    }
+
+    .promo-section .col-md-4 {
+        flex: 0 0 88%;
+        max-width: 88%;
+        scroll-snap-align: center;
+    }
+
+    .promo-card img {
+        height: 170px;
+    }
+
+    .card-body {
+        padding: 16px 22px 22px;
+    }
+
+    .promo-card h5 {
+        font-size: 1.28rem;
+        margin-bottom: 6px;
+    }
+
+    .promo-card p {
+        font-size: 0.94rem;
+        margin-bottom: 14px;
+    }
+
+    .promo-card .btn {
+        padding: 12px 26px;
     }
 }
