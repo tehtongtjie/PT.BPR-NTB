@@ -1,37 +1,37 @@
-:root {
-    --bpr-blue-dark: #001f44;
-}
+/* =========================================================
+   HERO SECTION – ULTRA SMOOTH & LUXURY (Tetap sama)
+   ========================================================= */
 
-/* ==========================
-   HERO SECTION (DESKTOP)
-========================== */
 .hero-section {
     position: relative;
     width: 100%;
     height: 100vh;
     height: 100dvh;
     overflow: hidden;
-    background-color: var(--bpr-blue-dark);
+    background-color: #000;
 }
 
-/* Carousel Full Height */
-.hero-section .carousel,
-.hero-section .carousel-inner,
-.hero-section .carousel-item {
-    height: 100%;
+/* 1. Perbaikan Fade Transition */
+.hero-section .carousel-fade .carousel-item {
+    opacity: 0;
+    transition: opacity 2s var(--transition-luxury) !important;
+    z-index: 0;
 }
 
-/* Background Slide */
+.hero-section .carousel-fade .carousel-item.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* 2. Slow Ken Burns Effect (Zoom-Out) */
 .hero-slide {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-
-    /* Cinematic zoom */
-    transform: scale(1.15);
-    transition: transform 10s ease-out;
+    transform: scale(1.1);
+    transition: transform 15s var(--transition-zoom) !important;
     will-change: transform;
 }
 
@@ -39,39 +39,131 @@
     transform: scale(1);
 }
 
-/* ==========================
-   TABLET & MOBILE (≤ 1024px)
-========================== */
-@media (max-width: 1024px) {
-    .hero-section {
-        height: auto;
-        background-color: transparent;
-    }
+/* 3. Overlay Gradasi yang Lebih Deep */
+.hero-section .carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+}
 
-    .hero-section .carousel,
-    .hero-section .carousel-inner,
-    .hero-section .carousel-item {
-        height: auto;
-    }
+/* 4. Indikator (Dots) yang Interaktif */
+.hero-section .carousel-indicators [data-bs-target] {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    margin: 0 6px;
+    transition: all 0.5s var(--transition-luxury);
+}
 
-    .hero-slide {
-        background-size: contain;
-        background-position: center top;
-        background-repeat: no-repeat;
+.hero-section .carousel-indicators .active {
+    background-color: var(--bpr-gold);
+    border-color: var(--bpr-gold);
+    width: 28px;
+    border-radius: 10px;
+}
 
-        /* KUNCI RESPONSIVE */
-        height: 0;
-        padding-top: 60%; /* rasio default */
-        transform: none;
-        transition: none;
+/* =========================================================
+   CAROUSEL NAVIGATION BUTTONS (LUXURY STYLE) – Tetap muncul di desktop
+   ========================================================= */
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 8%;
+    z-index: 15;
+    opacity: 1;
+}
+
+.control-btn {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    transform: translateX(0);
+}
+
+.hero-section:hover .control-btn {
+    opacity: 1;
+}
+
+.hero-section:hover .carousel-control-prev .control-btn {
+    transform: translateX(15px);
+}
+
+.hero-section:hover .carousel-control-next .control-btn {
+    transform: translateX(-15px);
+}
+
+.control-btn:hover {
+    background: var(--bpr-gold);
+    border-color: var(--bpr-gold);
+    color: white;
+    transform: scale(1.1) !important;
+    box-shadow: 0 0 20px rgba(233, 157, 18, 0.4);
+}
+
+@media (max-width: 991px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
     }
 }
 
-/* ==========================
-   IPHONE (≤ 430px)
-========================== */
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
+    .hero-section {
+        height: auto;
+        padding-top: var(--navbar-height);
+    }
+
     .hero-slide {
-        padding-top: 70%; /* portrait friendly */
+        height: 0;
+        padding-top: 60%; /* Rasio 16:9 yang pas untuk mobile banner */
+        transform: none !important;
+    }
+}
+
+/* =========================================================
+   PROMO SECTION – Konsisten seperti mobile: no overlap, clean full-width
+   ========================================================= */
+.promo-section {
+    position: relative;
+    z-index: 10;
+    background: #ffffff;
+    margin-top: 0; /* Sama seperti mobile: langsung di bawah hero */
+    border-radius: 0; /* Hilangkan rounded di semua device */
+    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.08); /* Shadow ringan tetap untuk kedalaman */
+    padding: 60px 0 40px; /* Padding lebih nyaman untuk desktop & mobile */
+}
+
+/* Optional: Tambah padding lebih besar di desktop agar terasa lega */
+@media (min-width: 992px) {
+    .promo-section {
+        padding: 80px 0 60px; /* Lebih ruang di layar besar */
+    }
+}
+
+/* Mobile tetap seperti sebelumnya (sudah bagus) */
+@media (max-width: 768px) {
+    .promo-section {
+        padding: 50px 0 30px;
     }
 }

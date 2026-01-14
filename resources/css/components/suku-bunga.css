@@ -1,34 +1,67 @@
 /* =========================================================
-   SUKU BUNGA - LUXURY MINIMALIST
+   SUKU BUNGA – SUPREME LUXURY MINIMALIST (2026 UPGRADE)
    ========================================================= */
 
 .suku-bunga-section {
-    padding: 100px 0;
-    background: radial-gradient(circle at top right, #ffffff, #f4f7fa);
+    padding: 80px 0 48px; /* tetap compact, bawah kecil */
+    background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+    /* Tarik sedikit ke atas agar tidak kejauhan dengan section sebelumnya */
+    margin-top: -40px;
+    z-index: 10;
 }
 
+/* Subtle gold ambient glow */
+.suku-bunga-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+            circle at 20% 10%,
+            rgba(244, 165, 26, 0.07) 0%,
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 80% 90%,
+            rgba(244, 165, 26, 0.05) 0%,
+            transparent 50%
+        );
+    opacity: 0.75;
+    z-index: -1;
+}
+
+/* =========================================================
+   CARD WRAPPER – Deep Glassmorphic Card
+   ========================================================= */
 .sb-card-wrapper {
-    max-width: 920px;
+    max-width: 960px;
     margin: 0 auto;
-    background: #ffffff;
-    border-radius: 32px;
-    display: flex;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border-radius: 36px;
+    border: 1px solid rgba(244, 165, 26, 0.12);
+    box-shadow: 0 24px 60px rgba(0, 43, 92, 0.1);
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 50, 107, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    transition: transform 0.4s ease;
+    display: flex;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .sb-card-wrapper:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 40px 100px rgba(0, 43, 92, 0.16);
 }
 
-/* --- LEFT PANEL --- */
+/* =========================================================
+   LEFT PANEL – Premium Dark Gradient
+   ========================================================= */
 .sb-left-panel {
     flex: 1;
-    background: linear-gradient(160deg, #001f44 0%, #00326b 100%);
-    color: #ffffff;
-    padding: 60px 45px;
+    background: linear-gradient(155deg, #001f44 0%, #002b5c 100%);
+    color: white;
+    padding: 60px 48px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,69 +70,100 @@
     position: relative;
 }
 
+.sb-left-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(244, 165, 26, 0.08) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
 .sb-left-panel span {
-    font-size: 0.7rem;
-    letter-spacing: 3px;
-    color: #e99d12; /* BPR Gold */
-    font-weight: 700;
-    margin-bottom: 15px;
+    font-size: 0.78rem;
+    letter-spacing: 4px;
+    color: #f4a51a;
+    font-weight: 900;
+    margin-bottom: 16px;
+    text-transform: uppercase;
 }
 
 .sb-value {
-    font-size: 5rem;
-    font-weight: 800;
+    font-size: 5.2rem;
+    font-weight: 900;
     line-height: 1;
     margin: 0;
-    background: linear-gradient(
-        180deg,
-        #ffffff 60%,
-        rgba(255, 255, 255, 0.7) 100%
-    );
+    background: linear-gradient(180deg, #ffffff 50%, #f4a51a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 20px rgba(244, 165, 26, 0.15);
 }
 
 .sb-left-panel p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.98rem;
+    line-height: 1.65;
     margin-top: 20px;
-    opacity: 0.8;
-    max-width: 260px;
+    opacity: 0.92;
+    max-width: 280px;
 }
 
 .sb-left-panel .btn-light {
-    font-weight: 700;
-    font-size: 0.75rem;
-    text-transform: uppercase;
+    margin-top: 28px;
+    padding: 14px 36px;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 800;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #f4a51a, #ffc045);
+    color: #001f44;
     border: none;
+    box-shadow: 0 8px 32px rgba(244, 165, 26, 0.35);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .sb-left-panel .btn-light:hover {
-    background: #e99d12;
-    color: white;
-    transform: scale(1.05);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 16px 48px rgba(244, 165, 26, 0.45);
 }
 
-/* --- RIGHT PANEL --- */
+/* =========================================================
+   RIGHT PANEL – Clean & Elegant
+   ========================================================= */
 .sb-right-panel {
     flex: 1.2;
-    padding: 50px 55px;
+    padding: 48px 52px;
     background: #ffffff;
 }
 
 .sb-right-title {
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: 1.55rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
     color: #001f44;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
+    position: relative;
 }
 
-/* --- DROPDOWN --- */
+.sb-right-title::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(to right, #f4a51a, transparent);
+    border-radius: 3px;
+}
+
+/* =========================================================
+   DROPDOWN – Smooth & Luxurious Animation
+   ========================================================= */
 .sb-dropdown {
-    border-bottom: 1px solid #f0f0f0;
-    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(244, 165, 26, 0.08);
+    margin-bottom: 8px;
 }
 
 .sb-dropdown:last-child {
@@ -115,70 +179,119 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #00326b;
-    transition: color 0.3s ease;
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: #002b5c;
+    transition: color 0.4s ease;
+}
+
+.sb-dropdown-header:hover {
+    color: #f4a51a;
 }
 
 .sb-dropdown-header i {
     font-size: 0.9rem;
     color: #cbd5e1;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* --- CONTENT ANIMATION --- */
-.sb-dropdown-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
-}
-
-.sb-dropdown.active .sb-dropdown-content {
-    max-height: 500px;
-    transition: max-height 0.8s ease-in-out;
-    padding-bottom: 20px;
+    transition: all 0.4s ease;
 }
 
 .sb-dropdown.active .sb-dropdown-header i {
     transform: rotate(180deg);
-    color: #e99d12;
+    color: #f4a51a;
 }
 
-/* --- ROWS --- */
+.sb-dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        padding 0.6s ease;
+}
+
+.sb-dropdown.active .sb-dropdown-content {
+    max-height: 600px;
+    padding-bottom: 20px;
+}
+
+/* Rows – lebih halus */
 .sb-row {
     display: flex;
     justify-content: space-between;
-    padding: 12px 15px;
+    padding: 12px 16px;
     border-radius: 12px;
-    transition: background 0.3s ease;
+    transition: background 0.4s ease;
 }
 
 .sb-row:hover {
-    background: #f8fafc;
+    background: rgba(244, 165, 26, 0.04);
 }
 
 .sb-row span:first-child {
     color: #64748b;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .sb-row span:last-child {
     color: #001f44;
-    font-weight: 800;
-    font-size: 1.1rem;
+    font-weight: 900;
+    font-size: 1.08rem;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
+/* =========================================================
+   RESPONSIVE – TABLET & MOBILE
+   ========================================================= */
+
+@media (max-width: 992px) {
     .sb-card-wrapper {
         flex-direction: column;
+        border-radius: 28px;
     }
+
     .sb-left-panel,
     .sb-right-panel {
-        padding: 40px 30px;
+        padding: 48px 40px;
     }
+
     .sb-value {
-        font-size: 4rem;
+        font-size: 4.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .suku-bunga-section {
+        padding: 64px 0 40px;
+        margin-top: -30px;
+    }
+
+    .sb-left-panel,
+    .sb-right-panel {
+        padding: 40px 32px;
+    }
+
+    .sb-value {
+        font-size: 3.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .suku-bunga-section {
+        padding: 56px 0 32px;
+        margin-top: -20px;
+    }
+
+    .sb-left-panel,
+    .sb-right-panel {
+        padding: 36px 24px;
+    }
+
+    .sb-value {
+        font-size: 3.4rem;
+    }
+
+    .sb-right-title {
+        font-size: 1.4rem;
+    }
+
+    .sb-dropdown-header {
+        font-size: 1rem;
     }
 }
