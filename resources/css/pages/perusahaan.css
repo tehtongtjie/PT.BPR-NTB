@@ -111,9 +111,13 @@
 }
 
 .shareholder-text {
+    text-align: justify;
     font-weight: 500;
     color: var(--bpr-blue);
     font-size: 1.1rem;
+}
+.culture-section p{
+    text-align: justify;
 }
 
 .vision-quote {
@@ -279,6 +283,7 @@
 }
 
 .commissioner-info p {
+    text-align: justify;
     font-size: 1.05rem;
     line-height: 1.8;
     color: var(--gray-700);
@@ -496,6 +501,7 @@
     }
 
     .premium-ordered-list li {
+        
         font-size: 0.95rem;
         padding-left: 50px;
     }
