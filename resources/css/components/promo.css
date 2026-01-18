@@ -1,181 +1,454 @@
 /* =========================================================
-   PROMO SECTION – ULTRA PREMIUM, COMPACT & CLOSE-SPACING 2026
-   ========================================================= */
-
-:root {
-    --bpr-blue: #002b5c;
-    --bpr-blue-dark: #001536;
-    --bpr-gold: #f4a51a;
-    --bpr-gold-light: #ffc045;
-    --glass-bg: rgba(255, 255, 255, 0.82);
-    --shadow-soft: 0 16px 52px rgba(0, 43, 92, 0.1);
-    --shadow-hover: 0 42px 110px rgba(0, 43, 92, 0.2);
-    --transition-lux: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-/* =========================================================
-   SECTION WRAPPER – DESKTOP (TIDAK DIUBAH)
+   SECTION WRAPPER – Clean Minimalist
    ========================================================= */
 .promo-section {
     position: relative;
-    padding: 80px 0 60px;
-    background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+    padding: 80px 0 24px;
+    background: #ffffff;
     overflow: hidden;
-}
-
-/* Ambient glow */
-.promo-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(
-            circle at 15% 25%,
-            rgba(244, 165, 26, 0.08) 0%,
-            transparent 45%
-        ),
-        radial-gradient(
-            circle at 85% 75%,
-            rgba(244, 165, 26, 0.05) 0%,
-            transparent 50%
-        );
-    opacity: 0.75;
-    z-index: 0;
 }
 
 /* =========================================================
-   PROMO CARD
+   SECTION HEADER – Simple Typography
+   ========================================================= */
+.promo-header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 0 20px;
+}
+
+.promo-header h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #1f2937; /* var(--color-dark) */
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.promo-header p {
+    color: #6b7280; /* var(--color-muted) */
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   PROMO CARD – Minimalist Design
    ========================================================= */
 .promo-card {
-    position: relative;
-    background: var(--glass-bg);
-    backdrop-filter: blur(28px) saturate(190%);
-    -webkit-backdrop-filter: blur(28px) saturate(190%);
-    border-radius: 32px;
-    box-shadow: var(--shadow-soft);
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 52, 106, 0.06); /* primary color with opacity */
+    border: 1px solid #e5e7eb; /* var(--color-border) */
     overflow: hidden;
-    transition: var(--transition-lux);
+    transition: all 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
-    isolation: isolate;
+    flex-shrink: 0;
 }
 
+.promo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 52, 106, 0.12); /* primary color with opacity */
+    border-color: #d1d5db;
+}
+
+/* Image Container */
 .card-img-wrapper {
     position: relative;
     overflow: hidden;
-    margin: 14px;
-    border-radius: 24px;
+    height: 200px;
 }
 
 .promo-card img {
     width: 100%;
-    height: 190px;
+    height: 100%;
     object-fit: cover;
-    transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.5s ease;
 }
 
+.promo-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Category Badge */
+.card-category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #00346a; /* var(--color-primary) */
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(0, 52, 106, 0.1);
+}
+
+/* Card Content */
 .card-body {
-    padding: 20px 28px 28px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .promo-card h5 {
-    font-size: 1.38rem;
-    font-weight: 900;
-    color: var(--bpr-blue-dark);
-    margin-bottom: 10px;
-    line-height: 1.2;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1f2937; /* var(--color-dark) */
+    margin-bottom: 12px;
+    line-height: 1.4;
 }
 
 .promo-card p {
-    font-size: 0.96rem;
-    color: #556983;
-    line-height: 1.65;
-    margin-bottom: 18px;
+    font-size: 0.95rem;
+    color: #6b7280; /* var(--color-muted) */
+    line-height: 1.6;
+    margin-bottom: 20px;
     flex-grow: 1;
 }
 
+/* Price Display */
+.card-price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.price-old {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+.price-new {
+    color: #00346a; /* var(--color-primary) */
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.price-discount {
+    background: #e99a12; /* var(--color-secondary) */
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+/* Button */
 .promo-card .btn {
-    margin-top: auto;
-    padding: 13px 34px;
-    border-radius: 999px;
-    font-size: 0.92rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--bpr-gold), var(--bpr-gold-light));
-    color: var(--bpr-blue-dark);
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: #00346a; /* var(--color-primary) */
+    color: #ffffff;
     border: none;
-    transition: var(--transition-lux);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.promo-card .btn:hover {
+    background: #002855;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 52, 106, 0.3);
 }
 
 /* =========================================================
-   DESKTOP HOVER (TIDAK DIUBAH)
+   DESKTOP GRID LAYOUT (3 kolom)
    ========================================================= */
 @media (min-width: 992px) {
-    .promo-card:hover {
-        transform: translateY(-18px);
-        box-shadow: var(--shadow-hover);
+    .promo-section .row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 0;
+        overflow: visible;
     }
 
-    .promo-card:hover img {
-        transform: scale(1.12);
+    .promo-section .col-md-4 {
+        width: 100%;
+        flex: none;
+        max-width: none;
     }
 }
 
 /* =========================================================
-   MOBILE – JARAK ANTAR SECTION DIPERKETAT
+   TABLET RESPONSIVE (2 kolom)
    ========================================================= */
-@media (max-width: 767.98px) {
-    /* SECTION LEBIH DEKAT KE ATAS & BAWAH */
-    .promo-section {
-        padding-top: 48px;
-        padding-bottom: 24px;
-        margin-bottom: 0;
+@media (min-width: 768px) and (max-width: 991px) {
+    .promo-section .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        padding: 0;
+        overflow: visible;
     }
 
-    /* HILANGKAN GAP TAMBAHAN DARI ROW */
+    .promo-section .col-md-4 {
+        width: 100%;
+        flex: none;
+        max-width: none;
+    }
+}
+
+/* =========================================================
+   MOBILE SWIPE HORIZONTAL
+   ========================================================= */
+@media (max-width: 767px) {
+    .promo-section {
+        padding: 60px 0 24px;
+    }
+
+    .promo-header {
+        margin-bottom: 36px;
+        padding: 0 24px;
+    }
+
+    .promo-header h2 {
+        font-size: 2rem;
+        color: #00346a; /* var(--color-primary) */
+    }
+
+    .promo-header p {
+        font-size: 1rem;
+        color: #6b7280; /* var(--color-muted) */
+    }
+
+    /* Container untuk horizontal scroll */
     .promo-section .row {
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
-        padding: 16px 16px 24px;
-        margin: 0 -16px;
-        gap: 16px;
+        overflow-y: hidden;
+        padding: 20px 24px 40px;
+        margin: 0 -24px;
+        gap: 20px;
         scroll-snap-type: x mandatory;
-        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+
+        /* Sembunyikan scrollbar untuk browser modern */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
     }
 
+    /* Sembunyikan scrollbar untuk Webkit browsers */
     .promo-section .row::-webkit-scrollbar {
         display: none;
     }
 
+    /* Card mobile dengan ukuran tetap */
     .promo-section .col-md-4 {
-        flex: 0 0 88%;
-        max-width: 88%;
-        scroll-snap-align: center;
+        flex: 0 0 calc(85% - 10px);
+        width: calc(85% - 10px);
+        max-width: calc(85% - 10px);
+        scroll-snap-align: start;
+        padding: 0;
     }
 
-    .promo-card img {
-        height: 170px;
+    /* Adjust card untuk mobile */
+    .promo-card {
+        height: 100%;
+        margin: 0;
+        border: 1px solid #e5e7eb; /* var(--color-border) */
+    }
+
+    .card-img-wrapper {
+        height: 180px;
     }
 
     .card-body {
-        padding: 16px 22px 22px;
+        padding: 20px;
     }
 
     .promo-card h5 {
-        font-size: 1.28rem;
-        margin-bottom: 6px;
+        font-size: 1.2rem;
+        color: #1f2937; /* var(--color-dark) */
     }
 
     .promo-card p {
-        font-size: 0.94rem;
-        margin-bottom: 14px;
+        font-size: 0.95rem;
+        color: #6b7280; /* var(--color-muted) */
+    }
+
+    .price-new {
+        font-size: 1.3rem;
+        color: #00346a; /* var(--color-primary) */
     }
 
     .promo-card .btn {
-        padding: 12px 26px;
+        padding: 11px 28px;
+        font-size: 0.93rem;
+        background: #00346a; /* var(--color-primary) */
     }
+
+    /* Scroll indicator untuk mobile */
+    .scroll-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 20px;
+        padding-bottom: 10px;
+    }
+
+    .scroll-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #e5e7eb; /* var(--color-border) */
+        transition: all 0.3s ease;
+    }
+
+    .scroll-dot.active {
+        background: #00346a; /* var(--color-primary) */
+        width: 24px;
+        border-radius: 4px;
+    }
+}
+
+/* =========================================================
+   EXTRA SMALL DEVICES (Mobile kecil)
+   ========================================================= */
+@media (max-width: 480px) {
+    .promo-section {
+        padding: 50px 0 5px;
+    }
+
+    .promo-header h2 {
+        font-size: 1.7rem;
+        color: #00346a; /* var(--color-primary) */
+    }
+
+    .promo-header p {
+        font-size: 0.95rem;
+        color: #6b7280; /* var(--color-muted) */
+    }
+
+    .promo-section .row {
+        padding: 16px 20px 36px;
+        margin: 0 -20px;
+        gap: 16px;
+    }
+
+    .promo-section .col-md-4 {
+        flex: 0 0 calc(88% - 8px);
+        width: calc(88% - 8px);
+        max-width: calc(88% - 8px);
+    }
+
+    .card-img-wrapper {
+        height: 160px;
+    }
+
+    .promo-card h5 {
+        font-size: 1.15rem;
+        color: #1f2937; /* var(--color-dark) */
+    }
+
+    .promo-card p {
+        font-size: 0.9rem;
+        color: #6b7280; /* var(--color-muted) */
+    }
+
+    .price-new {
+        font-size: 1.2rem;
+        color: #00346a; /* var(--color-primary) */
+    }
+
+    .price-discount {
+        background: #e99a12; /* var(--color-secondary) */
+    }
+
+    .promo-card .btn {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+        background: #00346a; /* var(--color-primary) */
+    }
+}
+
+/* =========================================================
+   UTILITY CLASSES
+   ========================================================= */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =========================================================
+   ANIMATION FOR SCROLL-IN
+   ========================================================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.promo-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.promo-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.promo-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.promo-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* =========================================================
+   ADDITIONAL STYLES FOR CONSISTENCY
+   ========================================================= */
+
+/* Primary color accent on hover */
+.promo-card:hover .card-category {
+    background: #00346a; /* var(--color-primary) */
+    color: #ffffff;
+}
+
+/* Better button hover state */
+.promo-card .btn:hover {
+    background: #002855;
+}
+
+/* Card hover border effect */
+.promo-card:hover {
+    border-color: #00346a; /* var(--color-primary) */
+}
+
+/* Optional: Highlight featured promo */
+.promo-card.featured {
+    border: 2px solid #e99a12; /* var(--color-secondary) */
+}
+
+.promo-card.featured .card-category {
+    background: #e99a12; /* var(--color-secondary) */
+    color: #ffffff;
 }

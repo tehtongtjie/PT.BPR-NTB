@@ -17,10 +17,6 @@
                 <a href="{{ route('perusahaan.show', 'budaya') }}">Budaya Perusahaan</a>
             </li>
 
-            <li class="{{ $slug === 'struktur-organisasi' ? 'active' : '' }}">
-                <a href="{{ route('perusahaan.show', 'struktur-organisasi') }}">Struktur Organisasi</a>
-            </li>
-
             <li class="{{ $slug === 'komisaris' ? 'active' : '' }}">
                 <a href="{{ route('perusahaan.show', 'komisaris') }}">Dewan Komisaris</a>
             </li>

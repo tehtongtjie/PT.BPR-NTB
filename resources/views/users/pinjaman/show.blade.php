@@ -9,72 +9,76 @@
 @endpush
 
 @section('content')
-    <section class="pinjaman-page">
-        <div class="container">
-            <div class="row g-5">
 
-                {{-- ================= SIDEBAR ================= --}}
-                <div class="col-lg-4">
-                    @include('partials.sidebar-pinjaman')
-                </div>
+    <main class="main-content">
+        <section class="pinjaman-page">
+            <div class="container">
+                <div class="row g-5">
 
-                {{-- ================= MAIN CONTENT ================= --}}
-                <div class="col-lg-8">
-                    <div class="main-product-card">
+                    {{-- ================= SIDEBAR ================= --}}
+                    <div class="col-lg-4">
+                        @include('partials.sidebar-pinjaman')
+                    </div>
 
-                        {{-- HEADER CARD --}}
-                        <div class="product-header">
-                            <img src="{{ asset($pinjaman['gambar']) }}" alt="Ilustrasi {{ $pinjaman['nama'] }} BPR NTB"
-                                loading="lazy">
-                            <h1>{{ $pinjaman['nama'] }}</h1>
-                            <p>{{ $pinjaman['subtitle'] }}</p>
-                        </div>
+                    {{-- ================= MAIN CONTENT ================= --}}
+                    <div class="col-lg-8">
+                        <div class="main-product-card">
 
-                        {{-- BODY --}}
-                        <div class="product-body">
-
-                            {{-- DESKRIPSI --}}
-                            <p class="product-description">
-                                {{ $pinjaman['deskripsi'] }}
-                            </p>
-
-                            {{-- KEUNTUNGAN --}}
-                            <h2 class="section-title">Keunggulan {{ $pinjaman['nama'] }}</h2>
-                            <div class="benefits-grid">
-                                @foreach ($pinjaman['keuntungan'] as $item)
-                                    <div class="benefit-item">
-                                        <i class="bi bi-check-circle" aria-hidden="true"></i>
-                                        <div class="benefit-text">
-                                            <strong>{{ $item }}</strong>
-                                        </div>
-                                    </div>
-                                @endforeach
+                            {{-- HEADER CARD --}}
+                            <div class="product-header">
+                                <img src="{{ asset($pinjaman['gambar']) }}" alt="Ilustrasi {{ $pinjaman['nama'] }} BPR NTB"
+                                    loading="lazy">
+                                <h1>{{ $pinjaman['nama'] }}</h1>
+                                <p>{{ $pinjaman['subtitle'] }}</p>
                             </div>
 
-                            {{-- JENIS PINJAMAN --}}
-                            @if (!empty($pinjaman['jenis']))
-                                <h2 class="section-title">Jenis {{ $pinjaman['nama'] }}</h2>
-                                <ul class="requirements-list">
-                                    @foreach ($pinjaman['jenis'] as $jenis)
-                                        <li>
-                                            <i class="bi bi-check-circle-fill"></i>
-                                            {{ $jenis }}
-                                        </li>
+                            {{-- BODY --}}
+                            <div class="product-body">
+
+                                {{-- DESKRIPSI --}}
+                                <p class="product-description">
+                                    {{ $pinjaman['deskripsi'] }}
+                                </p>
+
+                                {{-- KEUNGGULAN --}}
+                                <h2 class="section-title">Keunggulan {{ $pinjaman['nama'] }}</h2>
+                                <div class="benefits-grid">
+                                    @foreach ($pinjaman['keuntungan'] as $item)
+                                        <div class="benefit-item">
+                                            <i class="bi bi-check-circle" aria-hidden="true"></i>
+                                            <div class="benefit-text">
+                                                <strong>{{ $item }}</strong>
+                                            </div>
+                                        </div>
                                     @endforeach
-                                </ul>
-                            @endif
+                                </div>
 
-                            {{-- CTA --}}
-                            <a href="{{ route('simulasi.kredit') }}" class="cta-button" role="button">
-                                <i class="bi bi-calculator"></i>
-                                Simulasikan {{ $pinjaman['nama'] }} Sekarang
-                            </a>
+                                {{-- JENIS PINJAMAN --}}
+                                @if (!empty($pinjaman['jenis']))
+                                    <h2 class="section-title">Jenis {{ $pinjaman['nama'] }}</h2>
+                                    <ul class="requirements-list">
+                                        @foreach ($pinjaman['jenis'] as $jenis)
+                                            <li>
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                {{ $jenis }}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
 
+                                {{-- CTA --}}
+                                <a href="{{ route('simulasi.kredit') }}" class="cta-button" role="button">
+                                    <i class="bi bi-calculator"></i>
+                                    Simulasikan {{ $pinjaman['nama'] }} Sekarang
+                                </a>
+
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
+
 @endsection
