@@ -22,8 +22,8 @@
 
     <!-- ================= HEADER FIXED ================= -->
     <header class="header-fixed">
-        @include('partials.topbar')
-        @include('partials.navbar')
+        @include('users.partials.topbar')
+        @include('users.partials.navbar')
     </header>
 
     <!-- ================= CONTENT ================= -->
@@ -32,7 +32,7 @@
     </main>
 
     <!-- ================= FOOTER ================= -->
-    @include('partials.footer')
+    @include('users.partials.footer')
 
     <!-- ================= VENDOR JS ================= -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
