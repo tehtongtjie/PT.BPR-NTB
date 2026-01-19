@@ -17,7 +17,7 @@
                     {{-- ================= SIDEBAR ================= --}}
                     <aside class="col-lg-3">
                         <div class="sticky-sidebar">
-                            @include('partials.sidebar-perusahaan')
+                            @include('users.partials.sidebar-perusahaan')
                         </div>
                     </aside>
 

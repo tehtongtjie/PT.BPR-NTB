@@ -17,7 +17,7 @@
 
                     {{-- ================= SIDEBAR ================= --}}
                     <div class="col-lg-4">
-                        @include('partials.sidebar-pinjaman')
+                        @include('users.partials.sidebar-pinjaman')
                     </div>
 
                     {{-- ================= MAIN CONTENT ================= --}}
