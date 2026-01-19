@@ -2,10 +2,7 @@
 
 @section('title', 'Simulasi Deposito')
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('css/pages/simulasi/simulasi-deposito.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-@endpush
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 
 @section('content')
 
@@ -16,8 +13,7 @@
                     <div class="simulasi-left">
                         <div class="input-group-custom">
                             <label class="form-label-custom">Nominal Deposito</label>
-                            <input type="text" id="nominal" class="form-control-premium"
-                                placeholder="Contoh: 10.000.000">
+                            <input type="text" id="nominal" class="form-control-premium" placeholder="Contoh: 10.000.000">
                             <small id="nominal-error" class="text-danger d-none mt-1">
                                 <i class="fas fa-exclamation-circle"></i> Minimal nominal deposito adalah Rp 5.000.000
                             </small>
