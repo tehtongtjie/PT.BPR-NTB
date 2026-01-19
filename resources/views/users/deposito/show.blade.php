@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('users.layouts.app')
 
 @section('title', 'Deposito - BPR NTB')
 
