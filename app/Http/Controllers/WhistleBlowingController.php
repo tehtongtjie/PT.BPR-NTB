@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class WhistleBlowingController extends Controller
 {
-    public function index()
+    public function index() 
     {
         return view('users.pegaduan.WhistleBlowingSystem');
     }
@@ -23,7 +23,7 @@ class WhistleBlowingController extends Controller
         // NANTI BISA:
         // - simpan ke database
         // - kirim email ke internal
-        // - log khusus WBS
+        // - log khusus WBS network
 
         return redirect()
             ->route('pengaduan.wbs')
