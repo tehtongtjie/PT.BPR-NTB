@@ -12,7 +12,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarMenu">
-            <ul class="navbar-nav ms-auto fw-semibold align-items-center">
+            <ul class="navbar-nav mx-auto fw-semibold align-items-center navbar-center">
 
                 {{-- BERANDA --}}
                 <li class="nav-item">
@@ -28,7 +28,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-bpr shadow-lg">
                         <li><a class="dropdown-item" href="{{ route('tabungan.show', 'tabunganku') }}">Tabungan</a></li>
-                        <li><a class="dropdown-item" href="{{ route('deposito.show') }}">Deposito</a></li>
+                        <a class="dropdown-item" href="{{ route('deposito.index') }}">Deposito</a>
                         <li><a class="dropdown-item" href="{{ route('pinjaman.index') }}">Pinjaman</a></li>
                         
                         <li class="dropdown-submenu">
@@ -76,16 +76,26 @@
                     <ul class="dropdown-menu dropdown-bpr">
                         <li><a class="dropdown-item" href="#">Berita</a></li>
                         <li><a class="dropdown-item" href="#">Event</a></li>
+                        <li><a class="dropdown-item" href="#">Lelang</a></li>
                         <li><a class="dropdown-item" href="#">Laporan</a></li>
                     </ul>
                 </li>
 
                 {{-- BUTTON PENGADUAN --}}
-                <li class="nav-item mt-3 mt-lg-0">
-                    <a class="btn btn-pengaduan d-flex align-items-center px-4 py-2" href="#">
-                        <i class="bi bi-chat-dots-fill me-2"></i> Pengaduan
-                    </a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-link-bpr dropdown-toggle" href="#">Pengaduan</a>
+                    <ul class="dropdown-menu dropdown-bpr">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('pengaduan.alur') }}">
+                                Alur Pengaduan
+                            </a>
+                        </li>
+                        <a class="dropdown-item" href="{{ route('pengaduan.wbs') }}">
+                            Whistle Blowing System
+                        </a>
                 </li>
+            </ul>
+            </li>
             </ul>
         </div>
     </div>

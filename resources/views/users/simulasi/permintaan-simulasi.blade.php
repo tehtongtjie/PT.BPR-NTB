@@ -1,11 +1,9 @@
 @extends('users.layouts.app')
+<<<<<<<<< Temporary merge branch 1
 
 @section('title', 'Permintaan Informasi Lanjutan')
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('css/pages/simulasi/permintaan.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-@endpush
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 
 @section('content')
 

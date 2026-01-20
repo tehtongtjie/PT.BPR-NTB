@@ -2,22 +2,26 @@
 
 @section('title', $pinjaman['nama'] . ' - BPR NTB')
 
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/layout/sidebar.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/pages/pinjaman.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 @endpush
 
 @section('content')
 
-                {{-- ================= SIDEBAR ================= --}}
-                <div class="col-lg-4">
-                    @include('users.partials.sidebar-pinjaman')
-                </div>
+<<<<<<<<< Temporary merge branch 1
     <main class="main-content">
         <section class="pinjaman-page">
             <div class="container">
                 <div class="row g-5">
+=========
+                {{-- ================= SIDEBAR ================= --}}
+                <div class="col-lg-4">
+                    @include('users.partials.sidebar-pinjaman')
+                </div>
+>>>>>>>>> Temporary merge branch 2
 
                     {{-- ================= SIDEBAR ================= --}}
                     <div class="col-lg-4">
