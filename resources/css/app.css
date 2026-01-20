@@ -46,4 +46,5 @@
 /* =====================================================
    ADMIN DASHBOARD
    ===================================================== */
-@import "./admin/dashboard.css";
+@import "./admin/main.css";
+@import "./admin/sidebar.css";

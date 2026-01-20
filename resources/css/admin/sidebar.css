@@ -1,7 +1,16 @@
 /* =========================================================
-   ADMIN SIDEBAR – BPR STYLE
+   ROOT VARIABLES (boleh dipakai global)
    ========================================================= */
+:root {
+    --bpr-blue-dark: #00326b;
+    --bpr-blue: #004b9a;
+    --bpr-gold: #e9a227;
+    --transition-fast: all 0.25s ease;
+}
 
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
 .bpr-admin-sidebar {
     width: 270px;
     min-height: 100vh;
@@ -15,6 +24,7 @@
     flex-direction: column;
     position: sticky;
     top: 0;
+    flex-shrink: 0;
 }
 
 /* ===== BRAND ===== */
@@ -23,7 +33,7 @@
     align-items: center;
     gap: 12px;
     padding: 22px 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
 .bpr-admin-brand img {
@@ -59,7 +69,11 @@
     transition: var(--transition-fast);
 }
 
-/* underline emas ala navbar */
+.bpr-admin-link i {
+    font-size: 1.15rem;
+}
+
+/* underline emas */
 .bpr-admin-link::after {
     content: "";
     position: absolute;
@@ -77,25 +91,20 @@
     width: 28px;
 }
 
-/* hover bg */
+/* hover & active */
 .bpr-admin-link:hover,
 .bpr-admin-link.active {
     background: rgba(255,255,255,0.12);
 }
 
-/* icon */
-.bpr-admin-link i {
-    font-size: 1.15rem;
-}
-
-/* ===== DIVIDER ===== */
+/* divider */
 .bpr-admin-divider {
     height: 1px;
     background: rgba(255,255,255,0.15);
     margin: 14px 10px;
 }
 
-/* ===== LOGOUT ===== */
+/* logout */
 .bpr-admin-link.danger {
     color: #ffd6d6;
 }
@@ -109,11 +118,16 @@
 }
 
 /* =========================================================
-   RESPONSIVE (OPTIONAL)
+   RESPONSIVE SIDEBAR
    ========================================================= */
 @media (max-width: 991px) {
     .bpr-admin-sidebar {
         width: 220px;
     }
 }
-    
+
+@media (max-width: 768px) {
+    .bpr-admin-sidebar {
+        display: none;
+    }
+}

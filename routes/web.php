@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\crypt;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Request;
+
+use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\PromoController;
+
 use App\Http\Controllers\SimulasiController;
 use App\Http\Controllers\TabunganController;
 use App\Http\Controllers\PinjamanController;
@@ -25,18 +29,25 @@ Route::get('/', function () {
 */
 Route::prefix('admin')->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
+    // ===== MAIN DASHBOARD =====
+    Route::get('/main', [MainController::class, 'index'])
+        ->name('admin.main');
 
-    Route::get('/articles', [ArticleController::class, 'index']);
-    Route::get('/articles/create', [ArticleController::class, 'create']);
-    Route::post('/articles', [ArticleController::class, 'store']);
-    Route::get('/articles/{article}/edit', [ArticleController::class, 'edit']);
-    Route::put('/articles/{article}', [ArticleController::class, 'update']);
-    Route::delete('/articles/{article}', [ArticleController::class, 'destroy']);
+    // ===== PROMO (DALAM MAIN) =====
+    Route::get('/main/promo/create', [PromoController::class, 'create'])
+        ->name('admin.main.promo.create');
 
-    Route::get('/logout', [AdminAuthController::class, 'logout']);
+    Route::post('/main/promo', [PromoController::class, 'store'])
+        ->name('admin.main.promo.store');
+
+    Route::get('/main/promo/{promo}/edit', [PromoController::class, 'edit'])
+        ->name('admin.main.promo.edit');
+
+    Route::put('/main/promo/{promo}', [PromoController::class, 'update'])
+        ->name('admin.main.promo.update');
+
+    Route::delete('/main/promo/{promo}', [PromoController::class, 'destroy'])
+        ->name('admin.main.promo.destroy');
 });
 
 // login admin (POST)

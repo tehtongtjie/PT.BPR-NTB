@@ -15,7 +15,7 @@
 
                 {{-- ================= SIDEBAR ================= --}}
                 <div class="col-lg-4">
-                    @include('partials.sidebar-produk')
+                    @include('users.partials.sidebar-produk')
                 </div>
 
                 {{-- ================= MAIN CONTENT ================= --}}

@@ -47,6 +47,6 @@ class AdminAuthController extends Controller
             'last_login_at' => now(),
         ]);
 
-        return redirect('/admin/dashboard');
+        return redirect('/admin/main');
     }
 }

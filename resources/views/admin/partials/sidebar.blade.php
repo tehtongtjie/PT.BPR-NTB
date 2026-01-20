@@ -9,16 +9,34 @@
     {{-- MENU --}}
     <nav class="bpr-admin-nav">
 
-        <a href="/admin/dashboard"
-           class="bpr-admin-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
-            <i class="bi bi-speedometer2"></i>
-            <span>Dashboard</span>
+        <a href="/admin/main"
+        class="bpr-admin-link {{ request()->is('admin/main') ? 'active' : '' }}">
+            <i class="bi bi-house-door"></i>
+            <span>Main</span>
         </a>
 
-        <a href="/admin/articles"
-           class="bpr-admin-link {{ request()->is('admin/articles*') ? 'active' : '' }}">
-            <i class="bi bi-newspaper"></i>
-            <span>Articles</span>
+        <a href="/admin/produk"
+        class="bpr-admin-link {{ request()->is('admin/produk*') ? 'active' : '' }}">
+            <i class="bi bi-box-seam"></i>
+            <span>Produk</span>
+        </a>
+
+        <a href="/admin/perusahaan"
+        class="bpr-admin-link {{ request()->is('admin/perusahaan*') ? 'active' : '' }}">
+            <i class="bi bi-building"></i>
+            <span>Perusahaan</span>
+        </a>
+
+        <a href="/admin/jaringan"
+        class="bpr-admin-link {{ request()->is('admin/jaringan*') ? 'active' : '' }}">
+            <i class="bi bi-diagram-3"></i>
+            <span>Jaringan</span>
+        </a>
+
+        <a href="/admin/publikasi"
+        class="bpr-admin-link {{ request()->is('admin/publikasi*') ? 'active' : '' }}">
+            <i class="bi bi-megaphone"></i>
+            <span>Publikasi</span>
         </a>
 
         <div class="bpr-admin-divider"></div>
