@@ -37,49 +37,76 @@
     </section>
 
     {{-- 2. PRODUK UNGGULAN (PROMO) --}}
-    <section class="promo-section section-white">
+    <section class="promo-section section-white py-5">
         <div class="container">
+
+            {{-- Section Header --}}
             <div class="section-header text-center mb-5">
                 <h2 class="fw-bold">Produk Unggulan Kami</h2>
                 <div class="header-line mx-auto"></div>
-                <p class="text-muted mt-3">Solusi perbankan terpercaya untuk masyarakat Nusa Tenggara Barat.</p>
+                <p class="text-muted mt-3">
+                    Solusi perbankan terpercaya untuk masyarakat Nusa Tenggara Barat.
+                </p>
             </div>
 
+            {{-- Promo Cards --}}
             <div class="row g-4">
+                {{-- TabunganKU --}}
                 <div class="col-md-4">
                     <div class="card promo-card shadow-sm h-100">
-                        <img src="{{ asset('images/tabunganku.png') }}" alt="TabunganKU">
-                        <div class="card-body">
+                        <img src="{{ asset('images/tabunganku.png') }}" class="card-img-top" alt="TabunganKU">
+
+                        <div class="card-body text-center">
                             <h5 class="fw-bold">TabunganKU</h5>
-                            <p class="small text-muted">Setoran awal ringan, bebas biaya administrasi bulanan.</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">Selengkapnya</a>
+                            <p class="small text-muted">
+                                Setoran awal ringan, bebas biaya administrasi bulanan.
+                            </p>
+                            <a href="{{ route('tabungan.show', 'tabunganku') }}"
+                                class="btn btn-sm btn-outline-primary rounded-pill">
+                                Selengkapnya
+                            </a>
                         </div>
                     </div>
                 </div>
+
+                {{-- SIMBADA (Featured) --}}
                 <div class="col-md-4">
                     <div class="card promo-card featured shadow h-100">
-                        <img src="{{ asset('images/simbada-card.png') }}" alt="SIMBADA">
-                        <div class="card-body">
+                        <img src="{{ asset('images/simbada-card.png') }}" class="card-img-top" alt="SIMBADA">
+
+                        <div class="card-body text-center">
                             <h5 class="fw-bold text-primary">SIMBADA</h5>
-                            <p class="small text-muted">Simpanan Berhadiah Anda. Dapatkan peluang memenangkan hadiah
-                                menarik.</p>
-                            <a href="#" class="btn btn-sm btn-primary rounded-pill">Detail Produk</a>
+                            <p class="small text-muted">
+                                Simpanan Berhadiah Anda dengan peluang memenangkan hadiah menarik.
+                            </p>
+                            <a href="{{ route('tabungan.show', 'simbada') }}" class="btn btn-sm btn-primary rounded-pill">
+                                Detail Produk
+                            </a>
                         </div>
                     </div>
                 </div>
+
+                {{-- Tabungan Sukses --}}
                 <div class="col-md-4">
                     <div class="card promo-card shadow-sm h-100">
-                        <img src="{{ asset('images/tabungan-sukses.png') }}" alt="Deposito">
-                        <div class="card-body">
+                        <img src="{{ asset('images/tabungan-sukses.png') }}" class="card-img-top" alt="Tabungan Sukses">
+
+                        <div class="card-body text-center">
                             <h5 class="fw-bold">Tabungan Sukses</h5>
-                            <p class="small text-muted">Investasi aman dengan suku bunga kompetitif dan dijamin LPS.</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">Selengkapnya</a>
+                            <p class="small text-muted">
+                                Investasi aman dengan suku bunga kompetitif dan dijamin LPS.
+                            </p>
+                            <a href="{{ route('tabungan.show', 'tabungan-sukses') }}"
+                                class="btn btn-sm btn-outline-primary rounded-pill">
+                                Selengkapnya
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     {{-- 3. SUKU BUNGA --}}
     <section class="suku-bunga-section section-white">

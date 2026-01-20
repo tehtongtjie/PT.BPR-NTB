@@ -11,13 +11,14 @@ use App\Http\Controllers\Admin\PromoController;
 use App\Http\Controllers\SimulasiController;
 use App\Http\Controllers\TabunganController;
 use App\Http\Controllers\PinjamanController;
+use App\Http\Controllers\DepositoController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\Admin\AdminAuthController;
 
 /*
-|--------------------------------------------------------------------------
-| HALAMAN UTAMA (PUBLIC USER)
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------- 
+| HALAMAN UTAMA
+|-------------------------------------------------------------------------- 
 */
 Route::get('/', function () {
     return view('users.pages.home');
@@ -91,9 +92,9 @@ Route::get('/admin/{pathToken?}', function (Request $request, $pathToken = null)
 
 
 /*
-|--------------------------------------------------------------------------
-| HALAMAN SIMULASI (AWAL)
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------- 
+| SIMULASI
+|-------------------------------------------------------------------------- 
 */
 Route::get('/simulasi/deposito', function () {
     return view('users.simulasi.deposito');
@@ -104,43 +105,42 @@ Route::get('/simulasi/kredit', function () {
 })->name('simulasi.kredit');
 
 /*
-|--------------------------------------------------------------------------
-| FORM PERMINTAAN INFORMASI SIMULASI
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------- 
+| FORM PERMINTAAN SIMULASI
+|-------------------------------------------------------------------------- 
 */
 Route::get('/simulasi/{jenis}/permintaan', function ($jenis) {
-
     if (!in_array($jenis, ['deposito', 'kredit'])) {
         abort(404);
     }
 
     return view('users.simulasi.permintaan-simulasi', compact('jenis'));
-
 })->name('simulasi.permintaan');
 
-/*
-|--------------------------------------------------------------------------
-| SUBMIT FORM PERMINTAAN SIMULASI
-|--------------------------------------------------------------------------
-*/
 Route::post(
     '/simulasi/permintaan/submit',
     [SimulasiController::class, 'submit']
 )->name('simulasi.permintaan.submit');
 
 /*
-|--------------------------------------------------------------------------
-| DEPOSITO (INFORMASI – TANPA DATABASE)
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------- 
+| DEPOSITO
+|-------------------------------------------------------------------------- 
 */
-Route::get('/deposito', function () {
-    return view('users.deposito.show');
-})->name('deposito.show');
+Route::prefix('deposito')->group(function () {
+
+    Route::get('/', [DepositoController::class, 'index'])
+        ->name('deposito.index');
+
+    Route::get('/{slug}', [DepositoController::class, 'show'])
+        ->name('deposito.show');
+
+});
 
 /*
-|--------------------------------------------------------------------------
-| TABUNGAN (INFORMASI – VIA CONTROLLER)
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------- 
+| TABUNGAN
+|-------------------------------------------------------------------------- 
 */
 Route::get(
     '/tabungan/{slug}',
@@ -148,9 +148,9 @@ Route::get(
 )->name('tabungan.show');
 
 /*
-|--------------------------------------------------------------------------
-| PINJAMAN (INFORMASI – VIA CONTROLLER)
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------- 
+| PINJAMAN
+|-------------------------------------------------------------------------- 
 */
 Route::get(
     '/pinjaman',
@@ -163,9 +163,50 @@ Route::get(
 )->name('pinjaman.show');
 
 /*
-|--------------------------------------------------------------------------
-| HALAMAN PROFIL / PERUSAHAAN
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------- 
+| PENGADUAN (TANPA CONTROLLER)
+|-------------------------------------------------------------------------- 
+*/
+Route::prefix('pengaduan')->group(function () {
+
+    // ✅ Alur Pengaduan
+    Route::get('/alur', function () {
+        return view('users.pegaduan.alur-pengaduan');
+    })->name('pengaduan.alur');
+
+    // ✅ Whistle Blowing System
+    Route::get('/whistle-blowing-system', function () {
+        return view('users.pegaduan.WhistleBlowingSystem');
+    })->name('pengaduan.wbs');
+
+    // ✅ Submit WBS (dummy sementara)
+    Route::post('/whistle-blowing-system', function () {
+        return redirect()
+            ->route('pengaduan.wbs')
+            ->with('success', 'Laporan Anda berhasil dikirim. Terima kasih.');
+    })->name('pengaduan.wbs.store');
+
+});
+
+/*
+|-------------------------------------------------------------------------- 
+| PERUSAHAAN – DETAIL
+|-------------------------------------------------------------------------- 
+*/
+Route::get(
+    '/perusahaan/komisaris/{slug}',
+    [PerusahaanController::class, 'komisarisDetail']
+)->name('perusahaan.komisaris.detail');
+
+Route::get(
+    '/perusahaan/direksi/{slug}',
+    [PerusahaanController::class, 'direksiDetail']
+)->name('perusahaan.direksi.detail');
+
+/*
+|-------------------------------------------------------------------------- 
+| PERUSAHAAN – HALAMAN UMUM
+|-------------------------------------------------------------------------- 
 */
 Route::get(
     '/perusahaan/{slug}',

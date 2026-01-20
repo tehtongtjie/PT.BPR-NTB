@@ -32,8 +32,12 @@
 /* import halaman hanya jika benar-benar perlu */
 @import "./pages/home.css";
 @import "./pages/perusahaan.css";
+@import "./pages/komisarisdireksi-detail.css";
 @import "./pages/pinjaman.css";
+@import "./pages/deposito.css";
 @import "./pages/tabungan.css";
+@import "./pages/alur-pengaduan.css";
+@import "./pages/WhistleBlowingSystem.css";
 
 /* =====================================================
    PAGE SPECIFIC (MINIMAL & TERKONTROL)

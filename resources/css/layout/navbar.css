@@ -2,22 +2,18 @@
    1. VARIABLES & RESET
    ========================================================= */
 :root {
-    --topbar-height: 40px;
-    --navbar-height: 85px;
-    --navbar-height-scrolled: 70px;
+    --bpr-blue: #00326b;
+    --bpr-blue-dark: #001f42;
+    --bpr-gold: #e99d12;
+    --bpr-gold-light: #ffb835;
 
-    --bpr-blue-dark: #00234a;
-    --bpr-gold: #d4af37;
-    --glass-bg: rgba(255, 255, 255, 0.96);
+    --navbar-height-desktop: 88px;
+    --navbar-height-mobile: 76px;
 
-    --transition-fast: 0.25s ease;
-    --transition-std: 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Inter", sans-serif;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --shadow-navbar: 0 4px 30px rgba(0, 0, 0, 0.03);
+    --shadow-scrolled: 0 10px 30px rgba(0, 50, 107, 0.08);
+    --transition-std: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /* =========================================================
@@ -285,34 +281,5 @@ body {
 
     .dropdown-menu.show {
         display: block;
-        animation: slideDown 0.3s ease-out;
-    }
-
-    .dropdown-submenu > .dropdown-menu {
-        margin-left: 10px;
-    }
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}   
-
-/* =========================================================
-   7. CONTENT OFFSET
-   ========================================================= */
-.main-content {
-    margin-top: calc(var(--topbar-height) + var(--navbar-height));
-}
-
-@media (max-width: 991px) {
-    .main-content {
-        margin-top: calc(var(--topbar-height) + 75px);
     }
 }

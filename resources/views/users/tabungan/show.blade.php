@@ -9,67 +9,58 @@
 @endpush
 
 @section('content')
-    <section class="tabungan-page">
-        <div class="container">
-            <div class="row g-5">
+    <main class="main-content">
+        <section class="tabungan-page">
+            <div class="container">
+                <div class="row g-5">
 
                 {{-- ================= SIDEBAR ================= --}}
                 <div class="col-lg-4">
                     @include('users.partials.sidebar-produk')
                 </div>
 
-                {{-- ================= MAIN CONTENT ================= --}}
-                <div class="col-lg-8">
-                    <div class="main-product-card">
+                    <div class="col-lg-8">
+                        <div class="main-product-card">
 
-                        {{-- HEADER CARD --}}
-                        <div class="product-header">
-                            <img src="{{ asset($tabungan['gambar']) }}" alt="Ilustrasi {{ $tabungan['nama'] }} BPR NTB"
-                                loading="lazy">
-                            <h1>{{ $tabungan['nama'] }}</h1>
-                            <p>{{ $tabungan['subtitle'] }}</p>
-                        </div>
-
-                        {{-- BODY --}}
-                        <div class="product-body">
-
-                            {{-- DESKRIPSI --}}
-                            <p class="product-description">
-                                {{ $tabungan['deskripsi'] }}
-                            </p>
-
-                            {{-- KEUNTUNGAN --}}
-                            <h2 class="section-title">Keuntungan {{ $tabungan['nama'] }}</h2>
-                            <div class="benefits-grid">
-                                @foreach ($tabungan['keuntungan'] as $item)
-                                    <div class="benefit-item">
-                                        <i class="bi bi-check-circle" aria-hidden="true"></i>
-                                        <div class="benefit-text">
-                                            <strong>{{ $item }}</strong>
-                                        </div>
-                                    </div>
-                                @endforeach
+                            <div class="product-header">
+                                <img src="{{ asset($tabungan['gambar']) }}" alt="Ilustrasi {{ $tabungan['nama'] }} BPR NTB"
+                                    loading="lazy">
+                                <h1>{{ $tabungan['nama'] }}</h1>
+                                <p>{{ $tabungan['subtitle'] }}</p>
                             </div>
 
-                            {{-- SYARAT --}}
-                            <h2 class="section-title">Syarat Pengajuan</h2>
-                            <ul class="requirements-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Warga Negara Indonesia (WNI)</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Fotokopi KTP yang masih berlaku</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Mengisi formulir pembukaan rekening</li>
-                            </ul>
+                            <div class="product-body">
+                                <p class="product-description">
+                                    {{ $tabungan['deskripsi'] }}
+                                </p>
 
-                            {{-- CTA --}}
-                            <a href="/hubungi-kami" class="cta-button" role="button">
-                                <i class="bi bi-telephone-forward"></i>
-                                Ajukan {{ $tabungan['nama'] }} Sekarang
-                            </a>
+                                <h2 class="section-title">Keuntungan {{ $tabungan['nama'] }}</h2>
+                                <div class="benefits-grid">
+                                    @foreach ($tabungan['keuntungan'] as $item)
+                                        <div class="benefit-item">
+                                            <i class="bi bi-check-circle"></i>
+                                            <strong>{{ $item }}</strong>
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                                <h2 class="section-title">Syarat Pengajuan</h2>
+                                <ul class="requirements-list">
+                                    <li>WNI</li>
+                                    <li>KTP berlaku</li>
+                                    <li>Isi formulir</li>
+                                </ul>
+
+                                <a href="/hubungi-kami" class="cta-button">
+                                    Ajukan {{ $tabungan['nama'] }}
+                                </a>
+                            </div>
 
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 @endsection
