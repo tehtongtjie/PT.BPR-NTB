@@ -5,7 +5,6 @@
 @vite('resources/css/pages/komisarisdireksi-detail.css')
 
 @section('content')
-    <main class="main-content">
         <section class="page-content">
             <div class="container">
                 <div class="detail-card">

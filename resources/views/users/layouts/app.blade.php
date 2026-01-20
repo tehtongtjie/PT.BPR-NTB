@@ -4,47 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title', 'BPR NTB')</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- ================= VENDOR CSS ================= -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- ================= VITE ASSETS ================= -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <!-- ================= PAGE SPECIFIC CSS ================= -->
     @stack('styles')
 </head>
 
 <body>
 
-    <!-- ================= HEADER FIXED ================= -->
+    <!-- HEADER FIXED -->
     <header class="header-fixed">
         @include('users.partials.topbar')
         @include('users.partials.navbar')
     </header>
 
-    <!-- ================= CONTENT ================= -->
-    <main class="site-main pt-navbar">
+    <!-- CONTENT -->
+    <main class="site-main">
         @yield('content')
     </main>
 
-    <!-- ================= FOOTER ================= -->
+    <!-- FOOTER -->
     @include('users.partials.footer')
 
-    <!-- ================= VENDOR JS ================= -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- ================= PAGE SPECIFIC JS ================= -->
     @stack('scripts')
 
-    <style>
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-    </style>
 </body>
+
 </html>

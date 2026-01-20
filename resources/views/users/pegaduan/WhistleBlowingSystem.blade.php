@@ -6,7 +6,6 @@
 
 @section('content')
 
-    <main class="main-content">
         <section class="pengaduan-page">
             <div class="container">
                 <div class="row justify-content-center">

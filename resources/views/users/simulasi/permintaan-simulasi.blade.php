@@ -6,8 +6,6 @@
 
 @section('content')
 
-    <main class="main-content">
-
         <div class="permintaan-banner">
             <div class="container-fluid px-5">
                 <div class="banner-content">

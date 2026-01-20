@@ -11,7 +11,6 @@
 
 @section('content')
 
-    <main class="main-content">
         <section class="pinjaman-page">
             <div class="container">
                 <div class="row g-5">

@@ -6,7 +6,6 @@
 
 @section('content')
 
-    <main class="main-content">
         <section class="simulasi-section">
             <div class="container-fluid px-5">
                 <div class="simulasi-box">

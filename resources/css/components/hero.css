@@ -5,6 +5,8 @@
 :root {
     --topbar-height: 40px;
     --navbar-height: 70px;
+    --hero-height-desktop: 100vh;
+    --hero-height-mobile: 80vh;
 }
 
 /* =========================================================
@@ -13,17 +15,15 @@
 .hero-section {
     position: relative;
     width: 100%;
-
-    margin-top: calc(var(--topbar-height) + var(--navbar-height));
-    height: calc(100vh - (var(--topbar-height) + var(--navbar-height)));
-    height: calc(100dvh - (var(--topbar-height) + var(--navbar-height)));
-
+    height: var(--hero-height-desktop);
+    /* HAPUS: padding-top: calc(var(--topbar-height) + var(--navbar-height)); */
+    margin-top: 0 !important; /* PASTIKAN TIDAK ADA MARGIN */
     overflow: hidden;
     background-color: #000;
 }
 
 /* =========================================================
-   CAROUSEL STRUCTURE
+   CAROUSEL STRUCTURE - FIX HEIGHT ISSUE
    ========================================================= */
 .hero-section .carousel,
 .hero-section .carousel-inner,
@@ -33,17 +33,16 @@
 }
 
 /* =========================================================
-   FADE TRANSITION (SMOOTH)
+   FIX UNTUK MARGIN DAN PADDING BODY
    ========================================================= */
-.hero-section .carousel-fade .carousel-item {
-    opacity: 0;
-    transition: opacity 2s var(--transition-luxury) !important;
-    z-index: 0;
+body {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
 }
 
-.hero-section .carousel-fade .carousel-item.active {
-    opacity: 1;
-    z-index: 1;
+/* HAPUS SEMUA .pt-navbar atau margin-top yang mungkin konflik */
+.hero-section ~ * {
+    margin-top: 0 !important;
 }
 
 /* =========================================================
@@ -52,11 +51,9 @@
 .hero-slide {
     width: 100%;
     height: 100%;
-
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-
     transform: scale(1.1);
     transition: transform 15s var(--transition-zoom) !important;
     will-change: transform;
@@ -75,8 +72,8 @@
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.1) 30%,
         rgba(0, 0, 0, 0.7) 100%
     );
     z-index: 2;
@@ -84,88 +81,18 @@
 }
 
 /* =========================================================
-   INDICATORS (DOTS)
-   ========================================================= */
-.hero-section .carousel-indicators [data-bs-target] {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(255, 255, 255, 0.7);
-    background-color: transparent;
-    margin: 0 6px;
-    transition: all 0.5s var(--transition-luxury);
-}
-
-.hero-section .carousel-indicators .active {
-    background-color: var(--bpr-gold);
-    border-color: var(--bpr-gold);
-    width: 28px;
-    border-radius: 10px;
-}
-
-/* =========================================================
-   CAROUSEL NAVIGATION (LUXURY)
-   ========================================================= */
-.carousel-control-prev,
-.carousel-control-next {
-    width: 8%;
-    z-index: 15;
-    opacity: 1;
-}
-
-.control-btn {
-    width: 54px;
-    height: 54px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-
-    color: #ffffff;
-    font-size: 1.2rem;
-
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    opacity: 0;
-}
-
-.hero-section:hover .control-btn {
-    opacity: 1;
-}
-
-.hero-section:hover .carousel-control-prev .control-btn {
-    transform: translateX(15px);
-}
-
-.hero-section:hover .carousel-control-next .control-btn {
-    transform: translateX(-15px);
-}
-
-.control-btn:hover {
-    background: var(--bpr-gold);
-    border-color: var(--bpr-gold);
-    box-shadow: 0 0 20px rgba(233, 157, 18, 0.4);
-    transform: scale(1.1) !important;
-}
-
-/* =========================================================
-   MOBILE & TABLET
+   MOBILE & TABLET - FIX HEIGHT DAN POSITIONING
    ========================================================= */
 @media (max-width: 1024px) {
     .hero-section {
-        margin-top: calc(var(--topbar-height) + var(--navbar-height));
-        height: auto;
+        height: var(--hero-height-mobile);
+        /* HAPUS: margin-top: calc(var(--topbar-height) + var(--navbar-height)); */
+        position: relative;
     }
 
     .hero-slide {
-        height: 0;
-        padding-top: 60%;
+        height: 100%;
+        padding-top: 0 !important; /* HAPUS PADDING YANG MENYEBABKAN GAP */
         transform: none !important;
     }
 }
@@ -175,10 +102,20 @@
     .carousel-control-next {
         display: none;
     }
+
+    .hero-section {
+        height: 70vh; /* Adjust untuk mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh;
+    }
 }
 
 /* =========================================================
-   PROMO SECTION
+   PROMO SECTION - FIX POSITIONING
    ========================================================= */
 .promo-section {
     position: relative;
@@ -189,14 +126,34 @@
     padding: 60px 0 40px;
 }
 
-@media (min-width: 992px) {
-    .promo-section {
-        padding: 80px 0 60px;
-    }
+/* =========================================================
+   FIX KHUSUS UNTUK GAP ISSUE
+   ========================================================= */
+
+/* Pastikan tidak ada margin atau padding yang tidak perlu */
+*[class*="pt-"],
+*[class*="mt-"] {
+    margin-top: 0 !important;
 }
 
-@media (max-width: 768px) {
-    .promo-section {
-        padding: 50px 0 30px;
-    }
+/* Jika menggunakan Bootstrap, fix untuk container-fluid */
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* =========================================================
+   DEBUG STYLE (bisa dihapus setelah fix)
+   ========================================================= */
+.debug-border {
+    border: 1px solid red !important;
+}
+
+.debug-border-2 {
+    border: 1px solid blue !important;
 }

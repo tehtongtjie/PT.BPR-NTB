@@ -4,10 +4,10 @@
 
 @section('content')
 
+    {{-- ================= HERO (TIDAK KENA OFFSET) ================= --}}
     <section class="hero-section">
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
-            {{-- Indicators (Dots) --}}
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
@@ -15,23 +15,18 @@
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="hero-slide" style="background-image: url('{{ asset('images/SimbadaHero.png') }}');"></div>
+                    <div class="hero-slide" style="background-image:url('{{ asset('images/SimbadaHero.png') }}')"></div>
                 </div>
                 <div class="carousel-item">
-                    <div class="hero-slide" style="background-image: url('{{ asset('images/tabungan-hero.png') }}');"></div>
+                    <div class="hero-slide" style="background-image:url('{{ asset('images/tabungan-hero.png') }}')"></div>
                 </div>
             </div>
 
-            {{-- Tombol Navigasi Slider --}}
             <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <div class="control-btn">
-                    <i class="bi bi-chevron-left"></i>
-                </div>
+                <div class="control-btn"><i class="bi bi-chevron-left"></i></div>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <div class="control-btn">
-                    <i class="bi bi-chevron-right"></i>
-                </div>
+                <div class="control-btn"><i class="bi bi-chevron-right"></i></div>
             </button>
         </div>
     </section>

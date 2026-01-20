@@ -9,7 +9,6 @@
 
 @section('content')
 
-    <main class="main-content">
         <section class="deposito-page page-content">
             <div class="container">
                 <div class="row g-5 justify-content-center">
