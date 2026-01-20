@@ -76,8 +76,36 @@
     gap: 10px;
     font-weight: 500;
     color: #ffffff;
+    font-size: 0.85rem;
 }
 
-.marquee-text i {
-    color: #ffc107;
+/* =========================================================
+   RESPONSIVE LOGIC (MOBILE)
+   ========================================================= */
+@media (max-width: 768px) {
+    .topbar-wrapper {
+        gap: 10px; /* Perkecil jarak antar elemen di HP */
+    }
+
+    /* Sembunyikan item statis (seperti No. Telp/Email) di HP 
+       agar Marquee punya ruang lebih luas */
+    .topbar-item:not(.marquee-container) {
+        display: none;
+    }
+
+    .topbar-separator {
+        display: none;
+    }
+
+    .marquee-text {
+        font-size: 0.75rem; /* Perkecil font sedikit di HP */
+    }
+
+    .marquee-content {
+        gap: 30px; /* Jarak antar teks marquee lebih rapat */
+    }
+<<<<<<<<< Temporary merge branch 1
 }
+=========
+}
+>>>>>>>>> Temporary merge branch 2

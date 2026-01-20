@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('users.layouts.app')
+<<<<<<<<< Temporary merge branch 1
 
 @section('title', 'Permintaan Informasi Lanjutan')
 

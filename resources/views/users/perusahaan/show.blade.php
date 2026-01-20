@@ -7,17 +7,26 @@
 
 @section('content')
 
+<<<<<<<<< Temporary merge branch 1
     <main class="main-content">
         <section class="page-content">
             <div class="container perusahaan-wrapper">
                 <div class="row g-lg-5">
-
+=========
                 {{-- ================= SIDEBAR ================= --}}
                 <aside class="col-lg-3">
                     <div class="sticky-sidebar">
-                        @include('partials.sidebar-perusahaan')
+                        @include('users.partials.sidebar-perusahaan')
                     </div>
                 </aside>
+>>>>>>>>> Temporary merge branch 2
+
+                    {{-- ================= SIDEBAR ================= --}}
+                    <aside class="col-lg-3">
+                        <div class="sticky-sidebar">
+                            @include('partials.sidebar-perusahaan')
+                        </div>
+                    </aside>
 
                     {{-- ================= CONTENT ================= --}}
                     <div class="col-lg-9">

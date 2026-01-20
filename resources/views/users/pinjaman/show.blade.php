@@ -11,15 +11,22 @@
 
 @section('content')
 
+<<<<<<<<< Temporary merge branch 1
     <main class="main-content">
         <section class="pinjaman-page">
             <div class="container">
                 <div class="row g-5">
-
+=========
                 {{-- ================= SIDEBAR ================= --}}
                 <div class="col-lg-4">
-                    @include('partials.sidebar-pinjaman')
+                    @include('users.partials.sidebar-pinjaman')
                 </div>
+>>>>>>>>> Temporary merge branch 2
+
+                    {{-- ================= SIDEBAR ================= --}}
+                    <div class="col-lg-4">
+                        @include('partials.sidebar-pinjaman')
+                    </div>
 
                     {{-- ================= MAIN CONTENT ================= --}}
                     <div class="col-lg-8">
