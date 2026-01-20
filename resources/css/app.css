@@ -43,3 +43,9 @@
 @import "./pages/simulasi/permintaan.css";
 @import "./pages/simulasi/simulasi-deposito.css";
 @import "./pages/simulasi/simulasi-kredit.css";
+
+/* =====================================================
+   ADMIN DASHBOARD
+   ===================================================== */
+@import "./admin/main.css";
+@import "./admin/sidebar.css";

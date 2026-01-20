@@ -1,6 +1,19 @@
 /* =========================================================
    1. VARIABLES & RESET
    ========================================================= */
+:root {
+    --topbar-height: 40px;
+    --navbar-height: 85px;
+    --navbar-height-scrolled: 70px;
+
+    --bpr-blue-dark: #00234a;
+    --bpr-gold: #d4af37;
+    --glass-bg: rgba(255, 255, 255, 0.96);
+
+    --transition-fast: 0.25s ease;
+    --transition-std: 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -166,6 +179,13 @@ body {
     border-radius: 20px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
 
+
+    min-width: 240px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+
     transform: translateY(10px);
     transition: opacity 0.25s ease, transform 0.25s ease;
     pointer-events: none;
@@ -245,6 +265,23 @@ body {
     transform: translateX(6px);
 }
 
+/* dropdown item */
+.dropdown-item {
+    font-weight: 600;
+    color: var(--bpr-blue-dark);
+    padding: 12px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    transition: all 0.25s ease;
+}
+
+.dropdown-item:hover {
+    background: #f8fafc;
+    color: var(--bpr-gold);
+    transform: translateX(6px);
+}
+
 /* =========================================================
    6. MOBILE (CLICK MODE)
    ========================================================= */
@@ -290,6 +327,34 @@ body {
         transform: translateY(0);
     }
 }
+
+/* =========================================================
+   7. CONTENT OFFSET
+   ========================================================= */
+.main-content {
+    margin-top: calc(var(--topbar-height) + var(--navbar-height));
+}
+
+@media (max-width: 991px) {
+    .main-content {
+        margin-top: calc(var(--topbar-height) + 75px);
+    }
+
+    .dropdown-submenu > .dropdown-menu {
+        margin-left: 10px;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}   
 
 /* =========================================================
    7. CONTENT OFFSET

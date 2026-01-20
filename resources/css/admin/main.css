@@ -1,0 +1,247 @@
+/* =========================================================
+   ROOT
+   ========================================================= */
+:root {
+    --bpr-bg: #f4f6f9;
+    --transition-fast: all 0.25s ease;
+}
+
+/* =========================================================
+   BASE ADMIN BODY
+   ========================================================= */
+.admin-body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bpr-bg);
+}
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+.admin-main {
+    flex: 1;
+    padding: 28px 32px;
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   PAGE CONTENT WRAPPER
+   ========================================================= */
+.admin-page-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   DASHBOARD CARD
+   ========================================================= */
+.dashboard-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 24px 26px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    margin-bottom: 24px;
+}
+
+.dashboard-card h4 {
+    margin: 0;
+    font-weight: 700;
+}
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+.btn-primary {
+    background: linear-gradient(135deg, #004b9a, #0066cc);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead th {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+/* image preview */
+.table img {
+    max-width: 120px;
+    border-radius: 12px;
+}
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+.badge {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* ================= CARD HEADER ================= */
+.card-header-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/* ================= TABLE ADMIN ================= */
+.admin-table thead th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #6c757d;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* image preview */
+.table-img {
+    width: 110px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ================= ACTION BUTTON ================= */
+.table-action {
+    display: flex;
+    gap: 8px;
+}
+
+.table-action form {
+    margin: 0;
+}
+
+/* =========================
+   PROMO FORM
+   ========================= */
+
+.promo-form-card {
+    padding: 32px;
+}
+
+.promo-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+}
+
+.promo-form-header h4 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.upload-box {
+    border: 2px dashed #d0d7e2;
+    border-radius: 14px;
+    padding: 20px;
+    background: #f8fafc;
+}
+
+.upload-box input {
+    background: #fff;
+}
+
+.upload-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 10px;
+    gap: 4px;
+}
+
+.promo-form-action {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+/* =========================
+   PROMO INPUT FIX
+   ========================= */
+
+.promo-input {
+    height: 48px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+}
+
+.promo-textarea {
+    min-height: 140px;
+    resize: vertical;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    padding: 14px;
+}
+
+.form-helper {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 6px;
+}
+
+/* Fokus lebih halus */
+.promo-input:focus,
+.promo-textarea:focus {
+    border-color: var(--bpr-blue);
+    box-shadow: 0 0 0 3px rgba(0,75,154,0.12);
+}
+
+
+/* =========================================================
+   RESPONSIVE MAIN
+   ========================================================= */
+@media (max-width: 991px) {
+    .admin-main {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-main {
+        padding: 16px;
+    }
+}

@@ -8,6 +8,24 @@
 @endpush
 
 @section('content')
+    <section class="page-content">
+        <div class="container perusahaan-wrapper">
+            <div class="row g-lg-5">
+
+                {{-- ================= SIDEBAR ================= --}}
+                <aside class="col-lg-3">
+                    <div class="sticky-sidebar">
+                        @include('users.partials.sidebar-perusahaan')
+                    </div>
+                </aside>
+
+                {{-- ================= CONTENT ================= --}}
+                <div class="col-lg-9">
+                    <div class="content-box">
+                        <div class="image-wrapper mb-5">
+                            <img src="{{ asset($data['image']) }}" class="img-fluid content-image"
+                                alt="{{ $data['title'] }}">
+                        </div>
 
     <main class="main-content">
         <section class="page-content">

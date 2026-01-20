@@ -1,0 +1,133 @@
+/* =========================================================
+   ROOT VARIABLES (boleh dipakai global)
+   ========================================================= */
+:root {
+    --bpr-blue-dark: #00326b;
+    --bpr-blue: #004b9a;
+    --bpr-gold: #e9a227;
+    --transition-fast: all 0.25s ease;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+.bpr-admin-sidebar {
+    width: 270px;
+    min-height: 100vh;
+    background: linear-gradient(
+        180deg,
+        var(--bpr-blue-dark),
+        #003d7a
+    );
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+}
+
+/* ===== BRAND ===== */
+.bpr-admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.bpr-admin-brand img {
+    height: 42px;
+}
+
+.bpr-admin-brand span {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+/* ===== NAV ===== */
+.bpr-admin-nav {
+    padding: 18px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* ===== LINK ===== */
+.bpr-admin-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.bpr-admin-link i {
+    font-size: 1.15rem;
+}
+
+/* underline emas */
+.bpr-admin-link::after {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--bpr-gold);
+    transform: translateX(-50%);
+    transition: var(--transition-fast);
+}
+
+.bpr-admin-link:hover::after,
+.bpr-admin-link.active::after {
+    width: 28px;
+}
+
+/* hover & active */
+.bpr-admin-link:hover,
+.bpr-admin-link.active {
+    background: rgba(255,255,255,0.12);
+}
+
+/* divider */
+.bpr-admin-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 14px 10px;
+}
+
+/* logout */
+.bpr-admin-link.danger {
+    color: #ffd6d6;
+}
+
+.bpr-admin-link.danger:hover {
+    background: rgba(220,53,69,0.25);
+}
+
+.bpr-admin-link.danger::after {
+    background: #ff6b6b;
+}
+
+/* =========================================================
+   RESPONSIVE SIDEBAR
+   ========================================================= */
+@media (max-width: 991px) {
+    .bpr-admin-sidebar {
+        width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bpr-admin-sidebar {
+        display: none;
+    }
+}
