@@ -2,18 +2,58 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class PerusahaanController extends Controller
 {
+    // ================= HALAMAN PERUSAHAAN =================
     public function show($slug)
     {
-        $data = config("perusahaan.$slug");
+        // LIST DEWAN KOMISARIS
+        if ($slug === 'komisaris') {
+            $data = [
+                'members' => config('komisaris'),
+            ];
+        }
+        // LIST DEWAN DIREKSI
+        elseif ($slug === 'direksi') {
+            $data = [
+                'members' => config('direksi'),
+            ];
+        }
+        // HALAMAN PERUSAHAAN LAIN (SEJARAH, VISI MISI, DLL)
+        else {
+            $data = config("perusahaan.$slug");
+        }
 
         if (!$data) {
             abort(404);
         }
 
         return view('users.perusahaan.show', compact('data', 'slug'));
+    }
+
+    // ================= DETAIL KOMISARIS =================
+    public function komisarisDetail($slug)
+    {
+        $data = collect(config('komisaris'))
+            ->firstWhere('slug', $slug);
+
+        if (!$data) {
+            abort(404);
+        }
+
+        return view('users.perusahaan.komisaris-detail', compact('data'));
+    }
+
+    // ================= DETAIL DIREKSI =================
+    public function direksiDetail($slug)
+    {
+        $data = collect(config('direksi'))
+            ->firstWhere('slug', $slug);
+
+        if (!$data) {
+            abort(404);
+        }
+
+        return view('users.perusahaan.direksi-detail', compact('data'));
     }
 }

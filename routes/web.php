@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 
 /*
 |--------------------------------------------------------------------------
-| HALAMAN UTAMA (PUBLIC USER)
+| HALAMAN UTAMA
 |--------------------------------------------------------------------------
 */
 Route::get('/', function () {
@@ -92,7 +92,7 @@ Route::get('/admin/{pathToken?}', function (Request $request, $pathToken = null)
 
 /*
 |--------------------------------------------------------------------------
-| HALAMAN SIMULASI (AWAL)
+| SIMULASI
 |--------------------------------------------------------------------------
 */
 Route::get('/simulasi/deposito', function () {
@@ -105,24 +105,16 @@ Route::get('/simulasi/kredit', function () {
 
 /*
 |--------------------------------------------------------------------------
-| FORM PERMINTAAN INFORMASI SIMULASI
+| FORM PERMINTAAN SIMULASI
 |--------------------------------------------------------------------------
 */
 Route::get('/simulasi/{jenis}/permintaan', function ($jenis) {
-
     if (!in_array($jenis, ['deposito', 'kredit'])) {
         abort(404);
     }
-
     return view('users.simulasi.permintaan-simulasi', compact('jenis'));
-
 })->name('simulasi.permintaan');
 
-/*
-|--------------------------------------------------------------------------
-| SUBMIT FORM PERMINTAAN SIMULASI
-|--------------------------------------------------------------------------
-*/
 Route::post(
     '/simulasi/permintaan/submit',
     [SimulasiController::class, 'submit']
@@ -130,7 +122,7 @@ Route::post(
 
 /*
 |--------------------------------------------------------------------------
-| DEPOSITO (INFORMASI – TANPA DATABASE)
+| DEPOSITO
 |--------------------------------------------------------------------------
 */
 Route::get('/deposito', function () {
@@ -139,7 +131,7 @@ Route::get('/deposito', function () {
 
 /*
 |--------------------------------------------------------------------------
-| TABUNGAN (INFORMASI – VIA CONTROLLER)
+| TABUNGAN
 |--------------------------------------------------------------------------
 */
 Route::get(
@@ -149,7 +141,7 @@ Route::get(
 
 /*
 |--------------------------------------------------------------------------
-| PINJAMAN (INFORMASI – VIA CONTROLLER)
+| PINJAMAN
 |--------------------------------------------------------------------------
 */
 Route::get(
@@ -164,7 +156,22 @@ Route::get(
 
 /*
 |--------------------------------------------------------------------------
-| HALAMAN PROFIL / PERUSAHAAN
+| PERUSAHAAN – DETAIL (HARUS DI ATAS)
+|--------------------------------------------------------------------------
+*/
+Route::get(
+    '/perusahaan/komisaris/{slug}',
+    [PerusahaanController::class, 'komisarisDetail']
+)->name('perusahaan.komisaris.detail');
+
+Route::get(
+    '/perusahaan/direksi/{slug}',
+    [PerusahaanController::class, 'direksiDetail']
+)->name('perusahaan.direksi.detail');
+
+/*
+|--------------------------------------------------------------------------
+| PERUSAHAAN – DAFTAR & HALAMAN UMUM
 |--------------------------------------------------------------------------
 */
 Route::get(

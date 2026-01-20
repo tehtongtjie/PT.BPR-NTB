@@ -1,168 +1,130 @@
 /* =========================================================
-   SUKU BUNGA – SUPREME LUXURY MINIMALIST (2026 UPGRADE)
+   SUKU BUNGA – Clean Minimalist
    ========================================================= */
-
 .suku-bunga-section {
-    padding: 80px 0 48px; /* tetap compact, bawah kecil */
-    background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+    padding: 80px 0;
+    background: #ffffff;
     position: relative;
-    overflow: hidden;
-    /* Tarik sedikit ke atas agar tidak kejauhan dengan section sebelumnya */
-    margin-top: -40px;
-    z-index: 10;
-}
-
-/* Subtle gold ambient glow */
-.suku-bunga-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(
-            circle at 20% 10%,
-            rgba(244, 165, 26, 0.07) 0%,
-            transparent 45%
-        ),
-        radial-gradient(
-            circle at 80% 90%,
-            rgba(244, 165, 26, 0.05) 0%,
-            transparent 50%
-        );
-    opacity: 0.75;
-    z-index: -1;
 }
 
 /* =========================================================
-   CARD WRAPPER – Deep Glassmorphic Card
+   MAIN CARD – Clean Layout
    ========================================================= */
 .sb-card-wrapper {
-    max-width: 960px;
+    max-width: 1000px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(28px) saturate(180%);
-    -webkit-backdrop-filter: blur(28px) saturate(180%);
-    border-radius: 36px;
-    border: 1px solid rgba(244, 165, 26, 0.12);
-    box-shadow: 0 24px 60px rgba(0, 43, 92, 0.1);
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
     overflow: hidden;
     display: flex;
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.3s ease;
 }
 
 .sb-card-wrapper:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 40px 100px rgba(0, 43, 92, 0.16);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    border-color: #d1d5db;
 }
 
 /* =========================================================
-   LEFT PANEL – Premium Dark Gradient
+   LEFT PANEL – Clean & Focused
    ========================================================= */
 .sb-left-panel {
     flex: 1;
-    background: linear-gradient(155deg, #001f44 0%, #002b5c 100%);
-    color: white;
-    padding: 60px 48px;
+    background: #00346a; /* var(--color-primary) */
+    color: #ffffff;
+    padding: 48px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative;
-}
-
-.sb-left-panel::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(244, 165, 26, 0.08) 0%,
-        transparent 70%
-    );
-    pointer-events: none;
 }
 
 .sb-left-panel span {
-    font-size: 0.78rem;
-    letter-spacing: 4px;
-    color: #f4a51a;
-    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: #e99a12; /* var(--color-secondary) */
+    font-weight: 600;
     margin-bottom: 16px;
     text-transform: uppercase;
 }
 
-.sb-value {
-    font-size: 5.2rem;
-    font-weight: 900;
-    line-height: 1;
-    margin: 0;
-    background: linear-gradient(180deg, #ffffff 50%, #f4a51a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 4px 20px rgba(244, 165, 26, 0.15);
+.sb-value-container {
+    margin: 20px 0;
 }
 
-.sb-left-panel p {
-    font-size: 0.98rem;
-    line-height: 1.65;
-    margin-top: 20px;
-    opacity: 0.92;
-    max-width: 280px;
+.sb-value {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+}
+
+.sb-value::after {
+    content: "%";
+    position: absolute;
+    top: 0;
+    right: -36px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.sb-value-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 24px;
+    opacity: 0.9;
+    max-width: 300px;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .sb-left-panel .btn-light {
-    margin-top: 28px;
+    margin-top: 32px;
     padding: 14px 36px;
-    border-radius: 999px;
-    font-size: 0.88rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    background: linear-gradient(135deg, #f4a51a, #ffc045);
-    color: #001f44;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: #e99a12; /* var(--color-secondary) */
+    color: #00346a; /* var(--color-primary) */
     border: none;
-    box-shadow: 0 8px 32px rgba(244, 165, 26, 0.35);
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .sb-left-panel .btn-light:hover {
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 16px 48px rgba(244, 165, 26, 0.45);
+    background: #f8b42c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(233, 154, 18, 0.3);
 }
 
 /* =========================================================
-   RIGHT PANEL – Clean & Elegant
+   RIGHT PANEL – Clean & Organized
    ========================================================= */
 .sb-right-panel {
-    flex: 1.2;
-    padding: 48px 52px;
+    flex: 1.3;
+    padding: 48px 40px;
     background: #ffffff;
 }
 
 .sb-right-title {
-    font-size: 1.55rem;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    color: #001f44;
-    margin-bottom: 28px;
-    position: relative;
-}
-
-.sb-right-title::after {
-    content: "";
-    position: absolute;
-    bottom: -12px;
-    left: 0;
-    width: 80px;
-    height: 5px;
-    background: linear-gradient(to right, #f4a51a, transparent);
-    border-radius: 3px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1f2937; /* var(--color-dark) */
+    margin-bottom: 32px;
+    line-height: 1.3;
 }
 
 /* =========================================================
-   DROPDOWN – Smooth & Luxurious Animation
+   DROPDOWN – Simple & Functional
    ========================================================= */
 .sb-dropdown {
-    border-bottom: 1px solid rgba(244, 165, 26, 0.08);
+    border-bottom: 1px solid #e5e7eb; /* var(--color-border) */
     margin-bottom: 8px;
 }
 
@@ -179,87 +141,110 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.08rem;
-    font-weight: 800;
-    color: #002b5c;
-    transition: color 0.4s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f2937; /* var(--color-dark) */
+    transition: all 0.3s ease;
 }
 
 .sb-dropdown-header:hover {
-    color: #f4a51a;
+    color: #00346a; /* var(--color-primary) */
 }
 
-.sb-dropdown-header i {
-    font-size: 0.9rem;
-    color: #cbd5e1;
-    transition: all 0.4s ease;
+.sb-dropdown-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9fafb; /* var(--color-bg) */
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
-.sb-dropdown.active .sb-dropdown-header i {
+.sb-dropdown.active .sb-dropdown-icon {
+    background: #e99a12; /* var(--color-secondary) */
     transform: rotate(180deg);
-    color: #f4a51a;
+}
+
+.sb-dropdown-icon i {
+    font-size: 0.9rem;
+    color: #6b7280; /* var(--color-muted) */
+}
+
+.sb-dropdown.active .sb-dropdown-icon i {
+    color: #ffffff;
 }
 
 .sb-dropdown-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        padding 0.6s ease;
+    transition: all 0.4s ease;
 }
 
 .sb-dropdown.active .sb-dropdown-content {
-    max-height: 600px;
-    padding-bottom: 20px;
-}
-
-/* Rows – lebih halus */
-.sb-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 16px;
-    border-radius: 12px;
-    transition: background 0.4s ease;
-}
-
-.sb-row:hover {
-    background: rgba(244, 165, 26, 0.04);
-}
-
-.sb-row span:first-child {
-    color: #64748b;
-    font-weight: 600;
-}
-
-.sb-row span:last-child {
-    color: #001f44;
-    font-weight: 900;
-    font-size: 1.08rem;
+    max-height: 800px;
+    padding-bottom: 16px;
 }
 
 /* =========================================================
-   RESPONSIVE – TABLET & MOBILE
+   CONTENT ROWS – Clean Data Display
+   ========================================================= */
+.sb-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin: 4px 0;
+}
+
+.sb-row:hover {
+    background: #f9fafb; /* var(--color-bg) */
+}
+
+.sb-row span:first-child {
+    color: #6b7280; /* var(--color-muted) */
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.sb-row span:last-child {
+    color: #00346a; /* var(--color-primary) */
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.sb-row span:last-child::after {
+    content: "%";
+    margin-left: 4px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Success/Warning/Danger indicators for rates */
+.sb-row.high-rate span:last-child {
+    color: #dc2626; /* var(--color-danger) */
+}
+
+.sb-row.low-rate span:last-child {
+    color: #16a34a; /* var(--color-success) */
+}
+
+.sb-row.mid-rate span:last-child {
+    color: #f59e0b; /* var(--color-warning) */
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
    ========================================================= */
 
+/* Tablet */
 @media (max-width: 992px) {
     .sb-card-wrapper {
         flex-direction: column;
-        border-radius: 28px;
-    }
-
-    .sb-left-panel,
-    .sb-right-panel {
-        padding: 48px 40px;
-    }
-
-    .sb-value {
-        font-size: 4.2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .suku-bunga-section {
-        padding: 64px 0 40px;
-        margin-top: -30px;
+        max-width: 90%;
+        margin: 0 auto;
     }
 
     .sb-left-panel,
@@ -268,23 +253,38 @@
     }
 
     .sb-value {
-        font-size: 3.8rem;
+        font-size: 4rem;
     }
 }
 
-@media (max-width: 576px) {
+/* Mobile */
+@media (max-width: 768px) {
     .suku-bunga-section {
-        padding: 56px 0 32px;
-        margin-top: -20px;
+        padding: 60px 0;
+    }
+
+    .sb-card-wrapper {
+        border-radius: 16px;
+        max-width: 95%;
     }
 
     .sb-left-panel,
     .sb-right-panel {
-        padding: 36px 24px;
+        padding: 32px 24px;
+    }
+
+    .sb-left-panel span {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
     }
 
     .sb-value {
-        font-size: 3.4rem;
+        font-size: 3.5rem;
+    }
+
+    .sb-value::after {
+        font-size: 1.8rem;
+        right: -32px;
     }
 
     .sb-right-title {
@@ -292,6 +292,109 @@
     }
 
     .sb-dropdown-header {
+        padding: 16px 0;
+        font-size: 1.05rem;
+    }
+
+    .sb-row {
+        padding: 12px;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .sb-row span:last-child {
         font-size: 1rem;
     }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .suku-bunga-section {
+        padding: 48px 0;
+    }
+
+    .sb-left-panel {
+        padding: 28px 20px;
+    }
+
+    .sb-value {
+        font-size: 3rem;
+    }
+
+    .sb-value::after {
+        font-size: 1.5rem;
+        right: -28px;
+    }
+
+    .sb-left-panel .btn-light {
+        padding: 12px 28px;
+        font-size: 0.9rem;
+    }
+
+    .sb-right-panel {
+        padding: 28px 20px;
+    }
+
+    .sb-right-title {
+        font-size: 1.3rem;
+        margin-bottom: 24px;
+    }
+
+    .sb-dropdown-header {
+        font-size: 1rem;
+    }
+}
+
+/* =========================================================
+   UTILITY ANIMATIONS
+   ========================================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sb-card-wrapper {
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+/* =========================================================
+   ADDITIONAL STYLES FOR BETTER VISIBILITY
+   ========================================================= */
+.sb-value-container {
+    position: relative;
+}
+
+.sb-value-container::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #e99a12; /* var(--color-secondary) */
+    opacity: 0.5;
+    border-radius: 2px;
+}
+
+/* Highlight active dropdown */
+.sb-dropdown.active .sb-dropdown-header {
+    color: #00346a; /* var(--color-primary) */
+    font-weight: 700;
+}
+
+/* Better contrast for accessibility */
+.sb-row:hover span:first-child {
+    color: #4b5563;
+}
+
+.sb-row:hover span:last-child {
+    color: #002855;
 }

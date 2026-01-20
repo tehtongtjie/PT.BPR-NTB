@@ -51,6 +51,15 @@
                         <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'sejarah') }}">Sejarah</a></li>
                         <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'visi-misi') }}">Visi & Misi</a></li>
                         <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'budaya') }}">Budaya</a></li>
+                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'visi-misi') }}">Visi & Misi</a>
+                        </li>
+                        <li><a class="dropdown-item"
+                                href="{{ route('perusahaan.show', 'budaya Perusahaan') }}">Budaya</a></li>
+                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'komisaris') }}">Dewan
+                                Komisaris</a></li>
+                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'direksi') }}">Direksi</a></li>
+                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'tata-kelola') }}">Tata Kelola
+                                Perusahaan</a></li>
                     </ul>
                 </li>
 
@@ -67,6 +76,7 @@
                     <ul class="dropdown-menu dropdown-bpr">
                         <li><a class="dropdown-item" href="#">Berita</a></li>
                         <li><a class="dropdown-item" href="#">Event</a></li>
+                        <li><a class="dropdown-item" href="#">Laporan</a></li>
                     </ul>
                 </li>
 
