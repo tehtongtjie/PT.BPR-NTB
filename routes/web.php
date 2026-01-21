@@ -6,6 +6,7 @@ use App\Http\Controllers\TabunganController;
 use App\Http\Controllers\PinjamanController;
 use App\Http\Controllers\DepositoController;
 use App\Http\Controllers\PerusahaanController;
+use App\Http\Controllers\JaringanKantorController;
 use App\Http\Controllers\UmkmController;
 
 /*
@@ -148,3 +149,8 @@ Route::get(
     '/perusahaan/{slug}',
     [PerusahaanController::class, 'show']
 )->name('perusahaan.show');
+
+
+// jaringan kantor
+Route::get('/jaringan-kantor', [JaringanKantorController::class, 'index'])
+    ->name('jaringan.kantor');

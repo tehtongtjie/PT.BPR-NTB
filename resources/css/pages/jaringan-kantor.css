@@ -1,0 +1,738 @@
+/* =========================================================
+   JARINGAN KANTOR PAGE
+   Responsive & selaras dengan halaman Deposito
+   ========================================================= */
+
+.jaringan-kantor-page {
+    padding-bottom: 80px;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100px);
+    min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+.jaringan-kantor-page h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 800;
+    color: #1a1a2e;
+    background: linear-gradient(135deg, #00326b 0%, #0a4a8f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.jaringan-kantor-page h1::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #00326b, #0a4a8f);
+    border-radius: 2px;
+}
+
+.jaringan-kantor-page .header-subtitle {
+    font-size: 1.1rem;
+    color: #4b5563;
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+/* ================= SEARCH & FILTER CONTAINER ================= */
+.filter-container {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 24px rgba(0, 50, 107, 0.08);
+    margin-bottom: 2rem;
+    border: 1px solid #e5e7eb;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.filter-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 50, 107, 0.12);
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-wrapper .form-control {
+    padding-left: 3rem;
+    background: #f8fafc;
+    border: 2px solid #e5e7eb;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-wrapper .form-control:focus {
+    background: white;
+    border-color: #00326b;
+    box-shadow: 0 0 0 4px rgba(0, 50, 107, 0.15);
+    transform: scale(1.02);
+}
+
+.search-wrapper::before {
+    content: "🔍";
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    font-size: 1.1rem;
+    opacity: 0.6;
+}
+
+/* ================= FILTER BUTTONS ================= */
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.filter-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #e5e7eb;
+    background: white;
+    color: #4b5563;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-btn:hover {
+    border-color: #00326b;
+    color: #00326b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 50, 107, 0.1);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #00326b, #0a4a8f);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 6px 20px rgba(0, 50, 107, 0.25);
+    animation: pulse 2s infinite;
+}
+
+.filter-btn.active::after {
+    content: "✓";
+    margin-left: 0.25rem;
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 6px 20px rgba(0, 50, 107, 0.25);
+    }
+    50% {
+        box-shadow: 0 6px 25px rgba(0, 50, 107, 0.35);
+    }
+    100% {
+        box-shadow: 0 6px 20px rgba(0, 50, 107, 0.25);
+    }
+}
+
+/* ================= CARD ENHANCEMENT ================= */
+.jaringan-kantor-page .card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.jaringan-kantor-page .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #00326b, #0a4a8f);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.jaringan-kantor-page .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 50, 107, 0.15);
+}
+
+.jaringan-kantor-page .card:hover::before {
+    transform: scaleX(1);
+}
+
+/* ================= TABLE ENHANCEMENT ================= */
+.jaringan-kantor-page table {
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.jaringan-kantor-page thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.jaringan-kantor-page thead th {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #6b7280;
+    padding: 1.25rem 1rem;
+    white-space: nowrap;
+    background: linear-gradient(180deg, #ffffff, #f8fafc);
+    border-bottom: 3px solid #e5e7eb;
+    position: relative;
+}
+
+.jaringan-kantor-page thead th::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #00326b, #0a4a8f);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.jaringan-kantor-page thead th:hover::after {
+    transform: scaleX(1);
+}
+
+.jaringan-kantor-page tbody td {
+    padding: 1.25rem 1rem;
+    vertical-align: middle;
+    font-size: 0.925rem;
+    color: #1f2937;
+    border-bottom: 1px solid #f3f4f6;
+    transition: all 0.2s ease;
+}
+
+/* Hover Effects */
+.jaringan-kantor-page tbody tr {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.jaringan-kantor-page tbody tr:hover {
+    background: linear-gradient(90deg, #f8fafc, #ffffff);
+    transform: scale(1.005);
+    box-shadow: 0 4px 20px rgba(0, 50, 107, 0.08);
+    z-index: 2;
+}
+
+.jaringan-kantor-page tbody tr:hover td {
+    border-color: transparent;
+    color: #00326b;
+}
+
+/* ================= BADGE ENHANCEMENT ================= */
+.jaringan-kantor-page .badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.badge-kantor-pusat {
+    background: linear-gradient(135deg, #00326b, #0a4a8f);
+    color: white;
+}
+
+.badge-kantor-cabang {
+    background: linear-gradient(135deg, #059669, #10b981);
+    color: white;
+}
+
+.badge-kantor-kas {
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+    color: white;
+}
+
+/* ================= KANTOR INFO ENHANCEMENT ================= */
+.kantor-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.kantor-nama {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.kantor-nama::before {
+    content: "🏢";
+    font-size: 0.9em;
+}
+
+.kantor-kode {
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-family: "Courier New", monospace;
+    background: #f3f4f6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.kantor-alamat {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #4b5563;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.kantor-alamat::before {
+    content: "📍";
+    flex-shrink: 0;
+}
+
+.kantor-kota {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+/* ================= ACTION BUTTONS ================= */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.btn-direction {
+    background: linear-gradient(135deg, #059669, #10b981);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-direction:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.3);
+    color: white;
+}
+
+.btn-detail {
+    background: white;
+    border: 2px solid #00326b;
+    color: #00326b;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-detail:hover {
+    background: #00326b;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 50, 107, 0.2);
+}
+
+/* ================= PAGINATION ENHANCEMENT ================= */
+.pagination-wrapper {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.jaringan-kantor-page .pagination {
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.jaringan-kantor-page .page-link {
+    border-radius: 12px !important;
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4b5563;
+    border: 2px solid transparent;
+    padding: 0.5rem 1rem;
+    min-width: 45px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.jaringan-kantor-page .page-link:hover {
+    color: #00326b;
+    border-color: #00326b;
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 50, 107, 0.15);
+}
+
+.jaringan-kantor-page .page-item.active .page-link {
+    background: linear-gradient(135deg, #00326b, #0a4a8f);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 6px 20px rgba(0, 50, 107, 0.25);
+}
+
+.jaringan-kantor-page .page-item.disabled .page-link {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ================= MAP MODAL ENHANCEMENT ================= */
+#mapModal .modal-content {
+    border-radius: 24px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+#mapModal .modal-header {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #00326b, #0a4a8f);
+    border-bottom: none;
+}
+
+#mapModal .modal-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#mapModal .modal-title::before {
+    content: "🗺️";
+}
+
+#mapModal .btn-close {
+    filter: invert(1) brightness(200%);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+#mapModal .btn-close:hover {
+    opacity: 1;
+}
+
+#mapModal .modal-body {
+    padding: 0;
+    position: relative;
+}
+
+#mapModal .map-overlay {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+#mapModal .modal-footer {
+    padding: 1.25rem 2rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Map Container */
+#map {
+    width: 100%;
+    height: clamp(300px, 60vh, 500px);
+    background: #f8fafc;
+}
+
+/* Map Loading Animation */
+#map.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+#map.loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+    );
+    animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ================= EMPTY STATE ENHANCEMENT ================= */
+.empty-state {
+    max-width: 420px;
+    margin: 3rem auto;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.empty-state h4 {
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 0.75rem;
+}
+
+.empty-state p {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+/* ================= LOADING SKELETON ================= */
+.skeleton-row {
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: #f3f4f6;
+    }
+    50% {
+        background-color: #e5e7eb;
+    }
+    100% {
+        background-color: #f3f4f6;
+    }
+}
+
+/* ================= RESPONSIVE ENHANCEMENTS ================= */
+
+/* Tablet (≤768px) */
+@media (max-width: 768px) {
+    .jaringan-kantor-page {
+        padding: 1rem;
+        padding-bottom: 3rem;
+    }
+
+    .filter-container {
+        padding: 1.25rem;
+        border-radius: 16px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .empty-state {
+        margin: 2rem 1rem;
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Mobile (≤576px) */
+@media (max-width: 576px) {
+    .jaringan-kantor-page h1 {
+        font-size: 1.75rem;
+    }
+
+    .header-subtitle {
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    .filter-tags {
+        gap: 0.375rem;
+    }
+
+    .filter-btn {
+        padding: 0.375rem 0.875rem;
+        font-size: 0.8rem;
+    }
+
+    #mapModal .modal-dialog {
+        margin: 0.5rem;
+    }
+
+    #mapModal .modal-header {
+        padding: 1rem 1.25rem;
+    }
+
+    #mapModal .modal-footer {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    #mapModal .modal-footer .btn {
+        width: 100%;
+    }
+
+    /* Mobile Table Transformation */
+    .jaringan-kantor-page table {
+        background: transparent;
+    }
+
+    .jaringan-kantor-page tbody tr {
+        display: flex;
+        flex-direction: column;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+        border-radius: 16px;
+        background: white;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border-left: 4px solid #00326b;
+    }
+
+    .jaringan-kantor-page tbody tr:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 50, 107, 0.12);
+    }
+
+    .jaringan-kantor-page tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #f3f4f6;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .jaringan-kantor-page tbody td:last-child {
+        border-bottom: none;
+        padding-top: 1rem;
+    }
+
+    .jaringan-kantor-page tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #6b7280;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.25rem;
+    }
+
+    .kantor-info {
+        width: 100%;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .jaringan-kantor-page {
+        background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100px);
+    }
+
+    .jaringan-kantor-page h1 {
+        color: #ffffff;
+    }
+
+    .filter-container {
+        background: #1e293b;
+        border-color: #334155;
+    }
+
+    .search-wrapper .form-control {
+        background: #0f172a;
+        border-color: #334155;
+        color: white;
+    }
+
+    .filter-btn {
+        background: #1e293b;
+        border-color: #334155;
+        color: #cbd5e1;
+    }
+
+    .jaringan-kantor-page .card {
+        background: #1e293b;
+        color: white;
+    }
+
+    .jaringan-kantor-page tbody tr:hover {
+        background: #0f172a;
+    }
+}

@@ -28,7 +28,7 @@
 
 /* =====================================================
    PAGE SPECIFIC (MINIMAL & TERKONTROL)
-   ===================================================== */
+   =======y============================================== */
 /* import halaman hanya jika benar-benar perlu */
 @import "./pages/home.css";
 @import "./pages/perusahaan.css";
@@ -39,6 +39,12 @@
 @import "./pages/tabungan.css";
 @import "./pages/alur-pengaduan.css";
 @import "./pages/WhistleBlowingSystem.css";
+
+/* =====================================================
+   PAGE SPECIFIC (MINIMAL & TERKONTROL)
+   ===================================================== */
+/* import halaman hanya jika benar-benar perlu */
+@import "./pages/jaringan-kantor.css";
 
 /* =====================================================
    PAGE SPECIFIC (MINIMAL & TERKONTROL)

@@ -40,19 +40,21 @@
                         <li>
                             <a class="dropdown-item" href="{{ route('umkm.mitra') }}">UMKM Mitra</a>
                         </li>
-                        
+
                         <hr class="dropdown-divider">
 
                         {{-- SUBMENU SIMULASI --}}
                         <li class="dropdown-submenu">
-                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="javascript:void(0)">
-                                Simulasi 
+                            <a class="dropdown-item d-flex justify-content-between align-items-center"
+                                href="javascript:void(0)">
+                                Simulasi
                                 <i class="bi bi-chevron-right ms-2 d-none d-lg-block"></i>
                                 <i class="bi bi-chevron-down d-lg-none"></i>
                             </a>
                             <ul class="dropdown-menu shadow border-0">
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('simulasi.deposito') }}">Simulasi Deposito</a>
+                                    <a class="dropdown-item" href="{{ route('simulasi.deposito') }}">Simulasi
+                                        Deposito</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('simulasi.kredit') }}">Simulasi Kredit</a>
@@ -67,20 +69,44 @@
                     <a class="nav-link nav-link-bpr dropdown-toggle" href="javascript:void(0)">Perusahaan</a>
                     <ul class="dropdown-menu dropdown-bpr shadow border-0">
                         <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'sejarah') }}">Sejarah</a></li>
-                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'visi-misi') }}">Visi & Misi</a></li>
-                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'budaya-perusahaan') }}">Budaya Perusahaan</a></li>
-                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'komisaris') }}">Dewan Komisaris</a></li>
+                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'visi-misi') }}">Visi & Misi</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'budaya-perusahaan') }}">Budaya
+                                Perusahaan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'komisaris') }}">Dewan
+                                Komisaris</a></li>
                         <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'direksi') }}">Direksi</a></li>
-                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'tata-kelola') }}">Tata Kelola Perusahaan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('perusahaan.show', 'tata-kelola') }}">Tata Kelola
+                                Perusahaan</a></li>
                     </ul>
                 </li>
 
                 {{-- JARINGAN & PUBLIKASI --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link nav-link-bpr dropdown-toggle" href="javascript:void(0)">Jaringan</a>
-                    <ul class="dropdown-menu dropdown-bpr shadow border-0">
-                        <li><a class="dropdown-item" href="#">Kantor</a></li>
+                    <a class="nav-link nav-link-bpr dropdown-toggle
+        {{ request()->routeIs('jaringan.kantor') ? 'active' : '' }}"
+                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Jaringan
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item {{ request()->routeIs('jaringan.kantor') ? 'is-active' : '' }}"
+                                href="{{ route('jaringan.kantor') }}">
+                                Kantor
+                            </a>
+                        </li>
                     </ul>
+                </li>
+
+                <ul class="dropdown-menu dropdown-bpr shadow border-0">
+                    <li>
+                        <a class="dropdown-item {{ request()->routeIs('jaringan.kantor') ? 'active' : '' }}"
+                            href="{{ route('jaringan.kantor') }}">
+                            Kantor
+                        </a>
+                    </li>
+                </ul>
                 </li>
 
                 <li class="nav-item dropdown me-lg-3">
@@ -98,7 +124,8 @@
                     <a class="nav-link nav-link-bpr dropdown-toggle" href="javascript:void(0)">Pengaduan</a>
                     <ul class="dropdown-menu dropdown-bpr shadow border-0">
                         <li><a class="dropdown-item" href="{{ route('pengaduan.alur') }}">Alur Pengaduan</a></li>
-                        <li><a class="dropdown-item" href="{{ route('pengaduan.wbs') }}">Whistle Blowing System</a></li>
+                        <li><a class="dropdown-item" href="{{ route('pengaduan.wbs') }}">Whistle Blowing System</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
